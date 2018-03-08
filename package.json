@@ -1,0 +1,36 @@
+{
+  "name": "eosbet.io",
+  "version": "1.0.0",
+  "description": "Website for beta games on ethereum main-net and crowdsale",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "scripts": {
+    "dev": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://eosbet-io@github.com/EOSBetIO/EOSBet.IO.git"
+  },
+  "keywords": [
+    "eos",
+    "smart",
+    "contracts",
+    "dapp",
+    "casino",
+    "ethereum",
+    "solidity",
+    "wasm",
+    "smart-business"
+  ],
+  "author": "EOSBetIO",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EOSBetIO/EOSBet.IO/issues"
+  },
+  "homepage": "https://github.com/EOSBetIO/EOSBet.IO#readme",
+  "devDependencies": {
+    "lite-server": "^2.3.0"
+  }
+}
