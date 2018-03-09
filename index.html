@@ -17,7 +17,60 @@
 
 	</body>
 
-	<section id="navbar"></section>
+	<section id="navbar">
+		<nav class="navbar navbar-dark fixed-top">
+				<!-- navbar brand -->
+				<a class="navbar-brand" href="/">
+					<img src="" width="240" height="60"">
+				</a>
+				<!-- navbar expand button -->
+				<div class="ml-auto">
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false">
+				    	<span class="navbar-toggler-icon"></span>
+				  	</button>
+			  	</div>
+			  	<!-- navbar links -->
+			  	<div class="collapse navbar-collapse" id="navbar-content">
+			  		
+					<ul class="navbar-nav ml-auto"> <!-- navbar-right -->
+
+						<!-- slots -->
+						<li class="nav-item">
+							<a class="nav-link" href="/#games-and-bankroll">
+								<text class="text-casino">
+									Play Now
+								</text>
+							</a>
+						</li>
+						<!-- dice -->
+						<li class="nav-item">
+							<a class="nav-link" href="/#airdrop-and-crowdsale">
+								<text class="text-casino">
+									Airdrop & ICO
+								</text>
+							</a>
+						</li>
+						<!-- bankroll -->
+						<li class="nav-item">
+							<a class="nav-link" href="/bankroll.html" class="nav-text">
+								<text class="text-bankroll">
+									Bankroll Us
+								</text>
+							</a>
+						</li>
+						<!-- support -->
+						<li class="nav-item">
+							<a class="nav-link" href="/support.html">
+								<text class="nav-text">
+									Support & FAQ
+								</text>
+							</a>
+						</li>
+
+					</ul>
+			  	</div>
+			</nav>
+	</section>
 
 	<section id="splash">
 		
@@ -180,11 +233,70 @@
 	</section>
 
 	<section id="games-and-bankroll">
-		col-4 Dice photo - col-8 Dice description
-		<br />
-		col-8 Slots Descrption - col-4 Slots photo
-		<br />
-		col-4 Bankroll photo - col-8 Bankroll description
+		<div class="container">
+			<div class="row heading-message">
+				<div class="col-12">
+					Play our Proof-Of-Concept on the Ethereum Main-net
+				</div>
+			</div>
+			<div class="row game-divider">
+				<div class="col-5">
+
+				</div>
+				<div class="col-7">
+					<div class="feature-title" >
+						Dice
+					</div>
+					<div class="feature-element">
+						Play up to 1024 rolls of dice with a single Ethereum transaction
+					</div>
+					<div class="feature-element">
+						Enjoy the lowest house edge on the blockchain, only 0.5%!
+					</div>
+					<div class="feature-element">
+						Fastest, and most secure randomness generation of any Ethereum-based casino
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-7">
+					<div class="feature-title" >
+						Slots
+					</div>
+					<div class="feature-element">
+						Enjoy a massive 5000x jackpot multiplier, the biggest on the blockchain
+					</div>
+					<div class="feature-element">
+						Only a 4.9% house edge, one of the best slots games in the world
+					</div>
+					<div class="feature-element">
+						Play up to 224 spins per Ethereum transaction
+					</div>
+				</div>
+				<div class="col-5">
+
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-5">
+
+				</div>
+				<div class="col-7">
+					<div class="feature-title" >
+						Bankroll
+					</div>
+					<div class="feature-element">
+						Trustlessly contribute ETH to our bankroll, and receive dividends in ETH
+					</div>
+					<div class="feature-element">
+						With a slim house edge, you are statistically guaranteed profits over time
+					</div>
+					<div class="feature-element">
+						Cash out at any time!
+					</div>
+				</div>
+			</div>
+		</div>
 	</section>
 
 	<section id="airdrop-and-crowdsale">
@@ -197,9 +309,9 @@
 					<div class="heading-message">EOSBet Airdrop & ICO</div>
 					<div class="progress" style="height: 20px; background-color: black; border-radius: 25px">
 						<div data-toggle="tooltip" data-placement="top" title="Airdrop - 5%" class="progress-bar" role="progressbar" style="width: 10%; background-color: red;" aria-valuenow="5"></div>
-						<div data-toggle="tooltip" data-placement="top" title="Developers & Advisors - 25%" class="progress-bar" role="progressbar" style="width: 25%; background-color: #CC0000" aria-valuenow="25"></div>
+						<div data-toggle="tooltip" data-placement="top" title="Developers & Advisors - 25%" class="progress-bar" role="progressbar" style="width: 25%; background-color: #CC0000;" aria-valuenow="25"></div>
 						<div data-toggle="tooltip" data-placement="top" title="Venture Capital & Presale - 20%" class="progress-bar" role="progressbar" style="width: 20%; background-color: #008CFF;" aria-valuenow="20"></div>
-						<div data-toggle="tooltip" data-placement="top" title="Round 1 Crowdsale - 10%" class="progress-bar" role="progressbar" style="width: 10%; background-color: #69BBFF" aria-valuenow="10"></div>
+						<div data-toggle="tooltip" data-placement="top" title="Round 1 Crowdsale - 10%" class="progress-bar" role="progressbar" style="width: 10%; background-color: #69BBFF;" aria-valuenow="10"></div>
 						<div data-toggle="tooltip" data-placement="top" title="Round 2 Crowdsale - 10%" class="progress-bar" role="progressbar" style="width: 10%; background-color: #008CFF;" aria-valuenow="10"></div>
 						<div data-toggle="tooltip" data-placement="top" title="Round 3 Crowdsale - 10%" class="progress-bar" role="progressbar" style="width: 10%; background-color: #69BBFF;" aria-valuenow="10"></div>
 						<div data-toggle="tooltip" data-placement="top" title="Round 4 Crowdsale - 10%" class="progress-bar" role="progressbar" style="width: 10%; background-color: #008CFF;" aria-valuenow="10"></div>
@@ -249,9 +361,6 @@
 
 	<section id="social">
 		<div class="container">
-			<div class="row heading-message">
-				<div class="col-12">Social</div>
-			</div>
 			<div class="row">
 				<div class="col-md-2 col-4">
 					<a href="https://github.com" target="_blank"><img class="social-icon img-fluid" src="img/homepage/socials/Github Icon @1x.png"></a>
@@ -275,7 +384,22 @@
 		</div>
 	</section>
 
-	<section id="footer"></section>
+	<section id="footer" style="text-align: center;">
+		<div class="container">
+			<div class="row">
+				<div class="col-6">
+					<div class="feature-element">
+						Bunch of legal text
+					</div>
+				</div>
+				<div class="col-6">
+					<div class="feature-element">
+						Copyright EOSBet 2018
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

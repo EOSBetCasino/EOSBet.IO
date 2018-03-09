@@ -7,6 +7,11 @@ html{
 	color: white;
 }
 
+.navbar{
+	background-color: #333333;
+	opacity: 0.87;
+}
+
 /*splash image*/
 #splash{
 	background: url("../img/homepage/Hero @1x.png") no-repeat;
@@ -18,7 +23,7 @@ html{
 
 .splash-logo{
 	text-align: center;
-	padding-top: 60px;
+	padding-top: 100px;
 	padding-bottom: 20px;
 }
 
@@ -27,6 +32,7 @@ html{
 	margin: 0 auto;
 	text-align: center;
 	font-size: 150%;
+	text-shadow: 0 0 0.5px #FFFFFF;
 }
 
 .cta{
@@ -57,12 +63,7 @@ html{
 .cta-btn:hover{
 	background-color: #69BBFF;
 	border-color: #69BBFF;
-}
-
-.feature-title{
-	font-size: 150%;
-	margin-bottom: 20px;
-	text-align: center;
+	box-shadow: 0 0 5px #69BBFF;
 }
 
 #casino-features{
@@ -71,20 +72,14 @@ html{
 	text-align: center;
 }
 
-.heading-message{
-	padding-top: 20px;
+.feature-title{
+	font-size: 24px;
+	font-weight: 300;
+	line-height: 29px;
+	color: #FFFFFF;
+	text-align: center;
 	padding-bottom: 20px;
-	font-size: 200%;
-	color: white;
 }
-
-.feature-img{
-	padding-top: 20px;
-	padding-bottom: 20px;
-	width: 80px;
-	/*height: 80px;*/
-}
-
 .feature-title:after{
 	content: '';
 	display: block;
@@ -94,16 +89,41 @@ html{
 	width: 20%;
 	height: 4px;
 	background-color: #69BBFF;
+	box-shadow: 0 0 5px #69BBFF;
+}
+
+.heading-message{
+	line-height: 38px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	font-size: 32px;
+	font-weight: normal;
+	color: #B3B3B3;
+}
+
+.feature-img{
+	padding-top: 20px;
+	padding-bottom: 20px;
+	width: 80px;
+	/*height: 80px;*/
 }
 
 .feature-element{
-	font-size: 90%;
+	font-size: 16px;
 	font-weight: 200;
+	line-height: 25px;
+	color: #BEBEBE;
 	padding-bottom: 1em;
 }
 
 #games-and-bankroll{
 	background-color: black;
+	text-align: center;
+}
+
+.game-divider:before{
+	border-top: white;
+	border-width: 10px;
 }
 
 #airdrop-and-crowdsale{
@@ -114,7 +134,8 @@ html{
 	background: black;
 	/*color: white;*/
 	text-align: center;
-	padding-bottom: 40px;
+	padding-bottom: 30px;
+	padding-top: 30px;
 }
 .social-icon{
 	width: 100px;
@@ -123,5 +144,5 @@ html{
 }
 
 .social-icon:hover{
-	opacity: 1;
+	opacity: 0.95;
 }
