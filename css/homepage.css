@@ -1,0 +1,110 @@
+/*SF Pro Font*/
+html{
+	font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/*splash image*/
+#splash{
+	background: url("../img/homepage/Hero @1x.png") no-repeat;
+  	background-size: cover;
+  	background-position: center center;
+  	height: 100%;
+  	width: 100%;
+}
+
+.splash-logo{
+	text-align: center;
+	padding-top: 60px;
+	padding-bottom: 20px;
+}
+
+.cta-message{
+	color: #FFFFFF;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 150%;
+}
+
+.cta{
+	margin-bottom: 20px;
+}
+
+/*cta buttons*/
+.cta-btn{
+	/*design*/
+	border-radius: 25px;
+	border-width: 2px;
+	border-color: #FFFFFF;
+	background: rgba(0,0,0,0);
+	color: #FFFFFF;
+
+	/*sizing*/
+	width: 100%;
+	height: 75%;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	transition: all 0.3s linear;
+
+	/*font*/
+	text-transform: uppercase;
+	font-size: 16px;
+}
+
+.cta-btn:hover{
+	background-color: #69BBFF;
+	border-color: #69BBFF;
+}
+
+.feature-title{
+	font-size: 150%;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+#casino-features{
+	background-color: #333333;
+	color: #FFFFFF;
+	text-align: center;
+}
+
+.heading-message{
+	padding-top: 20px;
+	font-size: 200%;
+	text-align: center;
+}
+
+.feature-img{
+	padding-top: 20px;
+	padding-bottom: 20px;
+	width: 80px;
+	/*height: 80px;*/
+}
+
+.feature-title:after{
+	content: '';
+	display: block;
+	position: absolute;
+	margin-top: 5px;
+	left: 40%;
+	width: 20%;
+	height: 4px;
+	background-color: #69BBFF;
+}
+
+.feature-element{
+	font-size: 90%;
+	font-weight: 200;
+	padding-bottom: 1em;
+}
+#social{
+	background: black;
+}
+.social-icon{
+	width: 100px;
+	height: 100px;
+	opacity: 0.5;
+}
+
+.social-icon:hover{
+	opacity: 1;
+}
