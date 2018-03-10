@@ -18,6 +18,10 @@ b {
 	padding-bottom: 0px !important;
 }
 
+.nav-item{
+	text-align: right;
+}
+
 /*splash image*/
 #splash{
 	background: url("../img/homepage/Hero @1x.png") no-repeat;
