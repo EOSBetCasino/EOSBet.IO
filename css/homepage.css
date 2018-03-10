@@ -10,6 +10,8 @@ html{
 .navbar{
 	background-color: #333333;
 	opacity: 0.87;
+	margin-top: -10px; 
+	padding-bottom: 0px !important;
 }
 
 /*splash image*/
