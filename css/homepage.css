@@ -7,6 +7,10 @@ html{
 	color: white;
 }
 
+b {
+	font-weight: 900;
+}
+
 .navbar{
 	background-color: #333333;
 	opacity: 0.87;
@@ -123,9 +127,20 @@ html{
 	text-align: center;
 }
 
-.game-divider:before{
-	border-top: white;
-	border-width: 10px;
+.game-btn{
+	/* same css as the cta-btn just override some sizing */
+	height: 50px !important;
+	width: 80% !important;
+}
+
+.game-divider{
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.game-divider-line{
+	border-bottom: 1px solid;
+	border-color: rgba(105, 187, 255, 0.5);
 }
 
 #airdrop-and-crowdsale{
