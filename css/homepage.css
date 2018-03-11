@@ -3,13 +3,15 @@ html{
 	font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-.white {
-	color: white;
-}
-
 b {
 	font-weight: 900;
 }
+
+.alert-info{
+	background-color: #69BBFF;
+}
+
+/*navbar */
 
 .navbar{
 	background-color: #333333;
@@ -22,7 +24,10 @@ b {
 	text-align: right;
 }
 
-/*splash image*/
+/*end navbar*/
+
+/*splash screen of the homepage*/
+
 #splash{
 	background: url("../img/homepage/Hero @1x.png") no-repeat;
   	background-size: cover;
@@ -49,7 +54,7 @@ b {
 	margin-bottom: 20px;
 }
 
-/*cta buttons*/
+/*cta button --  this button is reused all over the site with small mods to the width/height*/
 .cta-btn{
 	/*design*/
 	border-radius: 25px;
@@ -69,14 +74,18 @@ b {
 	text-transform: uppercase;
 	font-size: 16px;
 }
-
 .cta-btn:hover{
 	background-color: #69BBFF;
 	border-color: #69BBFF;
 	box-shadow: 0 0 5px #69BBFF;
 }
+/*end cta button*/
 
-#casino-features{
+/*end splash screen of the homepage*/
+
+/*casino features section of the homepage, bankroll features section of the bankroll*/
+
+#casino-features, #bankroll-features{
 	background-color: #333333;
 	color: #FFFFFF;
 	text-align: center;
@@ -126,6 +135,10 @@ b {
 	padding-bottom: 1em;
 }
 
+/*end casino features section of the homepage, end bankroll features section of the bankroll*/
+
+/*games and bankroll section of the homepage*/
+
 #games-and-bankroll{
 	background-color: black;
 	text-align: center;
@@ -147,9 +160,17 @@ b {
 	border-color: rgba(105, 187, 255, 0.5);
 }
 
+/*end games and bankroll section of the homepage*/
+
+/*airdrop and crowdsale section of the homepage*/
+
 #airdrop-and-crowdsale{
 	background-color: #333333;
 }
+
+/*end airdrop and crowdsale section of the homepage*/
+
+/*social section of the homepage*/
 
 #social{
 	background: black;
@@ -166,4 +187,61 @@ b {
 
 .social-icon:hover{
 	opacity: 0.95;
+}
+
+/*end social section of the homepage*/
+
+#bankroll-splash{
+	background-color: black;
+	height: 100%;
+  	width: 100%;
+}
+
+.action-btn-rt{
+	border-radius: 0 25px 25px 0 !important;
+	height: 50px !important;
+	margin-top: 0px !important;
+	margin-bottom: 0px !important;
+}
+
+.action-btn-lt{
+	border-radius: 25px 0 0 25px !important;
+	height: 50px !important;
+	margin-top: 0px !important;
+	margin-bottom: 0px !important;
+}
+
+.action-input-lt{
+	height: 50px !important;
+	background-color: #333333;
+	border-width: 2px 0 2px 2px;
+	border-radius: 25px;
+	border-color: white;
+	color: white;
+}
+
+.action-input-md{
+	height: 50px !important;
+	background-color: #333333;
+	border-width: 2px 0 2px 0;
+	border-radius: 25px;
+	border-color: white;
+	color: white;
+}
+
+.action-input-lt:focus, .action-input-md:focus{
+	background-color: #202020;
+	color: white;
+}
+
+.action-input-lt:hover, .action-input-md:hover{
+	border-color: #69BBFF;
+	box-shadow: 0 0 5px #69BBFF;
+	transition: all 0.3s linear;
+}
+
+.fine-print{
+	text-transform: uppercase; 
+	font-size: 10px !important; 
+	line-height: 15px !important;
 }
