@@ -165,20 +165,6 @@
 		"constant": false,
 		"inputs": [
 			{
-				"name": "_amountTokens",
-				"type": "uint256"
-			}
-		],
-		"name": "cashoutINFSTokens",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
 				"name": "amountToPay",
 				"type": "uint256"
 			}
@@ -225,6 +211,15 @@
 		],
 		"payable": false,
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "cashoutEOSBetStakeTokens_ALL",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -330,6 +325,20 @@
 		"type": "function"
 	},
 	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_amountTokens",
+				"type": "uint256"
+			}
+		],
+		"name": "cashoutEOSBetStakeTokens",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
 		"constant": true,
 		"inputs": [
 			{
@@ -350,15 +359,6 @@
 		],
 		"payable": false,
 		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [],
-		"name": "cashoutINFSTokens_ALL",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
