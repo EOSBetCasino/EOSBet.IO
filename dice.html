@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="shortcut icon" type="image/x-icon" href="img/homepage/Nav Logo @1x.png">
+
+		<title>EOSBet - Dice</title>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+		<link rel="stylesheet" href="css/homepage.css">
+	</head>
+
+	<body>
+
+		<section id="navbar">
+			<nav class="navbar navbar-dark fixed-top">
+				<!-- navbar brand -->
+				<a class="navbar-brand" href="/" style="">
+					<img src="img/homepage/Nav Logo @1x.png" width="80" height="80">
+				</a>
+				<!-- navbar expand button -->
+				<div class="ml-auto">
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false">
+				    	<span class="navbar-toggler-icon"></span>
+				  	</button>
+			  	</div>
+			  	<!-- navbar links -->
+			  	<div class="collapse navbar-collapse" id="navbar-content">
+			  		
+					<ul class="navbar-nav ml-auto"> <!-- navbar-right -->
+
+						<!-- games , collapse nav on click-->
+						<li class="nav-item" data-toggle="collapse" data-target="#navbar-content">
+							<a class="nav-link" href="/#games-and-bankroll" >
+								Play Now
+							</a>
+						</li>
+						<!-- airdrop & ico , collapse nav on click-->
+						<li class="nav-item" data-toggle="collapse" data-target="#navbar-content">
+							<a class="nav-link" href="/#airdrop-and-crowdsale">
+								Airdrop &amp; ICO
+							</a>
+						</li>
+						<!-- bankroll -->
+						<li class="nav-item">
+							<a class="nav-link" href="/bankroll.html" class="nav-text">
+								Bankroll Us
+							</a>
+						</li>
+						<!-- support -->
+						<li class="nav-item">
+							<a class="nav-link" href="/support.html">
+								Support &amp; FAQ
+							</a>
+						</li>
+
+					</ul>
+			  	</div>
+			</nav>
+		</section>
+
+		<div id="modal-div"></div>
+
+		<section id="game-splash" style="padding-top: 120px;">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8">
+						<div class="game-message">
+							Welcome To Dice.
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="d-none d-md-block feature-element">
+							<div class="stat"><span class="stat-num" id="amt-wagered">0</span>&ensp;Ether Wagered</div>
+							<br />
+							<div class="stat"><span class="stat-num" id="games-played">0</span>&ensp;Games Played</div>
+							<br />
+							<div class="stat"><span class="stat-num" id="max-win">0</span>&ensp;Max Win</div>
+							<br />
+							<div class="stat"><span class="stat-num" id="min-bet">0</span>&ensp;Min Bet</div>
+						</div>
+						<div class="how-to-play-btn">
+							<button type="button" class="btn cta-btn" data-toggle="modal" data-target="#how-to-play-modal">How To Play</button>
+						</div>
+
+						<!-- how to play modal -->
+						<div class="modal fade" id="how-to-play-modal" tabindex="-1" role="dialog" aria-labelledby="how-to-play-modal-label" aria-hidden="true">
+							<div class="modal-dialog modal-dialog-centered" role="document">
+								<div class="modal-content" style="opacity:0.95; background-color:grey; color:white;">
+									<div class="modal-header heading-message" style="text-transform: uppercase;">
+										How to play Dice
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				    						<span aria-hidden="true">&times;</span>
+				   						</button>
+									</div>
+									<div class="modal-body">
+										Click the buttons 
+										<br />
+										and
+										<br />
+										send it
+									</div>
+
+									<div class="modal-footer">
+										<button type="button" class="btn cta-btn how-to-play-btn" style="width: 80%; left: 10%;" data-dismiss="modal">Close</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- end modal -->
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="dice" style="background-color: grey;">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-lg-6 col-md-8 col-sm-10" id="place-bets">
+
+						<div class="alert alert-info" id="game-info" style="display:none;"></div>
+						<div class="buy-box-text">Number Of Rolls</div>
+
+						<div class="row">
+							<div class="col-10">
+								<div id="number-rolls" class="game-slider"></div>
+							</div>
+							<div class="col-2">
+								<text id="current-number-rolls" class="game-slider-text">10</text>
+							</div>
+						</div>
+
+						<br />
+
+						<div class="buy-box-text">Bet Per Roll</div>
+						
+						<div class="input-group">
+							<div class="input-group-prepend dual-btn-group-lt">
+								<button class="btn cta-btn action-btn-lt" id="min-bet-per-roll" type="button"><b>&nbsp;&darr;</b></button>
+								<button class="btn cta-btn action-btn-md" id="half-bet-per-roll" type="button">1/2x</button>
+							</div>
+							&nbsp;
+							<input type="text" class="form-control action-input-md" id="bet-per-roll" value="0.25">
+							&nbsp;
+							<div class="input-group-append dual-btn-group-rt">
+								<button class="btn cta-btn action-btn-md" id="double-bet-per-roll" type="button">&nbsp;2x&nbsp;</button>
+								<button class="btn cta-btn action-btn-rt" id="max-bet-per-roll" type="button"><b>&uarr;&nbsp;</b></button>
+							</div>
+						</div>
+
+						<br />
+
+						<div class="buy-box-text">Roll Under</div>
+
+						<div class="row">
+							<div class="col-10">
+								<div id="roll-under" class="game-slider"></div>
+							</div>
+							<div class="col-2">
+								<text id="current-roll-under" class="game-slider-text">50</text>
+							</div>
+						</div>
+
+						<br />
+
+						<div class="buy-box-text">Guaranteed Rolls</div>
+
+						<div class="row">
+							<div class="col-10">
+								<div id="guaranteed-rolls" class="game-slider"></div>
+							</div>
+							<div class="col-2">
+								<text id="current-guaranteed-rolls" class="game-slider-text">10</text>
+							</div>
+						</div>
+
+						<br />
+
+						<div class="row">
+							<div class="col-9">
+								<div class="buy-box-text">Profit Per Roll</div>
+							</div>
+							<div class="col-3">
+								<text id="current-profit-per-roll" class="game-slider-text" style="top: 0px; left: 12.5px;">2.02x</text>
+							</div>
+						</div>
+
+						<button type="button" class="btn cta-btn" id="buy-rolls" style="height: 50px;">Buy Rolls</button>
+
+					</div>
+				
+					<div class="col-sm-9" id="roll-bets" style="display: none;">
+
+						<br />
+						
+						<div class="row" style="text-align: center;">
+							<div class="col-lg-4 buy-box-text">BET SIZE: <text class="in-game-stats" id="bet-size">0</text></div>
+							<div class="col-lg-4 buy-box-text">TOTAL PROFIT: <text class="in-game-stats" id="current-profit">0</text></div>
+							<div class="col-lg-4 buy-box-text">MAX ROLLS: <text class="in-game-stats" id="max-rolls">0/1</text></div>
+						</div>
+						
+						<div id="lucky-number">0</div>	
+						<div id="your-number">0</div>
+						<br />
+						<div class="row justify-content-center" style="margin-right:0.5em;">
+							<button class="btn cta-btn" id="roll-dice" style="font-size: 50px; border-radius: 50px;"><text class="play-game-button-text">ROLL</text></button>
+						</div>
+						<br />
+					</div>
+
+				</div>
+			</div>
+
+
+
+
+
+		</section>
+
+
+
+
+
+
+
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+		<script src="js/bignumber.min.js"></script>
+		<script src="js/web3.min.js"></script>
+		<script src="js/dice.js"></script>
+		<script src="js/modals.js"></script>
+
+	</body>
+
+</html>

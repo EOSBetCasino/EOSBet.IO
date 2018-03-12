@@ -140,14 +140,14 @@ b {
 /*games and bankroll section of the homepage*/
 
 #games-and-bankroll{
-	background-color: black;
+	background-color: #474747;
 	text-align: center;
 }
 
 .game-btn{
 	/* same css as the cta-btn just override some sizing */
 	height: 50px !important;
-	width: 80% !important;
+	width: 60% !important;
 }
 
 .game-divider{
@@ -199,6 +199,7 @@ b {
 
 .action-btn-rt{
 	border-radius: 0 25px 25px 0 !important;
+	border-width: 2px 2px 2px 0 !important;
 	height: 50px !important;
 	margin-top: 0px !important;
 	margin-bottom: 0px !important;
@@ -206,6 +207,15 @@ b {
 
 .action-btn-lt{
 	border-radius: 25px 0 0 25px !important;
+	border-width: 2px 0 2px 2px !important;
+	height: 50px !important;
+	margin-top: 0px !important;
+	margin-bottom: 0px !important;
+}
+
+.action-btn-md{
+	border-radius: 0 !important;
+	border-width: 2px 2px 2px 2px;
 	height: 50px !important;
 	margin-top: 0px !important;
 	margin-bottom: 0px !important;
@@ -214,18 +224,22 @@ b {
 .action-input-lt{
 	height: 50px !important;
 	background-color: #333333;
-	border-width: 2px 0 2px 2px;
+	border-width: 2px 2px 2px 2px;
 	border-radius: 25px;
 	border-color: white;
+	text-align: center;
+	font-size: 24px;
 	color: white;
 }
 
 .action-input-md{
 	height: 50px !important;
 	background-color: #333333;
-	border-width: 2px 0 2px 0;
+	border-width: 2px 2px 2px 2px;
 	border-radius: 25px;
 	border-color: white;
+	text-align: center;
+	font-size: 24px;
 	color: white;
 }
 
@@ -244,4 +258,141 @@ b {
 	text-transform: uppercase; 
 	font-size: 10px !important; 
 	line-height: 15px !important;
+}
+
+#game-splash{
+	background-color: black;
+}
+
+.game-message{
+	color: #FFFFFF;
+	text-transform: uppercase;
+	text-shadow: 0 0 5px white;
+	text-align: center;
+}
+
+@media (min-width: 0px){
+	.game-message{
+		font-size: 250%;
+	}
+	.how-to-play-btn{
+		width: 70%;
+		margin: 0 auto;
+	}
+}
+@media (min-width: 576px){
+	.game-message{
+		font-size: 350%;
+	}
+	.how-to-play-btn{
+		width: 100%;
+		margin: 0 auto;
+	}
+}
+@media (min-width: 768px){
+	.game-message{
+		font-size: 310%;
+	}
+}
+@media (min-width: 992px){
+	.game-message{
+		font-size: 420%;
+	}
+}
+@media (min-width: 1200px){
+	.game-message{
+		font-size: 490%;
+	}
+}
+
+.stat{
+	padding-left: 40px;
+	margin-top: -20px;
+	text-shadow: 0 0 1px #BEBEBE;
+}
+
+.stat-num{
+	font-size: 24px; 
+	position: relative; 
+	top: 2px;
+	text-shadow: 0 0 2px #BEBEBE;
+	font-weight: 400;
+}
+
+.dual-btn-group-lt .btn{
+	left: 5px;
+}
+.dual-btn-group-rt .btn{
+	right: 5px;
+}
+
+/*game sliders css*/
+.game-slider {
+	background: #333333;
+	border-width: 2px !important;
+	border-color: #FFFFFF !important;
+}
+
+.game-slider .ui-slider-handle {
+  width: 1.5em;
+  height: 1.5em;
+  top: -6px;
+  background-color: #333333;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #333333;
+}
+
+.game-slider .ui-slider-range { 
+  background: #FFFFFF;
+  border-radius: 1px;
+  box-shadow: 0 0 20px #FFFFFF;
+}
+
+.game-slider-text{
+  text-shadow: 0 0 5px #69BBFF;
+  font-size: 150%;
+  text-align: right;
+  position: relative;
+  bottom: 15px;
+  color: white;
+}
+/*end game sliders css*/
+
+.buy-box-text{
+	color: #FFFFFF;
+	text-transform: uppercase;
+	padding-bottom: 10px;
+	font-size: 125%;
+	text-shadow: 0 0 2px #69BBFF;
+	padding-left: 10px;
+}
+
+#lucky-number{
+  font-size: 777%;
+  text-shadow: 0 0 20px white;
+  text-align: center;
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+#lucky-number:after {
+  content: '';
+  display: block;
+  margin-left: 35%;
+  /*position: absolute;*/
+  text-align: center;
+  /*bottom: 0;
+  left: 0;*/
+  width: 30%;
+  height: 0.01em;
+  box-shadow: 0 0 20px rgb(105, 187, 255);
+  background-color: rgba(105, 187, 255, 0.5);
+}
+
+#your-number {
+  font-size: 777%;
+  text-shadow: 0 0 10px #FFFFFF;
+  text-align: center;
+  color: #FFFFFF;
+  font-weight: 200;
 }
