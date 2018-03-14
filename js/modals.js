@@ -32,7 +32,7 @@ function launchNoMetaMaskModal(title){
   	html += 		'<div class="modal-dialog modal-dialog-centered" role="document">';
     html += 			'<div class="modal-content" style="opacity:0.95; background-color:grey; color:white;">';
     html += 				'<div class="modal-header">';
-    html += 					'<h5 class="modal-title" id="no-login">Welcome to ' + title.toString() + '!</h5>';
+    html += 					'<h5 class="modal-title" id="no-metamask">Welcome to ' + title.toString() + '!</h5>';
     html += 					'<button type="button" class="close" onClick="closeModal(' + "'no-metamask-modal'" + ')" aria-label="Close">';
     html += 						'<span aria-hidden="true">&times;</span>';
     html += 					'</button>';
@@ -57,11 +57,11 @@ function launchNoMetaMaskModal(title){
 
 function launchWrongNetworkModal(title){
     // if the user is not on ropsten (CHANGE TO MAINNET ON LAUNCH!!!) then notify the user with a modal stating this
-    var html = '<div class="modal fade" id="wrong-network-modal" tabindex="-1" role="dialog" aria-labelledby="no-login" aria-hidden="true" style="display:none;">';
+    var html = '<div class="modal fade" id="wrong-network-modal" tabindex="-1" role="dialog" aria-labelledby="wrong-network" aria-hidden="true" style="display:none;">';
     html +=         '<div class="modal-dialog modal-dialog-centered" role="document">';
     html +=             '<div class="modal-content" style="opacity:0.95; background-color:grey; color:white;">';
     html +=                 '<div class="modal-header">';
-    html +=                     '<h5 class="modal-title" id="no-login">Wrong Network!</h5>';
+    html +=                     '<h5 class="modal-title" id="wrong-network">Wrong Network!</h5>';
     html +=                     '<button type="button" class="close" onClick="closeModal(' + "'wrong-network-modal'" + ')" aria-label="Close">';
     html +=                         '<span aria-hidden="true">&times;</span>';
     html +=                     '</button>';
@@ -74,6 +74,34 @@ function launchWrongNetworkModal(title){
     html +=                 '</div>';
     html +=                 '<div class="modal-footer">';
     html +=                     '<button type="button" class="btn btn-secondary" style="background-color:black;" onClick="closeModal(' + "'wrong-network-modal'" +')">Close</button>';
+    html +=                 '</div>';
+    html +=             '</div>';
+    html +=         '</div>';
+    html +=     '</div>';
+
+    $('#modal-div').html(html);
+    $('#wrong-network-modal').modal('show');
+}
+
+function launchGamePausedModal(title){
+    // notify a user if the games are paused
+     var html = '<div class="modal fade" id="game-paused-modal" tabindex="-1" role="dialog" aria-labelledby="game-paused" aria-hidden="true" style="display:none;">';
+    html +=         '<div class="modal-dialog modal-dialog-centered" role="document">';
+    html +=             '<div class="modal-content" style="opacity:0.95; background-color:grey; color:white;">';
+    html +=                 '<div class="modal-header">';
+    html +=                     '<h5 class="modal-title" id="game-paused">Game is currently Paused!</h5>';
+    html +=                     '<button type="button" class="close" onClick="closeModal(' + "'game-paused-modal'" + ')" aria-label="Close">';
+    html +=                         '<span aria-hidden="true">&times;</span>';
+    html +=                     '</button>';
+    html +=                 '</div>';
+    html +=                 '<div class="modal-body">';
+    var catchLine;
+    title === 'EOSBet Proof-of-Concept Dice' ? catchLine = 'rolling!' : catchLine = 'spinning!';
+    html +=                     "<text>Hello and welcome to " + title.toString() + "! This game is currently paused, but please check back later!</text>";
+    html +=                     '<br />';
+    html +=                 '</div>';
+    html +=                 '<div class="modal-footer">';
+    html +=                     '<button type="button" class="btn btn-secondary" style="background-color:black;" onClick="closeModal(' + "'game-paused-modal'" +')">Close</button>';
     html +=                 '</div>';
     html +=             '</div>';
     html +=         '</div>';

@@ -156,7 +156,7 @@ EOSBetDice = {
             }
             else {
                 if (result === true){
-                    alert('Game is paused! No bets please!');
+                    launchGamePausedModal('EOSBet Proof-of-Concept Dice');
                 }
             }
         });
