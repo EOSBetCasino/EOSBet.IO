@@ -260,8 +260,14 @@ b {
 	line-height: 15px !important;
 }
 
-#game-splash{
+#dice-splash{
 	background-color: black;
+	padding-top: 120px;
+}
+
+#slots-splash{
+	background-color: black;
+	padding-top: 120px;
 }
 
 .game-message{
@@ -273,7 +279,7 @@ b {
 
 @media (min-width: 0px){
 	.game-message{
-		font-size: 250%;
+		font-size: 230%;
 	}
 	.how-to-play-btn{
 		width: 70%;
@@ -282,7 +288,7 @@ b {
 }
 @media (min-width: 576px){
 	.game-message{
-		font-size: 350%;
+		font-size: 320%;
 	}
 	.how-to-play-btn{
 		width: 100%;
@@ -291,17 +297,17 @@ b {
 }
 @media (min-width: 768px){
 	.game-message{
-		font-size: 310%;
+		font-size: 280%;
 	}
 }
 @media (min-width: 992px){
 	.game-message{
-		font-size: 420%;
+		font-size: 390%;
 	}
 }
 @media (min-width: 1200px){
 	.game-message{
-		font-size: 490%;
+		font-size: 470%;
 	}
 }
 
