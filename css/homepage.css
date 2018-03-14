@@ -373,6 +373,15 @@ b {
 	padding-left: 10px;
 }
 
+.play-btn {
+	font-size: 50px;
+	border-radius: 50px;
+	height: 100px;
+	text-transform: uppercase;
+}
+
+/*dice specific css*/
+
 #lucky-number{
   font-size: 777%;
   text-shadow: 0 0 20px white;
@@ -402,3 +411,144 @@ b {
   color: #FFFFFF;
   font-weight: 200;
 }
+
+/*end dice specific css*/
+
+.slots-machine{
+  align-content: center;
+}
+
+.dial {
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  background-color: #FFFFFF;
+  margin-left: 1em;
+  box-shadow: 0 0 30px rgba(66, 226, 244, 0.8);
+}
+
+.dial-container  {
+  text-align: center;
+  overflow: hidden;
+  margin-top: -300px;
+}
+
+.dial-background {
+  position: absolute;
+  z-index: 2;
+  margin-left: -0.9em;
+}
+
+/*media queries deal with the slots machine, buy spins box */
+
+@media (min-width: 0px){
+  .dial-container{
+    margin-top: -130px;
+  }
+  .dial-slot {
+    height: 65px;
+    width: 65px;
+  }
+  .dial {
+    height: 195px;
+  }
+  .spins-remaining, .total-profit{
+    font-size: 60%;
+    padding-left: 4em;
+  }
+}
+@media (min-width: 576px){
+  .dial-container{
+    margin-top: -200px;
+  }
+  .dial-slot {
+    height: 100px;
+    width: 100px;
+  }
+  .dial {
+    height: 300px;
+  }
+  .spins-remaining, .total-profit{
+    font-size: 60%;
+    padding-left: 5em;
+  }
+}
+@media (min-width: 768px){
+  .dial-container{
+    margin-top: -250px
+  }
+  .dial-slot {
+    height: 125px;
+    width: 125px;
+  }
+  .dial {
+    height: 375px;
+  }
+  .spins-remaining{
+    text-align: left;
+    font-size: 65%;
+    padding-left: 5em;
+  }
+
+  .total-profit{
+    text-align: right;
+    font-size: 65%;
+    padding-right: 4em;
+  }
+}
+@media (min-width: 992px){
+  .dial-container{
+    margin-top: -350px
+  }
+  .dial-slot {
+    height: 175px;
+    width: 175px;
+  }
+  .dial {
+    height: 525px;
+  }
+  .spins-remaining{
+    text-align: left;
+    font-size: 80%;
+    padding-left: 5.5em;
+  }
+  .total-profit{
+    text-align: right; 
+    font-size: 80%;
+    padding-right: 4em;
+  }
+}
+@media (min-width: 1200px){
+  .dial-container{
+    margin-top: -380px
+  }
+  .dial-slot {
+    height: 190px;
+    width: 190px;
+  }
+  .dial {
+    height: 570px;
+  }
+  .spins-remaining{
+    text-align: left;
+    font-size: 100%;
+    padding-left: 5.5em;
+  }
+  .total-profit{
+    text-align: right; 
+    font-size: 100%;
+    padding-right: 5em;
+  }
+}
+
+.score-pop {
+  bottom: 10%;
+  display: none;
+  position: absolute;
+  right: 30%;
+  text-align: center;
+  color: #00d936;
+  font-size: 600%;
+  z-index: 10;
+}
+
