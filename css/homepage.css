@@ -260,16 +260,6 @@ b {
 	line-height: 15px !important;
 }
 
-#dice-splash{
-	background-color: black;
-	padding-top: 120px;
-}
-
-#slots-splash{
-	background-color: black;
-	padding-top: 120px;
-}
-
 .game-message{
 	color: #FFFFFF;
 	text-transform: uppercase;
@@ -378,9 +368,29 @@ b {
 	border-radius: 50px;
 	height: 100px;
 	text-transform: uppercase;
+
+	width: 90%;
+	position: relative;
+	left: 5%;
 }
 
 /*dice specific css*/
+
+#dice-splash{
+	background: black;
+	padding-top: 120px;
+}
+
+#dice{
+	background: url('/img/dice/Background @1x.png');
+	background-color: black;
+}
+
+.place-bets-dice, .roll-bets-dice{
+	background: url('/img/dice/Place Bets @1x.png') no-repeat;
+	background-size: 100% 100%;
+	padding: 50px;
+}
 
 #lucky-number{
   font-size: 777%;
@@ -413,6 +423,29 @@ b {
 }
 
 /*end dice specific css*/
+
+/*slots specific css*/
+
+#slots-splash{
+	background-color: black;
+	padding-top: 120px;
+}
+
+#slots{
+	background: url('/img/slots/Background @1x.png');
+	background-size: 100% 100%;
+	min-height: 70vh;
+}
+
+.place-bets-slots{
+	background: url('/img/slots/Place Bets @1x.png') no-repeat;
+	background-size: 100% 100%;
+
+	padding-left: 50px;
+	padding-right: 50px;
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
 
 .slots-machine{
   align-content: center;
@@ -551,4 +584,6 @@ b {
   font-size: 600%;
   z-index: 10;
 }
+
+/*end slots specific css*/
 
