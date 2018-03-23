@@ -192,7 +192,7 @@ b {
 /*end social section of the homepage*/
 
 #bankroll-splash{
-	background-color: black;
+	background-color: #333333;
 	height: 100%;
   	width: 100%;
 }
@@ -377,7 +377,8 @@ b {
 /*dice specific css*/
 
 #dice-splash{
-	background: black;
+	background: url('/img/dice/Banner @3x.png') no-repeat;
+	background-size: cover;
 	padding-top: 120px;
 }
 
@@ -427,7 +428,8 @@ b {
 /*slots specific css*/
 
 #slots-splash{
-	background-color: black;
+	background: url('/img/slots/Banner @2x.png') no-repeat;
+	background-size: cover;
 	padding-top: 120px;
 }
 

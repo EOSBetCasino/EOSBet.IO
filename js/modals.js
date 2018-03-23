@@ -42,7 +42,7 @@ function launchNoMetaMaskModal(title){
     html += 					'<br /><br />';
     html += 					'<text>Please download MetaMask, and then fund your MetaMask wallet with Ether. Please see our <a href="/support.html" style="color:#ABDCFF;">FAQ & Support Page</a> for more details!</text>';
     html +=                     '<br /><br />';
-    html += 					'<a href="https://metamask.io" style="background-color:orange;" target="_blank" class="btn btn-secondary" id="metamask-button"><img src="/img/metamask-head.png" width="30" height="30">&emsp;<b>Install MetaMask</b></a>';
+    html += 					'<a href="https://metamask.io" style="background-color:orange;" target="_blank" class="btn btn-secondary" id="metamask-button"><img src="/img/Metamask Head @1x.png" width="30" height="30">&emsp;<b>Install MetaMask</b></a>';
     html += 				'</div>';
     html += 				'<div class="modal-footer">';
     html += 					'<button type="button" class="btn btn-secondary" style="background-color:black;" onClick="closeModal(' + "'no-metamask-modal'" + ')">Close</button>';

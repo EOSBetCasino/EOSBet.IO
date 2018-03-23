@@ -91,7 +91,7 @@ EOSBetDice = {
             var diceAbi = data;
             
             EOSBetDice.Dice = web3.eth.contract(diceAbi);
-            EOSBetDice.diceInstance = EOSBetDice.Dice.at('0x6a890d509fa505f8da4e6f6d307fedcc419f906a');
+            EOSBetDice.diceInstance = EOSBetDice.Dice.at('0xa2DeFce0BeFcD3589A5c93076dCcBaBd3fDF1575');
 
             return EOSBetDice.getContractDetails(web3);
 

@@ -113,7 +113,7 @@ EOSBetSlots = {
             var slotsAbi = data;
 
             EOSBetSlots.Slots = web3.eth.contract(slotsAbi);
-            EOSBetSlots.slotsInstance = EOSBetSlots.Slots.at('0x3d99024adb1f1f5d62999f4061d18a482582c513');
+            EOSBetSlots.slotsInstance = EOSBetSlots.Slots.at('0x7511aab1F189FCc98E0CD758432F7808D5901896');
 
             return EOSBetSlots.getContractDetails(web3);
 
