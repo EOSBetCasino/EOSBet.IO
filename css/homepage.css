@@ -23,6 +23,10 @@ b {
 .nav-item{
 	text-align: right;
 }
+.navbar-toggler-icon{
+	opacity: 100%;
+	border-color: rgba(225,255,255,1);
+}
 
 /*end navbar*/
 
@@ -48,6 +52,8 @@ b {
 	text-align: center;
 	font-size: 150%;
 	text-shadow: 0 0 0.5px #FFFFFF;
+	font-weight: 200;
+	letter-spacing: 1.5px;
 }
 
 .cta{
@@ -81,6 +87,12 @@ b {
 }
 /*end cta button*/
 
+.main-btn{
+	width:80%;
+	position:relative;
+	left:10%;
+}
+
 /*end splash screen of the homepage*/
 
 /*casino features section of the homepage, bankroll features section of the bankroll*/
@@ -93,7 +105,7 @@ b {
 
 .feature-title{
 	font-size: 24px;
-	font-weight: 300;
+	font-weight: 200;
 	line-height: 29px;
 	color: #FFFFFF;
 	text-align: center;
@@ -116,7 +128,8 @@ b {
 	padding-top: 20px;
 	padding-bottom: 20px;
 	font-size: 32px;
-	font-weight: normal;
+	font-weight: 200;
+	letter-spacing: 1.5px;
 	color: #B3B3B3;
 }
 
@@ -128,7 +141,7 @@ b {
 }
 
 .feature-element{
-	font-size: 16px;
+	font-size: 14px;
 	font-weight: 200;
 	line-height: 25px;
 	color: #BEBEBE;
@@ -148,6 +161,7 @@ b {
 	/* same css as the cta-btn just override some sizing */
 	height: 50px !important;
 	width: 60% !important;
+	left: 0% !important;
 }
 
 .game-divider{
@@ -265,6 +279,7 @@ b {
 	text-transform: uppercase;
 	text-shadow: 0 0 5px white;
 	text-align: center;
+	font-weight: 300;
 }
 
 @media (min-width: 0px){
@@ -293,11 +308,6 @@ b {
 @media (min-width: 992px){
 	.game-message{
 		font-size: 390%;
-	}
-}
-@media (min-width: 1200px){
-	.game-message{
-		font-size: 470%;
 	}
 }
 
