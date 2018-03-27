@@ -17,7 +17,7 @@
 	<body>
 
 		<section id="navbar">
-			<nav class="navbar navbar-dark fixed-top">
+			<nav class="navbar navbar-dark fixed-top navbar-expand-md">
 				<!-- navbar brand -->
 				<a class="navbar-brand" href="/" style="">
 					<img src="img/homepage/Nav Logo @1x.png" width="80" height="80">
@@ -25,7 +25,7 @@
 				<!-- navbar expand button -->
 				<div class="ml-auto">
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" style="border:none;">
-				    	<span><img src="/img/Hamburger @1x.png" style="width: 45px; "></span>
+				    	<span><img src="/img/Hamburger @2x.png" style="width: 70px; "></span>
 				  	</button>
 			  	</div>
 			  	<!-- navbar links -->
@@ -34,10 +34,15 @@
 					<ul class="navbar-nav ml-auto"> <!-- navbar-right -->
 
 						<!-- games , collapse nav on click-->
-						<li class="nav-item" data-toggle="collapse" data-target="#navbar-content">
-							<a class="nav-link" href="/#games-and-bankroll" >
+						<li class="nav-item dropdown" data-toggle="collapse" data-target="#navbar-content">
+							<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								Play Now
 							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="/dice.html">Dice</a>
+								<a class="dropdown-item" href="/slots.html">Slots</a>
+								
+							</div>
 						</li>
 						<!-- airdrop & ico , collapse nav on click-->
 						<li class="nav-item" data-toggle="collapse" data-target="#navbar-content">

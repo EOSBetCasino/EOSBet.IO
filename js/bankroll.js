@@ -67,7 +67,7 @@ EOSBetBankroll = {
 
                 web3.version.getNetwork( (error, result) => {
                     if (error || result !== '4'){
-                        launchWrongNetworkModal('Infinity Bankroll');
+                        launchWrongNetworkModal('EOSBet Proof-of-Concept Bankroll');
                         return;
                     }
                     else {
@@ -76,7 +76,7 @@ EOSBetBankroll = {
                 });
             }
             else {
-                launchNoMetaMaskModal('Infinity Bankroll');
+                launchNoMetaMaskModal('EOSBet Proof-of-Concept Bankroll');
                 return;
             }
         }, 500);

@@ -23,6 +23,27 @@ b {
 .nav-item{
 	text-align: right;
 }
+.nav-link{
+	color: white !important;
+	text-transform: uppercase;
+	text-shadow: 0 0 0.5px #FFFFFF;
+	margin-left: 30px;
+}
+.dropdown-menu{
+	background-color: #333333;
+	opacity: 0.87;
+}
+.dropdown-item{
+	text-align: right;
+	color: white !important;
+	text-transform: uppercase;
+	text-shadow: 0 0 0.5px #FFFFFF;
+}
+.dropdown-item:hover{
+	background-color: #555555 !important;
+}
+
+
 .navbar-toggler-icon{
 	opacity: 100%;
 	border-color: rgba(225,255,255,1);
@@ -50,10 +71,19 @@ b {
 	color: #FFFFFF;
 	margin: 0 auto;
 	text-align: center;
-	font-size: 150%;
+	/*font-size: 150%;*/
 	text-shadow: 0 0 0.5px #FFFFFF;
 	font-weight: 200;
 	letter-spacing: 1.5px;
+}
+
+.cta-header{
+	font-size: 300%;
+	font-weight: 300;
+}
+
+.cta-subheader{
+	font-size: 150%;
 }
 
 .cta{
@@ -71,7 +101,6 @@ b {
 
 	/*sizing*/
 	width: 100%;
-	height: 75%;
 	margin-top: 20px;
 	margin-bottom: 20px;
 	transition: all 0.3s linear;
@@ -91,11 +120,16 @@ b {
 	width:80%;
 	position:relative;
 	left:10%;
+	height: 60px;
 }
 
 /*end splash screen of the homepage*/
 
 /*casino features section of the homepage, bankroll features section of the bankroll*/
+
+/*#casino-features{
+	background: linear-gradient(to bottom right, rgba(105, 187, 255, 1), rgba(105, 187, 255, 0.5));
+}*/
 
 #casino-features, #bankroll-features{
 	background-color: #333333;
@@ -105,7 +139,7 @@ b {
 
 .feature-title{
 	font-size: 24px;
-	font-weight: 200;
+	font-weight: 500;
 	line-height: 29px;
 	color: #FFFFFF;
 	text-align: center;
@@ -128,9 +162,10 @@ b {
 	padding-top: 20px;
 	padding-bottom: 20px;
 	font-size: 32px;
-	font-weight: 200;
+	font-weight: 300;
 	letter-spacing: 1.5px;
-	color: #B3B3B3;
+	color: white;
+	text-shadow: 0 0 4px rgba(28, 243, 255, 1)
 }
 
 .feature-img{
@@ -170,8 +205,8 @@ b {
 }
 
 .game-divider-line{
-	border-bottom: 1px solid;
-	border-color: rgba(105, 187, 255, 0.5);
+	border-bottom: 3px solid;
+	border-color: rgba(105, 187, 255, 0.8);
 }
 
 /*end games and bankroll section of the homepage*/
