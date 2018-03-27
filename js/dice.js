@@ -298,7 +298,7 @@ EOSBetDice = {
         var profitMult = (100 / (EOSBetDice.rollUnder - 1)).toString();
 
         var winSize = EOSBetDice.betPerRoll.times(profitMult).times(houseEdgeMult).minus(EOSBetDice.betPerRoll);
-        console.log('win size', winSize);
+        console.log('rollin...');
 
         // increment or decrement current profit based on win or not
         win ? EOSBetDice.currentProfit = EOSBetDice.currentProfit.add(winSize) : EOSBetDice.currentProfit = EOSBetDice.currentProfit.minus(EOSBetDice.betPerRoll);
@@ -521,6 +521,9 @@ async function rollingDice(win, rollUnder, winSize, onRoll, totalRolls, betPerRo
 
     // break if the rolls are completed.
     if (onRoll > totalRolls){
+        if(onRoll < totalRolls) $('#roll-dice').removeClass('disabled');    
+        $('#roll-dice').click( () => {EOSBetDice.rollDice()} );
+        
         return;
     }
 
