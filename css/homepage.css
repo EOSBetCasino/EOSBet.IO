@@ -6,6 +6,9 @@ html{
 b {
 	font-weight: 900;
 }
+a {
+	color: #69BBFF;
+}
 
 .alert-info{
 	background-color: #69BBFF;
