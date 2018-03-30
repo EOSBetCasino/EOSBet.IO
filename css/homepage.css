@@ -57,17 +57,15 @@ a {
 /*splash screen of the homepage*/
 
 #splash{
-	background: url("../img/homepage/Hero @1x.png") no-repeat;
+	background: url("../img/homepage/Hero @2x.png") no-repeat;
   	background-size: cover;
   	background-position: center center;
   	height: 100%;
   	width: 100%;
 }
 
-.splash-logo{
-	text-align: center;
-	padding-top: 100px;
-	padding-bottom: 20px;
+.top-padding{
+	padding-top: 80vh;
 }
 
 .cta-message{
@@ -130,11 +128,12 @@ a {
 
 /*casino features section of the homepage, bankroll features section of the bankroll*/
 
-/*#casino-features{
-	background: linear-gradient(to bottom right, rgba(105, 187, 255, 1), rgba(105, 187, 255, 0.5));
-}*/
-
 #casino-features, #bankroll-features{
+	background: url("../img/homepage/Hero @1x.png") no-repeat;
+  	background-size: cover;
+  	background-position: center center;
+  	height: 100%;
+  	width: 100%;
 	background-color: #333333;
 	color: #FFFFFF;
 	text-align: center;
@@ -244,9 +243,13 @@ a {
 /*end social section of the homepage*/
 
 #bankroll-splash{
-	background-color: #333333;
-	height: 100%;
+	
+	background: url("../img/bankroll/Hero @7x.png") no-repeat;
+  	background-size: cover;
+  	background-position: center center;
+  	height: 100%;
   	width: 100%;
+  	background-color: #333333;
 }
 
 .action-btn-rt{
@@ -628,11 +631,13 @@ a {
   bottom: 10%;
   display: none;
   position: absolute;
-  right: 30%;
+  
   text-align: center;
   color: #00d936;
-  font-size: 600%;
+  font-size: 400%;
   z-index: 10;
+
+  text-shadow: 0 0 10px #2ef718;
 }
 
 /*end slots specific css*/
