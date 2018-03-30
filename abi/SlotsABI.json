@@ -98,6 +98,20 @@
 		"type": "function"
 	},
 	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "minBet",
+				"type": "uint256"
+			}
+		],
+		"name": "setMinBetPerSpin",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
 		"constant": true,
 		"inputs": [],
 		"name": "REFUNDSACTIVE",
@@ -105,20 +119,6 @@
 			{
 				"name": "",
 				"type": "bool"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "MINBET",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
 			}
 		],
 		"payable": false,
@@ -138,6 +138,20 @@
 			}
 		],
 		"name": "__callback",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "minBet",
+				"type": "uint256"
+			}
+		],
+		"name": "setMinBetPerTx",
 		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
@@ -215,6 +229,20 @@
 		"type": "function"
 	},
 	{
+		"constant": true,
+		"inputs": [],
+		"name": "MINBET_perSPIN",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"constant": false,
 		"inputs": [
 			{
@@ -265,20 +293,6 @@
 			}
 		],
 		"name": "payDevelopersFund",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "minBet",
-				"type": "uint256"
-			}
-		],
-		"name": "setMinBet",
 		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
@@ -378,6 +392,20 @@
 		"type": "function"
 	},
 	{
+		"constant": true,
+		"inputs": [],
+		"name": "MINBET_perTX",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"constant": false,
 		"inputs": [
 			{
@@ -395,6 +423,20 @@
 		"constant": true,
 		"inputs": [],
 		"name": "ORACLIZEGASPRICE",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "INITIALGASFORORACLIZE",
 		"outputs": [
 			{
 				"name": "",
@@ -451,6 +493,20 @@
 			}
 		],
 		"name": "setRefundsActive",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "gasAmt",
+				"type": "uint256"
+			}
+		],
+		"name": "setInitialGasForOraclize",
 		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
