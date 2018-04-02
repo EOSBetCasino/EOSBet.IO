@@ -88,7 +88,7 @@ EOSBetBankroll = {
             var bankrollAbi = data;
             // rinkeby: 0x6ce0f38DB787434f2ED0C7DE8C61be2FAAe87f32
             EOSBetBankroll.Bankroll = web3.eth.contract(bankrollAbi);
-            EOSBetBankroll.bankrollInstance = EOSBetBankroll.Bankroll.at('0x3aBc5b6e3072DaA2E3567840Da8Fed8DA4edfa1F');
+            EOSBetBankroll.bankrollInstance = EOSBetBankroll.Bankroll.at('0x3075Be0Ea552BD542Ca57652857000227Ec84aC6');
 
             return EOSBetBankroll.getUserDetails(web3);
 

@@ -91,7 +91,7 @@ EOSBetDice = {
             var diceAbi = data;
             
             EOSBetDice.Dice = web3.eth.contract(diceAbi);
-            EOSBetDice.diceInstance = EOSBetDice.Dice.at('0xa2DeFce0BeFcD3589A5c93076dCcBaBd3fDF1575');
+            EOSBetDice.diceInstance = EOSBetDice.Dice.at('0x5284E4F0CD82276B95fE7902923D24cec57CC51c');
 
             return EOSBetDice.getContractDetails(web3);
 
@@ -210,7 +210,7 @@ EOSBetDice = {
             }
             else {
                 $('#game-info').show();
-                $('#game-info').html('transaction waiting to be mined');
+                $('#game-info').html('Transaction waiting to be mined...');
                 var txHash = result;
                 var txReceipt = await getTransactionReceiptMined(txHash);
 
@@ -266,7 +266,7 @@ EOSBetDice = {
                             watchForResult.stopWatching();
                             watchForFail.stopWatching();
                             $('#game-info').removeClass("alert-success").addClass("alert-danger");
-                            $('#game-info').html('We apologize, but the random number has not passed our test of provable randomness, so all your ether has been refunded. Please feel free to play again, or read more about our instantly provable randomness generation here (((((LINK HERE)))))). We strive to bring the best online gambling experience at EOSBet.IO, and occasionally the random numbers generated do not pass our stringent testing.');
+                            $('#game-info').html('We apologize, but the random number has not passed our test of provable randomness, so all your ether has been refunded. Please feel free to play again, or read more about our instantly provable randomness generation <a href="/support.html">here</a>. We strive to bring the best online gambling experience at EOSBet.IO, and occasionally the random numbers generated do not pass our stringent testing.');
                         }
                     });
                 }
@@ -311,7 +311,7 @@ EOSBetDice = {
     calculateMaxBet: function(rollUnder){
         // stay on the safe side so rolls don't fail...
         var profitMult = (100 / (rollUnderValue() - 1)).toString();
-        var maxBet = EOSBetDice.maxWinPerSpin.dividedBy(profitMult).times(0.95);
+        var maxBet = EOSBetDice.maxWinPerSpin.dividedBy(profitMult).times(0.98);
         
         return web3.fromWei(maxBet, "ether");
     },
@@ -523,7 +523,7 @@ async function rollingDice(win, rollUnder, winSize, onRoll, totalRolls, betPerRo
     if (onRoll > totalRolls){
         if(onRoll < totalRolls) $('#roll-dice').removeClass('disabled');    
         $('#roll-dice').click( () => {EOSBetDice.rollDice()} );
-        
+
         return;
     }
 

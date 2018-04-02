@@ -86,7 +86,9 @@
 							<br />
 							<div class="stat"><span class="stat-num" id="max-bet">0</span>&ensp;Max Bet</div>
 							<br />
-							<div class="stat"><span class="stat-num" id="min-bet">0</span>&ensp;Min Bet</div>
+							<div class="stat"><span class="stat-num" id="min-bet-per-spin">0</span>&ensp;Min Bet Per Spin</div>
+							<br />
+							<div class="stat"><span class="stat-num" id="min-bet-per-tx">0</span>&ensp;Min Bet Per Transaction</div>
 						</div>
 						<div class="how-to-play-btn">
 							<button type="button" class="btn cta-btn" data-toggle="modal" data-target="#pay-table-modal">Paytable</button>
@@ -145,15 +147,35 @@
 
 						<div class="input-group">
 							<div class="input-group-prepend dual-btn-group-lt">
-								<button class="btn cta-btn action-btn-lt" id="min-bet-per-spin" type="button"><b>&nbsp;&darr;</b></button>
-								<button class="btn cta-btn action-btn-md" id="half-bet-per-spin" type="button">1/2x</button>
+								<button class="btn cta-btn action-btn-lt" id="min-bet-per-spin-btn" type="button"><b>&nbsp;&darr;</b></button>
+								<button class="btn cta-btn action-btn-md" id="half-bet-per-spin-btn" type="button">1/2x</button>
 							</div>
 							&nbsp;
-							<input type="text" class="form-control action-input-md" id="bet-per-spin" value="0.0025">
+							<input type="text" class="form-control action-input-md" id="bet-per-spin" value="0.003">
 							&nbsp;
 							<div class="input-group-append dual-btn-group-rt">
-								<button class="btn cta-btn action-btn-md" id="double-bet-per-spin" type="button">&nbsp;2x&nbsp;</button>
-								<button class="btn cta-btn action-btn-rt" id="max-bet-per-spin" type="button"><b>&uarr;&nbsp;</b></button>
+								<button class="btn cta-btn action-btn-md" id="double-bet-per-spin-btn" type="button">&nbsp;2x&nbsp;</button>
+								<button class="btn cta-btn action-btn-rt" id="max-bet-per-spin-btn" type="button"><b>&uarr;&nbsp;</b></button>
+							</div>
+						</div>
+
+						<br />
+
+						<div class="row">
+							<div class="col-9">
+								<div class="buy-box-text">Total Bet:</div>
+							</div>
+							<div class="col-3">
+								<div class="buy-box-text" id="total-bet">0.03</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-9">
+								<div class="buy-box-text">Min Total Bet:</div>
+							</div>
+							<div class="col-3">
+								<div class="buy-box-text" id="min-bet-per-tx-2">0.01</div>
 							</div>
 						</div>
 

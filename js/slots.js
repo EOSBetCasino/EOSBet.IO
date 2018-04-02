@@ -60,7 +60,8 @@ EOSBetSlots = {
     // bpLayout: [[20,21,22,23,27,29,60,61,62], [14,15,16,17,59,60,61,62], [20,21,22,53,61,62]],
     // bLayout: [[4,6,7,8,9,15,16,17,18,23,24,25,29,30,34,35,37,38,39,40,41,43,44,45,46,47,51,52,56,58,62,63], [2,3,6,7,8,10,11,12,17,18,19,27,28,29,32,33,36,37,38,39,40,44,45,46,47,48,52,53,56,57,62,63], [3,4,7,8,9,16,17,18,22,23,24,31,32,33,36,37,39,40,41,42,43,45,46,47,48,49,53,54,57,58,62,63]],
     maxBet: null,
-    minBet: null,
+    minBetPerSpin: null,
+    minBetPerTx: null,
     maxSpins: 84, // this is hard coded into the contract.
     player: null, // players ethereum address.
     playerBalance: null, // players balance in wei
@@ -113,7 +114,7 @@ EOSBetSlots = {
             var slotsAbi = data;
 
             EOSBetSlots.Slots = web3.eth.contract(slotsAbi);
-            EOSBetSlots.slotsInstance = EOSBetSlots.Slots.at('0x7511aab1F189FCc98E0CD758432F7808D5901896');
+            EOSBetSlots.slotsInstance = EOSBetSlots.Slots.at('0x271Dcb02Ae2B3B51D7FEc8c12EF2959B3f13357A');
 
             return EOSBetSlots.getContractDetails(web3);
 
@@ -138,13 +139,23 @@ EOSBetSlots = {
                 $('#games-played').html(games.toString());
             }
         });
-        var minBet = EOSBetSlots.slotsInstance.MINBET.call(function(error, result){
+        var minBetPerSpin = EOSBetSlots.slotsInstance.MINBET_perSPIN.call(function(error, result){
             if (error){
-                console.log('could not get min bet');
+                console.log('could not get min bet/roll');
             }
             else {
-                $('#min-bet').html(web3.fromWei(result, "ether").toString().slice(0,7));
-                EOSBetSlots.minBet = result;
+                $('#min-bet-per-spin').html(web3.fromWei(result, "ether").toString().slice(0,7));
+                EOSBetSlots.minBetPerSpin = result;
+            }
+        });
+        var minBetPerTx = EOSBetSlots.slotsInstance.MINBET_perTX.call(function(error, result){
+            if (error){
+                console.log('could not get min bet/tx');
+            }
+            else {
+                $('#min-bet-per-tx').html(web3.fromWei(result, "ether").toString().slice(0,7));
+                $('#min-bet-per-tx-2').html(web3.fromWei(result, "ether").toString().slice(0,7));
+                EOSBetSlots.minBetPerTx = result;
             }
         });
         var maxBet = EOSBetSlots.slotsInstance.getMaxWin(function(error, result){
@@ -217,7 +228,7 @@ EOSBetSlots = {
             }
             else {
                 $('#game-info').show();
-                $('#game-info').html('transaction waiting to be mined...');
+                $('#game-info').html('Transaction waiting to be mined...');
                 var txHash = result;
                 var txReceipt = await getTransactionReceiptMined(txHash);
 
@@ -263,7 +274,7 @@ EOSBetSlots = {
                             watchForResult.stopWatching();
                             watchForFail.stopWatching();
 
-                            $('#game-info').html('We apologize, but the random number has not passed our test of provable randomness, so all your ether has been refunded. Please feel free to play again, or read more about our instantly provable randomness generation here (((((LINK HERE)))))). We strive to bring the best online gambling experience at EOSBet.IO, and occasionally the random numbers generated do not pass our stringent testing.');
+                            $('#game-info').html('We apologize, but the random number has not passed our test of provable randomness, so all your ether has been refunded. Please feel free to play again, or read more about our instantly provable randomness generation <a href="/support.html">here</a>. We strive to bring the best online gambling experience at EOSBet.IO, and occasionally the random numbers generated do not pass our stringent testing.');
                         }
                     });
                 }
@@ -273,12 +284,15 @@ EOSBetSlots = {
 
     calculateMaxBet: function(){
         // reduce the maxBet somewhat, so we don't get accidental reverts
-        var maxBet = new BigNumber(EOSBetSlots.maxBet.times(0.95).toFixed(0));
-        return maxBet
+        return new BigNumber(EOSBetSlots.maxBet.times(0.98).toFixed(0));
     },
 
-    calculateMinBet: function(){
-        return EOSBetSlots.minBet;
+    calculateMinBetPerSpin: function(){
+        return EOSBetSlots.minBetPerSpin;
+    },
+
+    calculateTotalBet: function(){
+        return parseFloat($('#bet-per-spin')) * parseFloat(numberSpinsValue());
     },
 
     parseData: function(data){
@@ -441,11 +455,11 @@ EOSBetSlots = {
         EOSBetSlots.totalProfit = EOSBetSlots.totalProfit.add(winningsEther);
 
         if (winningsMultiple > 0){
-            $('#score-pop').text('\u25CA' + winningsEther.toString().slice(0,9)).show().animate({bottom: '70%'}, 2000, () => {
+            $('#score-pop').text('\u25CA' + winningsEther.toString().slice(0,9)).show().animate({bottom: '70%', fontSize: '800%'}, 2000, () => {
 
-                $('#score-pop').fadeOut(600, () => {
+                $('#score-pop').fadeOut(1000, () => {
                     // reset the css to go back down
-                    $('#score-pop').css({bottom: '10%'})
+                    $('#score-pop').css({bottom: '10%', fontSize: '400%'})
                 });
             });
         }
@@ -508,22 +522,34 @@ function initUI(){
         value: 9,
         slide: function(event, ui){
             $("#current-number-spins").text(spinCountValues[ui.value]);
+            // calculate total bet stuff
+            var totalBet = spinCountValues[ui.value] * parseFloat($('#bet-per-spin').val());
+            var minBet = parseFloat(web3.fromWei(EOSBetSlots.minBetPerTx, 'ether'));
+
+            if (minBet > totalBet){
+                console.log('<text style="color:red !important;">' + totalBet.toString().slice(0,7) + '</text>');
+                $('#total-bet').html('<text style="color:red !important;">' + totalBet.toString().slice(0,7) + '</text>');
+            }
+            else {
+                $('#total-bet').html(totalBet.toString().slice(0,7));
+            }
         }
     });
 
     // max and min buttons
-    $('#max-bet-per-spin').click(function(){
+    $('#max-bet-per-spin-btn').click(function(){
         var maxBet = EOSBetSlots.calculateMaxBet();
         $('#bet-per-spin').val(web3.fromWei(maxBet, "ether"));
     });
 
-    $('#min-bet-per-spin').click(function(){
-        var minBet = EOSBetSlots.calculateMinBet();
-        $('#bet-per-spin').val(web3.fromWei(minBet, "ether"));
+    $('#min-bet-per-spin-btn').click(function(){
+        var minBetPerSpin = EOSBetSlots.calculateMinBetPerSpin();
+        console.log('min');
+        $('#bet-per-spin').val(web3.fromWei(minBetPerSpin, "ether"));
     });
 
     // double and half bet buttons
-    $('#double-bet-per-spin').click(function(){
+    $('#double-bet-per-spin-btn').click(function(){
         var maxBet = EOSBetSlots.calculateMaxBet();
         var doubleBet = new BigNumber(web3.toWei($('#bet-per-spin').val(), "ether")).times(2);
 
@@ -535,12 +561,13 @@ function initUI(){
         }
     });
 
-    $('#half-bet-per-spin').click(function(){
-        var minBet = EOSBetSlots.calculateMinBet();
+    $('#half-bet-per-spin-btn').click(function(){
+        console.log('half');
+        var minBetPerSpin = EOSBetSlots.calculateMinBetPerSpin();
         var halfBet = new BigNumber(web3.toWei($('#bet-per-spin').val(), "ether")).dividedBy(2);
 
-        if (minBet.greaterThan(halfBet)){
-            $('#bet-per-spin').val(web3.fromWei(minBet, "ether"));
+        if (minBetPerSpin.greaterThan(halfBet)){
+            $('#bet-per-spin').val(web3.fromWei(minBetPerSpin, "ether"));
         }
         else {
             $('#bet-per-spin').val(web3.fromWei(halfBet, "ether"));
