@@ -1,7 +1,7 @@
 function launchNoLoginModal(title){
   // if accounts = [] instruct the user to log in to metamask and refesh the page.
   var html = '<div class="modal fade" id="no-login-modal" tabindex="-1" role="dialog" aria-labelledby="no-login" aria-hidden="true" style="display:none;">';
-  	html += 		'<div class="modal-dialog modal-dialog-centered" role="document">';
+  html += 		'<div class="modal-dialog modal-dialog-centered" role="document">';
   html += 			'<div class="modal-content" style="opacity:0.95; background-color:grey; color:white;">';
   html += 				'<div class="modal-header">';
   html += 					'<h5 class="modal-title" id="no-login">Welcome to ' + title.toString() + '!</h5>';
@@ -95,8 +95,6 @@ function launchGamePausedModal(title){
   html += '</button>';
   html += '</div>';
   html += '<div class="modal-body">';
-  var catchLine;
-  title === 'EOSBet Proof-of-Concept Dice' ? catchLine = 'rolling!' : catchLine = 'spinning!';
   html += '<text>Hello and welcome to ' + title.toString() + '! This game is currently paused, but please check back later!</text>';
   html += '<br />';
   html += '</div>';

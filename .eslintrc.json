@@ -1,1 +1,15 @@
-{"extends": "strongloop"}
+{
+	"extends": "strongloop",
+	"rules": {
+		"max-len": ["error", { "ignoreStrings": true }, { "code": 300 }],
+		"brace-style": ["error", "stroustrup"]
+	},
+	"parserOptions": { "ecmaVersion": 2017 },
+	"env": {
+		"browser": true,
+		"commonjs": true,
+		"es6": true,
+		"jquery": true
+	}
+
+}
