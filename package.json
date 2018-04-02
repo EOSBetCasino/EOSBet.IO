@@ -4,10 +4,8 @@
   "description": "Website for beta games on ethereum main-net and crowdsale",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "scripts": {
-    "dev": "lite-server"
+    "dev": "lite-server",
+    "pretest": "eslint --ignore-path .gitignore ."
   },
   "repository": {
     "type": "git",
@@ -31,6 +29,11 @@
   },
   "homepage": "https://github.com/EOSBetIO/EOSBet.IO#readme",
   "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-strongloop": "^2.1.0",
     "lite-server": "^2.3.0"
+  },
+  "dependencies": {
+    "npm": "^5.8.0"
   }
 }
