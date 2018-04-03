@@ -18,7 +18,7 @@ a {
 
 .navbar{
 	background-color: #333333;
-	opacity: 0.87;
+	opacity: 0.92;
 	margin-top: -10px; 
 	padding-bottom: 0px !important;
 }
@@ -172,10 +172,10 @@ a {
 }
 
 .feature-element{
-	font-size: 14px;
+	font-size: 16px;
 	font-weight: 200;
 	line-height: 25px;
-	color: #BEBEBE;
+	color: white;
 	padding-bottom: 1em;
 }
 
@@ -201,8 +201,8 @@ a {
 }
 
 .game-divider-line{
-	border-bottom: 3px solid;
-	border-color: rgba(105, 187, 255, 0.8);
+	border-bottom: 2px solid;
+	border-color: rgba(105, 187, 255, 0.6);
 }
 
 /*end games and bankroll section of the homepage*/
@@ -211,6 +211,18 @@ a {
 
 #airdrop-and-crowdsale{
 	background-color: #333333;
+}
+.ico-text-lg{
+	color: white;
+	font-weight: 500;
+	font-size: 30px;
+	text-shadow: 0 0 5px white;
+}
+.ico-text-md{
+	color: white;
+	font-weight: 300;
+	font-size: 25px;
+	text-shadow: 0 0 5px white;
 }
 
 /*end airdrop and crowdsale section of the homepage*/
