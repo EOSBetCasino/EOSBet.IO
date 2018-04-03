@@ -22,7 +22,6 @@ a {
 	margin-top: -10px; 
 	padding-bottom: 0px !important;
 }
-
 .nav-item{
 	text-align: right;
 }
@@ -45,8 +44,6 @@ a {
 .dropdown-item:hover{
 	background-color: #555555 !important;
 }
-
-
 .navbar-toggler-icon{
 	opacity: 100%;
 	border-color: rgba(225,255,255,1);
@@ -58,7 +55,15 @@ a {
 
 #splash{
 	background: url("../img/homepage/Hero @2x.png") no-repeat;
-  	background-size: cover;
+}
+#casino-features, #bankroll-features{
+	background: url("../img/homepage/Hero @1x.png") no-repeat;
+	background-color: #333333;
+	color: #FFFFFF;
+	text-align: center;
+}
+#splash, #bankroll-features, #casino-features{
+	background-size: cover;
   	background-position: center center;
   	height: 100%;
   	width: 100%;
@@ -127,17 +132,6 @@ a {
 /*end splash screen of the homepage*/
 
 /*casino features section of the homepage, bankroll features section of the bankroll*/
-
-#casino-features, #bankroll-features{
-	background: url("../img/homepage/Hero @1x.png") no-repeat;
-  	background-size: cover;
-  	background-position: center center;
-  	height: 100%;
-  	width: 100%;
-	background-color: #333333;
-	color: #FFFFFF;
-	text-align: center;
-}
 
 .feature-title{
 	font-size: 24px;
@@ -243,7 +237,6 @@ a {
 /*end social section of the homepage*/
 
 #bankroll-splash{
-	
 	background: url("../img/bankroll/Hero @15x.png") no-repeat;
   	background-size: cover;
   	background-position: center center;

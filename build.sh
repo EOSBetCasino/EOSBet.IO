@@ -25,14 +25,19 @@ echo "Built css!"
 
 # transpile js with babel
 for filename in js/*.js; do
-	npx babel $filename -o build/$filename
+	if [ $filename != 'js/bignumber.min.js' ] && [ $filename != 'js/web3.min.js' ];
+	then
+		npx babel $filename -o build/$filename
+	else
+		cp $filename build/$filename
+	fi
 done
 
 echo "Transpiled js!"
 
 # minify js and overwrite transpiled js
 for filename in build/js/*.js; do
-	npx uglifyjs -c -m -o $filename -- $filename 
+	npx uglifyjs -o $filename -- $filename 
 done
 
 echo "Built js!"
