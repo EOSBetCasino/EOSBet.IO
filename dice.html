@@ -86,7 +86,10 @@
 							<br />
 							<div class="stat"><span class="stat-num" id="max-win">0</span>&ensp;Max Win</div>
 							<br />
-							<div class="stat"><span class="stat-num" id="min-bet">0</span>&ensp;Min Bet</div>
+							<div class="stat"><span class="stat-num" id="min-bet-per-roll">0</span>&ensp;Min Bet Per Spin</div>
+							<br />
+							<div class="stat"><span class="stat-num" id="min-bet-per-tx">0</span>&ensp;Min Bet Per Transaction</div>
+
 						</div>
 						<div class="how-to-play-btn">
 							<button type="button" class="btn cta-btn" data-toggle="modal" data-target="#how-to-play-modal">How To Play</button>
@@ -163,15 +166,15 @@
 						
 						<div class="input-group">
 							<div class="input-group-prepend dual-btn-group-lt">
-								<button class="btn cta-btn action-btn-lt" id="min-bet-per-roll" type="button"><b>&nbsp;&darr;</b></button>
-								<button class="btn cta-btn action-btn-md" id="half-bet-per-roll" type="button">1/2x</button>
+								<button class="btn cta-btn action-btn-lt" id="min-bet-per-roll-btn" type="button"><b>&nbsp;&darr;</b></button>
+								<button class="btn cta-btn action-btn-md" id="half-bet-per-roll-btn" type="button">1/2x</button>
 							</div>
 							&nbsp;
 							<input type="text" class="form-control action-input-md" id="bet-per-roll" value="0.25">
 							&nbsp;
 							<div class="input-group-append dual-btn-group-rt">
-								<button class="btn cta-btn action-btn-md" id="double-bet-per-roll" type="button">&nbsp;2x&nbsp;</button>
-								<button class="btn cta-btn action-btn-rt" id="max-bet-per-roll" type="button"><b>&uarr;&nbsp;</b></button>
+								<button class="btn cta-btn action-btn-md" id="double-bet-per-roll-btn" type="button">&nbsp;2x&nbsp;</button>
+								<button class="btn cta-btn action-btn-rt" id="max-bet-per-roll-btn" type="button"><b>&uarr;&nbsp;</b></button>
 							</div>
 						</div>
 
@@ -208,7 +211,25 @@
 								<div class="buy-box-text">Profit Per Roll</div>
 							</div>
 							<div class="col-3">
-								<text id="current-profit-per-roll" class="game-slider-text" style="top: 0px; left: 12.5px;">2.02x</text>
+								<text id="current-profit-per-roll" class="buy-box-text">2.02x</text>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-9">
+								<div class="buy-box-text">Total Bet</div>
+							</div>
+							<div class="col-3">
+								<text id="total-bet" class="buy-box-text">2.5</text>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-9">
+								<div class="buy-box-text">Min Total Bet</div>
+							</div>
+							<div class="col-3">
+								<text id="min-bet-per-tx-2" class="buy-box-text">0.1</text>
 							</div>
 						</div>
 

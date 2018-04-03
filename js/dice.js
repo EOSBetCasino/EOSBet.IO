@@ -37,7 +37,8 @@ const EOSBetDice = {
   // START CONTRACT DATA
   maxRolls: 1024, // this is hard coded into the contract.
   maxWinPerSpin: null,
-  minBet: null,
+  minBetPerRoll: null,
+  minBetPerTx: null,
   houseEdge: 10,
   player: null, // players ethereum address.
   playerBalance: null, // players balance in wei
@@ -133,15 +134,27 @@ const EOSBetDice = {
     });
 
     // get min bet per spin
-    EOSBetDice.diceInstance.MINBET.call(function(error, result){
+    EOSBetDice.diceInstance.MINBET_perROLL.call(function(error, result){
       if (error){
-        console.log('could not get min bet');
+        console.log('could not get min bet per roll');
       }
       else {
-        EOSBetDice.minBet = result;
-        $('#min-bet').text(web3.fromWei(result, 'ether').toString().slice(0, 7));
+        EOSBetDice.minBetPerRoll = result;
+        $('#min-bet-per-roll').text(web3.fromWei(result, 'ether').toString().slice(0, 7));
       }
     });
+
+    // get min bet per spin
+    EOSBetDice.diceInstance.MINBET_perTX.call(function(error, result){
+      if (error){
+        console.log('could not get min bet per tx');
+      }
+      else {
+        EOSBetDice.minBetPerTx = result;
+        $('#min-bet-per-tx').text(web3.fromWei(result, 'ether').toString().slice(0, 7));
+        $('#min-bet-per-tx-2').text(web3.fromWei(result, 'ether').toString().slice(0, 7));
+      }
+    });    
 
     // get house edge
     EOSBetDice.diceInstance.HOUSEEDGE_inTHOUSANDTHPERCENTS.call(function(error, result){
@@ -223,62 +236,43 @@ const EOSBetDice = {
         var txHash = result;
         var txReceipt = await getTransactionReceiptMined(txHash);
 
-        // now parse the logs to determine if the transaction was already resolved, or was sent to oraclize
-        // for miner-proof randomness...
-        if (txReceipt.logs.length === 0){
-          $('#game-info').removeClass('alert-info').addClass('alert-danger');
-          $('#game-info').html('UH OH! Transaction seemed to fail! Please try again or check etherscan for more info...');
-        }
-        // if there is a single log, then the transaction was resolved internally.
-        // now we just need to parse the game data and play some dice!
-        else if (txReceipt.logs.length === 1){
+        $('#game-info').removeClass('alert-info').addClass('alert-success');
+        $('#game-info').html('Transaction mined! Please wait, fetching provable randomness from our provider...');
 
-          var data = txReceipt.logs[0]['data'];
+        var resultTopic = '0xb9d44d01b9e36e98413c2ed40b61f560e40595343f3cc734c988da4db5dd6563';
+        var ledgerProofFailTopic = '0x2576aa524eff2f518901d6458ad267a59debacb7bf8700998dba20313f17dce6';
+        var oraclizeQueryId = txReceipt.logs[1]['topics'][1];
 
-          console.log('all data', data);
+        var watchForResult = web3.eth.filter({topics: [resultTopic, oraclizeQueryId], fromBlock: 'pending', to: EOSBetDice.diceInstance.address});
+        var watchForFail = web3.eth.filter({topics: [ledgerProofFailTopic, oraclizeQueryId], fromBlock: 'pending', to: EOSBetDice.diceInstance.address});
 
-          EOSBetDice.parseRolls(data);
-        }
-        // if there was two logs, then the bettor bet enough for the call to get forwarded to oraclize
-        // get the oraclize query id, and then watch for an event with this id.
-        else if (txReceipt.logs.length === 2){
-          $('#game-info').removeClass('alert-info').addClass('alert-success');
-          $('#game-info').html('Transaction mined! Please wait, fetching provable randomness from our provider...');
+        watchForResult.watch(function(error, result){
+          if (error){
+            console.log('error while fetching result event', error);
+          }
+          else {
 
-          var resultTopic = '0xb9d44d01b9e36e98413c2ed40b61f560e40595343f3cc734c988da4db5dd6563';
-          var ledgerProofFailTopic = '0x2576aa524eff2f518901d6458ad267a59debacb7bf8700998dba20313f17dce6';
-          var oraclizeQueryId = txReceipt.logs[1]['topics'][1];
+            watchForResult.stopWatching();
+            watchForFail.stopWatching();
 
-          var watchForResult = web3.eth.filter({topics: [resultTopic, oraclizeQueryId], fromBlock: 'pending', to: EOSBetDice.diceInstance.address});
-          var watchForFail = web3.eth.filter({topics: [ledgerProofFailTopic, oraclizeQueryId], fromBlock: 'pending', to: EOSBetDice.diceInstance.address});
+            var data = result.data;
 
-          watchForResult.watch(function(error, result){
-            if (error){
-              console.log('error while fetching result event', error);
-            }
-            else {
+            EOSBetDice.parseRolls(data);
+          }
+        });
 
-              watchForResult.stopWatching();
-              watchForFail.stopWatching();
+        watchForFail.watch(function(error, result){
+          if (error){
+            console.log('ledger proof failed, but error', error);
+          }
+          else {
+            watchForResult.stopWatching();
+            watchForFail.stopWatching();
+            $('#game-info').removeClass('alert-success').addClass('alert-danger');
+            $('#game-info').html('We apologize, but the random number has not passed our test of provable randomness, so all your ether has been refunded. Please feel free to play again, or read more about our instantly provable randomness generation <a href="/support.html">here</a>. We strive to bring the best online gambling experience at EOSBet.IO, and occasionally the random numbers generated do not pass our stringent testing.');
+          }
+        });
 
-              var data = result.data;
-
-              EOSBetDice.parseRolls(data);
-            }
-          });
-
-          watchForFail.watch(function(error, result){
-            if (error){
-              console.log('ledger proof failed, but error', error);
-            }
-            else {
-              watchForResult.stopWatching();
-              watchForFail.stopWatching();
-              $('#game-info').removeClass('alert-success').addClass('alert-danger');
-              $('#game-info').html('We apologize, but the random number has not passed our test of provable randomness, so all your ether has been refunded. Please feel free to play again, or read more about our instantly provable randomness generation <a href="/support.html">here</a>. We strive to bring the best online gambling experience at EOSBet.IO, and occasionally the random numbers generated do not pass our stringent testing.');
-            }
-          });
-        }
       }
     });
   },
@@ -325,8 +319,12 @@ const EOSBetDice = {
     return web3.fromWei(maxBet, 'ether');
   },
 
-  calculateMinBet: function(){
-    return web3.fromWei(EOSBetDice.minBet, 'ether');
+  calculateMinBetPerRoll: function(){
+    return web3.fromWei(EOSBetDice.minBetPerRoll, 'ether');
+  },
+
+  calculateMinBetPerTx: function(){
+    return web3.fromWei(EOSBetDice.minBetPerTx, 'ether');
   },
 
   calculateProfit: function(betPerRoll, rollUnder){
@@ -360,18 +358,22 @@ function initUI(){
     slide: function(event, ui){
       $('#current-number-rolls').text(rollCountValues[ui.value].toString());
       updateGuaranteedRollsSlider_withUIInput(ui);
+
+      updateTotalBet(null);
     },
   });
 
   // max and min buttons, double/half buttons
-  $('#max-bet-per-roll').click(function(){
+  $('#max-bet-per-roll-btn').click(function(){
     var maxBet = EOSBetDice.calculateMaxBet(parseFloat(rollUnderValue()));
     $('#bet-per-roll').val(maxBet.toString());
 
     updateGuaranteedRollsSlider_withFixedRolls();
+
+    updateTotalBet(null);
   });
 
-  $('#double-bet-per-roll').click(function(){
+  $('#double-bet-per-roll-btn').click(function(){
     var maxBet = EOSBetDice.calculateMaxBet(parseFloat(rollUnderValue()));
     var doubleBet = parseFloat($('#bet-per-roll').val()) * 2;
 
@@ -383,10 +385,12 @@ function initUI(){
     }
 
     updateGuaranteedRollsSlider_withFixedRolls();
+
+    updateTotalBet(null);
   });
 
-  $('#half-bet-per-roll').click(function(){
-    var minBet = EOSBetDice.calculateMinBet();
+  $('#half-bet-per-roll-btn').click(function(){
+    var minBet = EOSBetDice.calculateMinBetPerRoll();
     var halfBet = parseFloat($('#bet-per-roll').val()) / 2;
 
     if (minBet > halfBet){
@@ -397,16 +401,22 @@ function initUI(){
     }
 
     updateGuaranteedRollsSlider_withFixedRolls();
+
+    updateTotalBet(null);
   });
 
-  $('#min-bet-per-roll').click(function(){
-    $('#bet-per-roll').val(EOSBetDice.calculateMinBet());
+  $('#min-bet-per-roll-btn').click(function(){
+    $('#bet-per-roll').val(EOSBetDice.calculateMinBetPerRoll());
 
     updateGuaranteedRollsSlider_withFixedRolls();
+
+    updateTotalBet(null);
   });
 
   $('#bet-per-roll').on('input', function(){
     updateGuaranteedRollsSlider_withFixedRolls();
+
+    updateTotalBet(null);
   });
 
   // roll under slider
@@ -444,6 +454,7 @@ function initUI(){
     },
     slide: function(event, ui){
       $('#current-guaranteed-rolls').text(ui.value);
+      updateTotalBet(ui.value);
     },
   });
 
@@ -510,6 +521,25 @@ function updateGuaranteedRollsSlider(numberRolls){
   }
 }
 
+function updateTotalBet(guarRollsValue){
+  var betPerRoll = parseFloat($('#bet-per-roll').val());
+
+  if (guarRollsValue === null){
+    guarRollsValue = guaranteedRollsValue();
+  }
+
+  var totalBet = betPerRoll * guarRollsValue;
+
+  if (totalBet < parseFloat(EOSBetDice.calculateMinBetPerTx())){
+    $('#total-bet').html('<text style="color:red !important;">' + totalBet.toString().slice(0, 7) +'</text>');
+  }
+  else {
+    $('#total-bet').html('<text>' + totalBet.toString().slice(0, 7) +'</text>');
+  }
+
+}
+
+// gets triggered when the transaction has returned from oraclize
 function rollsReady(betPerRoll, totalProfit, maxRolls, rollUnder){
   // set values initially...
   $('#bet-size').text(web3.fromWei(betPerRoll, 'ether').slice(0, 8));
@@ -521,6 +551,7 @@ function rollsReady(betPerRoll, totalProfit, maxRolls, rollUnder){
   $('#place-bets').hide();
   $('#roll-bets').show();
 }
+
 
 async function rollingDice(win, rollUnder, winSize, onRoll, totalRolls, betPerRoll, currentProfit){
   // disable the ROLL button
@@ -584,7 +615,6 @@ async function rollingDice(win, rollUnder, winSize, onRoll, totalRolls, betPerRo
       }, 500);
 
       // enable the ROLL button once the roll has resolved.
-
       checkGameStatus(onRoll, totalRolls, currentProfit, betPerRoll);
     }
   };

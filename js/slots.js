@@ -311,8 +311,8 @@ const EOSBetSlots = {
     return EOSBetSlots.minBetPerSpin;
   },
 
-  calculateTotalBet: function(){
-    return parseFloat($('#bet-per-spin')) * parseFloat(numberSpinsValue());
+  calculateMinBetPerTx: function(){
+    return EOSBetSlots.minBetPerTx;
   },
 
   parseData: function(data){
@@ -549,17 +549,10 @@ function initUI(){
     value: 9,
     slide: function(event, ui){
       $('#current-number-spins').text(spinCountValues[ui.value]);
-      // calculate total bet stuff
-      var totalBet = spinCountValues[ui.value] * parseFloat($('#bet-per-spin').val());
-      var minBet = parseFloat(web3.fromWei(EOSBetSlots.minBetPerTx, 'ether'));
 
-      if (minBet > totalBet){
-        $('#total-bet').html('<text style="color:red !important;">' + totalBet.toString().slice(0, 7) + '</text>');
-      }
-      else {
-        $('#total-bet').html(totalBet.toString().slice(0, 7));
-      }
-    },
+      // calculate total bet stuff
+      updateTotalBet(spinCountValues[ui.value])
+    }
   });
 
   // max and min buttons
@@ -597,6 +590,27 @@ function initUI(){
       $('#bet-per-spin').val(web3.fromWei(halfBet, 'ether'));
     }
   });
+
+  $('#bet-per-spin').on('input', function(){
+    updateTotalBet(null);
+  })
+}
+
+function updateTotalBet(numSpins){
+  var betPerSpin = parseFloat($('#bet-per-spin').val());
+
+  if (numSpins === null){
+    numSpins = numberSpinsValue();
+  }
+
+  var totalBet = betPerSpin * numSpins;
+
+  if (totalBet < parseFloat(web3.fromWei(EOSBetSlots.calculateMinBetPerTx(), "ether"))){
+    $('#total-bet').html('<text style="color:red !important;">' + totalBet.toString().slice(0, 7) + '</text>');
+  }
+  else {
+    $('#total-bet').html('<text>' + totalBet.toString().slice(0, 7) + '</text>');
+  }
 }
 
 function numberSpinsValue(){

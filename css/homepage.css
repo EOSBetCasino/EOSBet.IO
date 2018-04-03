@@ -33,7 +33,7 @@ a {
 }
 .dropdown-menu{
 	background-color: #333333;
-	opacity: 0.87;
+	opacity: 0.92;
 }
 .dropdown-item{
 	text-align: right;
@@ -325,7 +325,7 @@ a {
 	text-transform: uppercase;
 	text-shadow: 0 0 5px white;
 	text-align: center;
-	font-weight: 300;
+	font-weight: 400;
 }
 
 @media (min-width: 0px){
