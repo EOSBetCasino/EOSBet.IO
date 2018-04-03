@@ -294,7 +294,7 @@ const EOSBetDice = {
     EOSBetDice.rollData = hexToBinary(data.slice(66, 322)).slice(0, rolls);
   },
 
-  rollDice: async function(){
+  rollDice: function(){
     var win = EOSBetDice.rollData.charAt(EOSBetDice.onRoll) === '1';
 
     var houseEdgeMult = ((100 - EOSBetDice.houseEdge) / 100).toString();
@@ -308,7 +308,7 @@ const EOSBetDice = {
 
     EOSBetDice.onRoll += 1;
 
-    await rollingDice(win, EOSBetDice.rollUnder, winSize, EOSBetDice.onRoll, EOSBetDice.totalRolls, EOSBetDice.betPerRoll, EOSBetDice.currentProfit);
+    rollingDice(win, EOSBetDice.rollUnder, winSize, EOSBetDice.onRoll, EOSBetDice.totalRolls, EOSBetDice.betPerRoll, EOSBetDice.currentProfit);
   },
 
   calculateMaxBet: function(rollUnder){
@@ -553,7 +553,7 @@ function rollsReady(betPerRoll, totalProfit, maxRolls, rollUnder){
 }
 
 
-async function rollingDice(win, rollUnder, winSize, onRoll, totalRolls, betPerRoll, currentProfit){
+function rollingDice(win, rollUnder, winSize, onRoll, totalRolls, betPerRoll, currentProfit){
   // disable the ROLL button
   $('#roll-dice').addClass('disabled');
   $('#roll-dice').off('click');
