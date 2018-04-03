@@ -11,7 +11,7 @@ mkdir build/js && mkdir build/css && mkdir build/abi && mkdir build/img
 
 # minify html
 for filename in *.html; do
-	npx html-minifier  --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype $filename -o build/$filename
+	npx html-minifier  --collapse-whitespace --remove-comments --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype $filename -o build/$filename
 done
 
 echo "Built html!"
