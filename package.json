@@ -4,7 +4,8 @@
   "description": "Website for beta games on ethereum main-net and crowdsale",
   "main": "index.html",
   "scripts": {
-    "dev": "lite-server",
+    "dev": "lite-server --baseDir='./'",
+    "prod": "lite-server --baseDir='build'",
     "pretest": "eslint --ignore-path .eslintignore ."
   },
   "repository": {
@@ -29,11 +30,17 @@
   },
   "homepage": "https://github.com/EOSBetIO/EOSBet.IO#readme",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "cssnano": "^3.10.0",
     "eslint": "^4.19.1",
     "eslint-config-strongloop": "^2.1.0",
-    "lite-server": "^2.3.0"
+    "html-minifier": "^3.5.13",
+    "lite-server": "^2.3.0",
+    "uglify-js": "^3.3.18"
   },
   "dependencies": {
+    "ajv": "^5.5.2",
     "npm": "^5.8.0"
   }
 }
