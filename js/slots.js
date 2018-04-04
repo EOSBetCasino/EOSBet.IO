@@ -247,21 +247,15 @@ const EOSBetSlots = {
         console.log('error while purchasing credits ---', error);
       }
       else {
-        $('#game-info').show();
-        $('#game-info').html('Transaction waiting to be mined...');
+        $('#game-info').html('<div class="alert alert-info">Transaction waiting to be mined...</div>');
         var txHash = result;
         var txReceipt = await getTransactionReceiptMined(txHash);
 
         if (txReceipt.logs.length === 0){
-          $('#game-info').html('UH OH! Transaction seemed to fail! Please try again, or check etherscan for more info...');
+          $('#game-info').html('<div class="alert alert-danger">UH OH! Transaction seemed to fail! Please try again, or check etherscan for more info...</div>');
         }
-        else if (txReceipt.logs.length === 1){
-          var data = txReceipt.logs[0]['data'];
-
-          EOSBetSlots.parseData(data);
-        }
-        else if (txReceipt.logs.length === 2){
-          $('#game-info').html('transaction mined! getting provably fair randomness! spins will be ready in a sec...');
+        else{
+          $('#game-info').html('<div class="alert alert-success">Transaction mined! Please wait, fetching provable randomness from our provider...</div>');
           // BuyCredits topic
           var resultTopic = '0xc97a66505c1c68fd69c7d907e99a861eb4cf9a33460059bee6f6ec5a9e677931';
           // Ledger Proof Failed topic
@@ -294,7 +288,7 @@ const EOSBetSlots = {
               watchForResult.stopWatching();
               watchForFail.stopWatching();
 
-              $('#game-info').html('We apologize, but the random number has not passed our test of provable randomness, so all your ether has been refunded. Please feel free to play again, or read more about our instantly provable randomness generation <a href="/support.html">here</a>. We strive to bring the best online gambling experience at EOSBet.IO, and occasionally the random numbers generated do not pass our stringent testing.');
+              $('#game-info').html('<div class="alert alert-danger">We apologize, but the random number has not passed our test of provable randomness, so all your ether has been refunded. Please feel free to play again, or read more about our instantly provable randomness generation <a href="/support.html">here</a>. We strive to bring the best online gambling experience at EOSBet.IO, and occasionally the random numbers generated do not pass our stringent testing.</div>');
             }
           });
         }
@@ -329,7 +323,7 @@ const EOSBetSlots = {
     $('#spins-remaining').text(EOSBetSlots.credits);
     $('#total-profit').text('0');
 
-    $('#game-info').hide();
+    $('#game-info').html('');
     $('#place-bets').hide();
     $('#spin-bets').show();
 
@@ -544,14 +538,14 @@ function initUI(){
   $('#number-spins').slider({
     orientation: 'horizontal',
     range: 'min',
-    min: 0,
-    max: spinCountValues.length - 1,
-    value: 9,
+    min: 1,
+    max: 224,
+    value: 10,
     slide: function(event, ui){
-      $('#current-number-spins').text(spinCountValues[ui.value]);
+      $('#current-number-spins').text(ui.value);
 
       // calculate total bet stuff
-      updateTotalBet(spinCountValues[ui.value])
+      updateTotalBet(ui.value);
     }
   });
 
@@ -559,11 +553,15 @@ function initUI(){
   $('#max-bet-per-spin-btn').click(function(){
     var maxBet = EOSBetSlots.calculateMaxBet();
     $('#bet-per-spin').val(web3.fromWei(maxBet, 'ether'));
+
+    updateTotalBet(null);
   });
 
   $('#min-bet-per-spin-btn').click(function(){
     var minBetPerSpin = EOSBetSlots.calculateMinBetPerSpin();
     $('#bet-per-spin').val(web3.fromWei(minBetPerSpin, 'ether'));
+
+    updateTotalBet(null);
   });
 
   // double and half bet buttons
@@ -577,6 +575,8 @@ function initUI(){
     else {
       $('#bet-per-spin').val(web3.fromWei(doubleBet, 'ether'));
     }
+
+    updateTotalBet(null);
   });
 
   $('#half-bet-per-spin-btn').click(function(){
@@ -589,6 +589,8 @@ function initUI(){
     else {
       $('#bet-per-spin').val(web3.fromWei(halfBet, 'ether'));
     }
+
+    updateTotalBet(null);
   });
 
   $('#bet-per-spin').on('input', function(){
@@ -597,6 +599,9 @@ function initUI(){
 }
 
 function updateTotalBet(numSpins){
+  // skip this is web3 isn't defined
+  if (typeof web3 === 'undefined') return;
+  
   var betPerSpin = parseFloat($('#bet-per-spin').val());
 
   if (numSpins === null){
@@ -614,5 +619,5 @@ function updateTotalBet(numSpins){
 }
 
 function numberSpinsValue(){
-  return spinCountValues[$('#number-spins').slider('option', 'value')];
+  return $('#number-spins').slider('option', 'value');
 }

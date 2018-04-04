@@ -230,56 +230,58 @@ const EOSBetDice = {
       if (error){
         console.log('error while purchasing rolls ---', error);
       }
+
       else {
-        $('#game-info').show();
-        $('#game-info').html('Transaction waiting to be mined...');
+        $('#game-info').html('<br /><div class="alert alert-info">Transaction waiting to be mined...</div>');
         var txHash = result;
         var txReceipt = await getTransactionReceiptMined(txHash);
 
-        $('#game-info').removeClass('alert-info').addClass('alert-success');
-        $('#game-info').html('Transaction mined! Please wait, fetching provable randomness from our provider...');
+        if (txReceipt.logs.length === 0){
+          $('#game-info').html('<br /><div class="alert alert-danger">UH OH! Transaction seemed to fail! Please try again, or check etherscan for more info...</div>');
+        }
+        else {
+          $('#game-info').html('<br /><div class="alert alert-success">Transaction mined! Please wait, fetching provable randomness from our provider...</div>');
 
-        var resultTopic = '0xb9d44d01b9e36e98413c2ed40b61f560e40595343f3cc734c988da4db5dd6563';
-        var ledgerProofFailTopic = '0x2576aa524eff2f518901d6458ad267a59debacb7bf8700998dba20313f17dce6';
-        var oraclizeQueryId = txReceipt.logs[1]['topics'][1];
+          var resultTopic = '0xb9d44d01b9e36e98413c2ed40b61f560e40595343f3cc734c988da4db5dd6563';
+          var ledgerProofFailTopic = '0x2576aa524eff2f518901d6458ad267a59debacb7bf8700998dba20313f17dce6';
+          var oraclizeQueryId = txReceipt.logs[1]['topics'][1];
 
-        var watchForResult = web3.eth.filter({topics: [resultTopic, oraclizeQueryId], fromBlock: 'pending', to: EOSBetDice.diceInstance.address});
-        var watchForFail = web3.eth.filter({topics: [ledgerProofFailTopic, oraclizeQueryId], fromBlock: 'pending', to: EOSBetDice.diceInstance.address});
+          var watchForResult = web3.eth.filter({topics: [resultTopic, oraclizeQueryId], fromBlock: 'pending', to: EOSBetDice.diceInstance.address});
+          var watchForFail = web3.eth.filter({topics: [ledgerProofFailTopic, oraclizeQueryId], fromBlock: 'pending', to: EOSBetDice.diceInstance.address});
 
-        watchForResult.watch(function(error, result){
-          if (error){
-            console.log('error while fetching result event', error);
-          }
-          else {
+          watchForResult.watch(function(error, result){
+            if (error){
+              console.log('error while fetching result event', error);
+            }
+            else {
 
-            watchForResult.stopWatching();
-            watchForFail.stopWatching();
+              watchForResult.stopWatching();
+              watchForFail.stopWatching();
 
-            var data = result.data;
+              var data = result.data;
 
-            EOSBetDice.parseRolls(data);
-          }
-        });
+              EOSBetDice.parseRolls(data);
+            }
+          });
 
-        watchForFail.watch(function(error, result){
-          if (error){
-            console.log('ledger proof failed, but error', error);
-          }
-          else {
-            watchForResult.stopWatching();
-            watchForFail.stopWatching();
-            $('#game-info').removeClass('alert-success').addClass('alert-danger');
-            $('#game-info').html('We apologize, but the random number has not passed our test of provable randomness, so all your ether has been refunded. Please feel free to play again, or read more about our instantly provable randomness generation <a href="/support.html">here</a>. We strive to bring the best online gambling experience at EOSBet.IO, and occasionally the random numbers generated do not pass our stringent testing.');
-          }
-        });
-
+          watchForFail.watch(function(error, result){
+            if (error){
+              console.log('ledger proof failed, but error', error);
+            }
+            else {
+              watchForResult.stopWatching();
+              watchForFail.stopWatching();
+              $('#game-info').html('<br /><div class="alert alert-danger">We apologize, but the random number has not passed our test of provable randomness, so all your ether has been refunded. Please feel free to play again, or read more about our instantly provable randomness generation <a href="/support.html">here</a>. We strive to bring the best online gambling experience at EOSBet.IO, and occasionally the random numbers generated do not pass our stringent testing.</div>');
+            }
+          });
+        }
       }
     });
   },
 
   parseRolls: function(data){
     // NOTE: fade out roll selection screen, fade in the roll screen
-    $('#game-info').hide();
+    $('#game-info').html('');
     $('#roll-dice').show();
 
     EOSBetDice.currentProfit = EOSBetDice.totalBet;
@@ -424,7 +426,7 @@ function initUI(){
     orientation: 'horizontal',
     range: 'min',
     min: 2,
-    max: 99,
+    max: 97,
     value: 50,
     create: function(){
       $('#current-roll-under').text($(this).slider('value'));
@@ -432,14 +434,18 @@ function initUI(){
     slide: function(event, ui){
       $('#current-roll-under').text(ui.value);
 
-      var maxBet = EOSBetDice.calculateMaxBet(parseFloat(ui.value));
+      if (typeof web3 === 'undefined') return;
+      // if the roll under gets so low, that the player would win a large amount, scale this down
+      else {
+        var maxBet = EOSBetDice.calculateMaxBet(parseFloat(ui.value));
 
-      if ($('#bet-per-roll').val() > maxBet){
-        $('#bet-per-roll').val(maxBet);
+        if ($('#bet-per-roll').val() > maxBet){
+          $('#bet-per-roll').val(maxBet);
+        }
+        insertProfitPerRoll(ui.value);
+
+        updateGuaranteedRollsSlider_withFixedRolls();
       }
-      insertProfitPerRoll(ui.value);
-
-      updateGuaranteedRollsSlider_withFixedRolls();
     },
   });
 
@@ -478,6 +484,9 @@ function numberRollsValue(){
 
 
 function insertProfitPerRoll(rollUnderValue){
+  // skip if no web3
+  if (typeof web3 === 'undefined') return;
+
   var profit = EOSBetDice.calculateProfit(parseFloat($('#bet-per-roll').val()), rollUnderValue);
   $('#current-profit-per-roll').html(profit.toString().slice(0, 4) + 'x');
 }
@@ -495,6 +504,9 @@ function updateGuaranteedRollsSlider_withFixedRolls(){
 }
 
 function updateGuaranteedRollsSlider(numberRolls){
+  // skip this if no web3
+  if (typeof web3 === 'undefined') return;
+
   var betPerRoll = parseFloat($('#bet-per-roll').val());
 
   if (!isNaN(betPerRoll) && betPerRoll !== 0){
@@ -522,6 +534,9 @@ function updateGuaranteedRollsSlider(numberRolls){
 }
 
 function updateTotalBet(guarRollsValue){
+  // skip this is web3 isn't defined
+  if (typeof web3 === 'undefined') return;
+
   var betPerRoll = parseFloat($('#bet-per-roll').val());
 
   if (guarRollsValue === null){
@@ -536,8 +551,11 @@ function updateTotalBet(guarRollsValue){
   else {
     $('#total-bet').html('<text>' + totalBet.toString().slice(0, 7) +'</text>');
   }
-
 }
+
+/////////////////////
+// this is all the animation stuff and roll parsing
+/////////////////////
 
 // gets triggered when the transaction has returned from oraclize
 function rollsReady(betPerRoll, totalProfit, maxRolls, rollUnder){
