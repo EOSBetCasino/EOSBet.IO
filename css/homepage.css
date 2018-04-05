@@ -59,13 +59,18 @@ section{
 #splash{
 	background: url("../img/homepage/Hero @2x.png") no-repeat;
 }
-#casino-features, #bankroll-features{
+#casino-features, #bankroll-features, #error{
 	background: url("../img/homepage/Hero @1x.png") no-repeat;
 	background-color: #333333;
 	color: #FFFFFF;
 	text-align: center;
 }
-#splash, #bankroll-features, #casino-features{
+#what-is-eosbetio{
+	background: url("../img/dice/Background @1x.png") no-repeat;
+	background-color: black;
+	text-align: center;
+}
+#splash, #bankroll-features, #casino-features, #what-is-eosbetio{
 	background-size: cover;
   	background-position: center center;
   	height: 100%;
@@ -212,14 +217,7 @@ section{
 /*end games and bankroll section of the homepage*/
 
 /*what is eosbet.io section*/
-#what-is-eosbetio{
-	background: url("../img/dice/Background @1x.png") no-repeat;
-	background-color: black;
-  	background-size: cover;
-  	background-position: center center;
-  	height: 100%;
-  	width: 100%;
-}
+
 /*end what is eosbet.io section*/
 
 /*airdrop and crowdsale section of the homepage*/
@@ -663,4 +661,40 @@ section{
 }
 
 /*end slots specific css*/
+
+/*support page*/
+
+#faq{
+	background-color: #333333;
+}
+
+.card{
+	margin-top: 1em;
+	box-shadow: 0 6px 6px rgba(0,0,0,0.16), 0 6px 6px rgba(0,0,0,0.23);
+	border-color: black;
+	border-radius: 5px 5px 5px 5px;
+}
+.card-header{
+	background-color: #595959;
+	border-radius: 5px 5px 5px 5px;
+	
+}
+.card-body{
+	background-color: #7A7A7A;
+	border-radius: 0 0 5px 5px;
+	color: white;
+}
+
+.card-btn{
+	background: rgba(0,0,0,0);
+	color: #69BBFF;
+}
+.card-header .collapsed-arrow{
+  transition: .5s transform ease-in-out;
+}
+.card-header .collapsed .collapsed-arrow{
+	transform: rotate(180deg);
+}
+
+/*end support page*/
 
