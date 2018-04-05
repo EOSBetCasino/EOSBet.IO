@@ -149,6 +149,7 @@ section{
 	color: #FFFFFF;
 	text-align: center;
 	padding-bottom: 40px;
+	text-transform: uppercase;
 }
 .feature-title:after{
 	content: '';
@@ -336,6 +337,7 @@ section{
 }
 
 .game-message{
+	/**/
 	color: #FFFFFF;
 	text-transform: uppercase;
 	text-shadow: 0 0 5px white;
@@ -345,6 +347,7 @@ section{
 
 @media (min-width: 0px){
 	.game-message{
+		margin-top: 0px;
 		font-size: 230%;
 	}
 	.how-to-play-btn{
@@ -363,7 +366,8 @@ section{
 }
 @media (min-width: 768px){
 	.game-message{
-		font-size: 280%;
+		margin-top: 30px;
+		font-size: 250%;
 	}
 }
 @media (min-width: 992px){
