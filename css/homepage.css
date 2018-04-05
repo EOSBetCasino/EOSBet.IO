@@ -9,6 +9,9 @@ b {
 a {
 	color: #69BBFF;
 }
+section{
+	box-shadow: 0 -3px 3px #353535;
+}
 
 .alert-info{
 	background-color: #69BBFF;
@@ -70,7 +73,7 @@ a {
 }
 
 .top-padding{
-	padding-top: 80vh;
+	padding-top: 75vh;
 }
 
 .cta-message{
@@ -84,8 +87,9 @@ a {
 }
 
 .cta-header{
-	font-size: 300%;
-	font-weight: 300;
+	font-size: 350%;
+	font-weight: 100;
+	letter-spacing: 10px;
 }
 
 .cta-subheader{
@@ -139,7 +143,7 @@ a {
 	line-height: 29px;
 	color: #FFFFFF;
 	text-align: center;
-	padding-bottom: 20px;
+	padding-bottom: 40px;
 }
 .feature-title:after{
 	content: '';
@@ -207,6 +211,17 @@ a {
 
 /*end games and bankroll section of the homepage*/
 
+/*what is eosbet.io section*/
+#what-is-eosbetio{
+	background: url("../img/dice/Background @1x.png") no-repeat;
+	background-color: black;
+  	background-size: cover;
+  	background-position: center center;
+  	height: 100%;
+  	width: 100%;
+}
+/*end what is eosbet.io section*/
+
 /*airdrop and crowdsale section of the homepage*/
 
 #airdrop-and-crowdsale{
@@ -217,12 +232,14 @@ a {
 	font-weight: 500;
 	font-size: 30px;
 	text-shadow: 0 0 5px white;
+	padding-bottom: 20px;
 }
 .ico-text-md{
 	color: white;
 	font-weight: 300;
 	font-size: 25px;
 	text-shadow: 0 0 5px white;
+	padding-bottom: 10px;
 }
 
 /*end airdrop and crowdsale section of the homepage*/
