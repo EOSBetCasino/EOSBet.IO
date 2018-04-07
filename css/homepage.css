@@ -174,11 +174,16 @@ section{
 	text-shadow: 0 0 4px rgba(28, 243, 255, 1)
 }
 
-.feature-img{
+.feature-img-1x{
 	padding-top: 20px;
 	padding-bottom: 20px;
 	width: 80px;
-	/*height: 80px;*/
+}
+
+.feature-img-2x{
+	padding-top: 20px;
+	padding-bottom: 20px;
+	width: 120px;
 }
 
 .feature-element{
@@ -212,7 +217,12 @@ section{
 
 .game-divider-line{
 	border-bottom: 2px solid;
-	border-color: rgba(105, 187, 255, 0.6);
+	border-color: rgba(105, 187, 255, 0.8);
+}
+
+.game-divider-line-bold{
+	border-bottom: 2px solid;
+	border-color: #40f0f9;
 }
 
 /*end games and bankroll section of the homepage*/
