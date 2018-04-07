@@ -98,7 +98,7 @@ section{
 }
 
 .cta-subheader{
-	font-size: 150%;
+	font-size: 125%;
 }
 
 .cta{
@@ -192,6 +192,7 @@ section{
 	line-height: 25px;
 	color: white;
 	padding-bottom: 1em;
+	text-align: left;
 }
 
 /*end casino features section of the homepage, end bankroll features section of the bankroll*/
