@@ -426,11 +426,11 @@ const EOSBetSlots = {
     else if (EOSBetSlots.dial1Type === 2 && EOSBetSlots.dial2Type === 2 && EOSBetSlots.dial3Type === 2){
       winningsMultiple = 250;
     }
-    else if (EOSBetSlots.dial1Type >= 0 && EOSBetSlots.dial1Type <= 2 && EOSBetSlots.dial2Type >= 0 && EOSBetSlots.dial2Type <= 2 && EOSBetSlots.dial3Type >= 0 && EOSBetSlots.dial3Type <= 2){
-      winningsMultiple = 95;
-    }
     else if (EOSBetSlots.dial1Type === 5 && EOSBetSlots.dial1Type === 4 && EOSBetSlots.dial3Type === 3){
       winningsMultiple = 90;
+    }
+    else if (EOSBetSlots.dial1Type >= 0 && EOSBetSlots.dial1Type <= 2 && EOSBetSlots.dial2Type >= 0 && EOSBetSlots.dial2Type <= 2 && EOSBetSlots.dial3Type >= 0 && EOSBetSlots.dial3Type <= 2){
+      winningsMultiple = 70;
     }
     else if (EOSBetSlots.dial1Type === 3 && EOSBetSlots.dial2Type === 3 && EOSBetSlots.dial3Type === 3){
       winningsMultiple = 50;
@@ -442,7 +442,7 @@ const EOSBetSlots = {
             || (EOSBetSlots.dial1Type === 4 && ((EOSBetSlots.dial2Type === 3 && EOSBetSlots.dial3Type === 5) || (EOSBetSlots.dial2Type === 5 && EOSBetSlots.dial3Type === 3)))
             || EOSBetSlots.dial1Type === 5 && EOSBetSlots.dial2Type === 3 && EOSBetSlots.dial3Type === 4){
 
-      winningsMultiple = 20;
+      winningsMultiple = 15;
     }
     else if (EOSBetSlots.dial1Type === 5 && EOSBetSlots.dial2Type === 5 && EOSBetSlots.dial3Type === 5){
       winningsMultiple = 10;
