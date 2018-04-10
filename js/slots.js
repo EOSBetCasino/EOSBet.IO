@@ -87,7 +87,7 @@ const EOSBetSlots = {
         EOSBetSlots.web3Provider = web3.currentProvider;
 
         web3.version.getNetwork((error, result) => {
-          if (error || result !== '4'){
+          if (error || result !== '1'){
             launchWrongNetworkModal('EOSBet Proof-of-Concept Slots');
             return;
           }
@@ -109,7 +109,7 @@ const EOSBetSlots = {
       var slotsAbi = data;
 
       EOSBetSlots.Slots = web3.eth.contract(slotsAbi);
-      EOSBetSlots.slotsInstance = EOSBetSlots.Slots.at('0x271Dcb02Ae2B3B51D7FEc8c12EF2959B3f13357A');
+      EOSBetSlots.slotsInstance = EOSBetSlots.Slots.at('0x4A3e0c60f7Fa67E8B65C401ddbBF7C17Fea5fe40');
 
       return EOSBetSlots.getContractDetails(web3);
 

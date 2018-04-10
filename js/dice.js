@@ -68,7 +68,7 @@ const EOSBetDice = {
         EOSBetDice.web3Provider = web3.currentProvider;
 
         web3.version.getNetwork((error, result) => {
-          if (error || result !== '4'){
+          if (error || result !== '1'){
             launchWrongNetworkModal('EOSBet Proof-of-Concept Dice');
             return;
           }
@@ -93,7 +93,7 @@ const EOSBetDice = {
       var diceAbi = data;
 
       EOSBetDice.Dice = web3.eth.contract(diceAbi);
-      EOSBetDice.diceInstance = EOSBetDice.Dice.at('0x5284E4F0CD82276B95fE7902923D24cec57CC51c');
+      EOSBetDice.diceInstance = EOSBetDice.Dice.at('0xB533Ff572f5E33d04d02B149E7dCFe980E424c63');
 
       return EOSBetDice.getContractDetails(web3);
 
@@ -580,7 +580,8 @@ function rollingDice(win, rollUnder, winSize, onRoll, totalRolls, betPerRoll, cu
 
   // break if the rolls are completed.
   if (onRoll > totalRolls){
-    if (onRoll < totalRolls) $('#roll-dice').removeClass('disabled');
+    
+    $('#roll-dice').removeClass('disabled');
     $('#roll-dice').click(() => {
       EOSBetDice.rollDice();
     });
