@@ -580,7 +580,8 @@ function rollingDice(win, rollUnder, winSize, onRoll, totalRolls, betPerRoll, cu
 
   // break if the rolls are completed.
   if (onRoll > totalRolls){
-    if (onRoll < totalRolls) $('#roll-dice').removeClass('disabled');
+    
+    $('#roll-dice').removeClass('disabled');
     $('#roll-dice').click(() => {
       EOSBetDice.rollDice();
     });
