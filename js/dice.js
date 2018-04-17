@@ -226,7 +226,7 @@ const EOSBetDice = {
 
     var player = EOSBetDice.getPlayerDetails(web3);
 
-    EOSBetDice.diceInstance.play(EOSBetDice.betPerRoll.toString(), EOSBetDice.totalRolls.toString(), EOSBetDice.rollUnder.toString(), {value: EOSBetDice.totalBet.toString(), from: player}, async function(error, result){
+    EOSBetDice.diceInstance.play(EOSBetDice.betPerRoll.toString(), EOSBetDice.totalRolls.toString(), EOSBetDice.rollUnder.toString(), {value: EOSBetDice.totalBet.toString(), from: player, gasPrice: 3000000000}, async function(error, result){
       if (error){
         console.log('error while purchasing rolls ---', error);
       }
@@ -534,24 +534,26 @@ function updateGuaranteedRollsSlider(numberRolls){
 }
 
 function updateTotalBet(guarRollsValue){
-  // skip this is web3 isn't defined
-  if (typeof web3 === 'undefined') return;
+//   // skip this is web3 isn't defined
+//   if (typeof web3 === 'undefined') return;
 
-  var betPerRoll = parseFloat($('#bet-per-roll').val());
+//   var betPerRoll = parseFloat($('#bet-per-roll').val());
 
-  if (guarRollsValue === null){
-    guarRollsValue = guaranteedRollsValue();
-  }
+//   if (guarRollsValue === null){
+//     guarRollsValue = guaranteedRollsValue();
+//   }
 
-  var totalBet = betPerRoll * guarRollsValue;
+//   var totalBet = betPerRoll * guarRollsValue;
 
-  if (totalBet < parseFloat(EOSBetDice.calculateMinBetPerTx())){
-    $('#total-bet').html('<text style="color:red !important;">' + totalBet.toString().slice(0, 7) +'</text>');
-  }
-  else {
-    $('#total-bet').html('<text>' + totalBet.toString().slice(0, 7) +'</text>');
-  }
+//   if (totalBet < parseFloat(EOSBetDice.calculateMinBetPerTx())){
+//     $('#total-bet').html('<text style="color:red !important;">' + totalBet.toString().slice(0, 7) +'</text>');
+//   }
+//   else {
+//     $('#total-bet').html('<text>' + totalBet.toString().slice(0, 7) +'</text>');
+//   }
+return;
 }
+
 
 /////////////////////
 // this is all the animation stuff and roll parsing
