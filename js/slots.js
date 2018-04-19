@@ -195,7 +195,7 @@ const EOSBetSlots = {
     }
     else {
       var playersAccount = accounts[0];
-      $('#players-address').html(String(playersAccount));
+      $('#your-address').html(String(playersAccount));
 
       // get players current eth balance
       web3.eth.getBalance(playersAccount, function(error, result){
@@ -203,7 +203,7 @@ const EOSBetSlots = {
           console.log('could not get players balance');
         }
         else {
-          $('#players-balance').html(web3.fromWei(result, 'ether').toString());
+          $('#your-balance').html(web3.fromWei(result, 'ether').toString());
           EOSBetSlots.playerBalance = result;
         }
       });
@@ -508,6 +508,8 @@ function updateTicker(onRoll, totalRolls, currentProfit, cssColor){
 
   $('#spins-remaining').text((EOSBetSlots.credits - EOSBetSlots.onCredit).toString());
   $('#total-profit').text(EOSBetSlots.totalProfit.toString().slice(0, 8));
+
+  EOSBetSlots.getPlayerDetails(web3);
 
   setTimeout(() => {
     $('#spins-remaining').css({color: 'white'});
