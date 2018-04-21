@@ -87,7 +87,7 @@ const EOSBetSlots = {
         EOSBetSlots.web3Provider = web3.currentProvider;
 
         web3.version.getNetwork((error, result) => {
-          if (error || result !== '4'){
+          if (error || result !== '1'){
             launchWrongNetworkModal('EOSBet Proof-of-Concept Slots');
             return;
           }
@@ -109,7 +109,7 @@ const EOSBetSlots = {
       var slotsAbi = data;
 
       EOSBetSlots.Slots = web3.eth.contract(slotsAbi);
-      EOSBetSlots.slotsInstance = EOSBetSlots.Slots.at('0x271Dcb02Ae2B3B51D7FEc8c12EF2959B3f13357A');
+      EOSBetSlots.slotsInstance = EOSBetSlots.Slots.at('0x4A3e0c60f7Fa67E8B65C401ddbBF7C17Fea5fe40');
 
       return EOSBetSlots.getContractDetails(web3);
 
@@ -195,7 +195,7 @@ const EOSBetSlots = {
     }
     else {
       var playersAccount = accounts[0];
-      $('#players-address').html(String(playersAccount));
+      $('#your-address').html(String(playersAccount));
 
       // get players current eth balance
       web3.eth.getBalance(playersAccount, function(error, result){
@@ -203,7 +203,7 @@ const EOSBetSlots = {
           console.log('could not get players balance');
         }
         else {
-          $('#players-balance').html(web3.fromWei(result, 'ether').toString());
+          $('#your-balance').html(web3.fromWei(result, 'ether').toString());
           EOSBetSlots.playerBalance = result;
         }
       });
@@ -234,7 +234,7 @@ const EOSBetSlots = {
 
     var player = EOSBetSlots.getPlayerDetails(web3);
 
-    EOSBetSlots.slotsInstance.play(credits, {value: web3.toWei(totalBet, 'ether'), from: player}, async function(error, result){
+    EOSBetSlots.slotsInstance.play(credits, {value: web3.toWei(totalBet, 'ether'), from: player, gasPrice: 3000000000}, async function(error, result){
       if (error) {
         console.log('error while purchasing credits ---', error);
       }
@@ -508,6 +508,8 @@ function updateTicker(onRoll, totalRolls, currentProfit, cssColor){
 
   $('#spins-remaining').text((EOSBetSlots.credits - EOSBetSlots.onCredit).toString());
   $('#total-profit').text(EOSBetSlots.totalProfit.toString().slice(0, 8));
+
+  EOSBetSlots.getPlayerDetails(web3);
 
   setTimeout(() => {
     $('#spins-remaining').css({color: 'white'});

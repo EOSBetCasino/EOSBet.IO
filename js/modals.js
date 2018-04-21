@@ -69,7 +69,7 @@ function launchWrongNetworkModal(title){
   html += '<div class="modal-body">';
   var catchLine;
   title === 'EOSBet Proof-of-Concept Dice' ? catchLine = 'rolling!' : title === 'EOSBet Proof-of-Concept Slots' ? catchLine = 'spinning!' : catchLine = 'collecting some dividends!';
-  html += '<text>Hello and welcome to ' + title.toString() + '! It seems you are on the wrong Ethereum network! Please change the network to Rinkeby, refresh the page, and then start ' + catchLine + '</text>';
+  html += '<text>Hello and welcome to ' + title.toString() + '! It seems you are on the wrong Ethereum network! Please change the network to the Mainnet, refresh the page, and then start ' + catchLine + '</text>';
   html += '<br />';
   html += '</div>';
   html += '<div class="modal-footer">';

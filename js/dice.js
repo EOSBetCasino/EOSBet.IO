@@ -68,7 +68,7 @@ const EOSBetDice = {
         EOSBetDice.web3Provider = web3.currentProvider;
 
         web3.version.getNetwork((error, result) => {
-          if (error || result !== '4'){
+          if (error || result !== '1'){
             launchWrongNetworkModal('EOSBet Proof-of-Concept Dice');
             return;
           }
@@ -93,7 +93,7 @@ const EOSBetDice = {
       var diceAbi = data;
 
       EOSBetDice.Dice = web3.eth.contract(diceAbi);
-      EOSBetDice.diceInstance = EOSBetDice.Dice.at('0x5284E4F0CD82276B95fE7902923D24cec57CC51c');
+      EOSBetDice.diceInstance = EOSBetDice.Dice.at('0xB533Ff572f5E33d04d02B149E7dCFe980E424c63');
 
       return EOSBetDice.getContractDetails(web3);
 
@@ -188,7 +188,7 @@ const EOSBetDice = {
     }
     else {
       var playersAccount = accounts[0];
-      $('#players-address').html(String(playersAccount));
+      $('#your-address').text(playersAccount.toString());
 
       // get players balance in ether
       web3.eth.getBalance(playersAccount, function(error, result){
@@ -196,7 +196,7 @@ const EOSBetDice = {
           console.log('could not get players balance');
         }
         else {
-          $('#players-balance').html(web3.fromWei(result, 'ether').toString());
+          $('#your-balance').text(web3.fromWei(result, 'ether').toString());
           EOSBetDice.playerBalance = result;
         }
       });
@@ -226,7 +226,7 @@ const EOSBetDice = {
 
     var player = EOSBetDice.getPlayerDetails(web3);
 
-    EOSBetDice.diceInstance.play(EOSBetDice.betPerRoll.toString(), EOSBetDice.totalRolls.toString(), EOSBetDice.rollUnder.toString(), {value: EOSBetDice.totalBet.toString(), from: player}, async function(error, result){
+    EOSBetDice.diceInstance.play(EOSBetDice.betPerRoll.toString(), EOSBetDice.totalRolls.toString(), EOSBetDice.rollUnder.toString(), {value: EOSBetDice.totalBet.toString(), from: player, gasPrice: 3000000000}, async function(error, result){
       if (error){
         console.log('error while purchasing rolls ---', error);
       }
@@ -534,24 +534,26 @@ function updateGuaranteedRollsSlider(numberRolls){
 }
 
 function updateTotalBet(guarRollsValue){
-  // skip this is web3 isn't defined
-  if (typeof web3 === 'undefined') return;
+//   // skip this is web3 isn't defined
+//   if (typeof web3 === 'undefined') return;
 
-  var betPerRoll = parseFloat($('#bet-per-roll').val());
+//   var betPerRoll = parseFloat($('#bet-per-roll').val());
 
-  if (guarRollsValue === null){
-    guarRollsValue = guaranteedRollsValue();
-  }
+//   if (guarRollsValue === null){
+//     guarRollsValue = guaranteedRollsValue();
+//   }
 
-  var totalBet = betPerRoll * guarRollsValue;
+//   var totalBet = betPerRoll * guarRollsValue;
 
-  if (totalBet < parseFloat(EOSBetDice.calculateMinBetPerTx())){
-    $('#total-bet').html('<text style="color:red !important;">' + totalBet.toString().slice(0, 7) +'</text>');
-  }
-  else {
-    $('#total-bet').html('<text>' + totalBet.toString().slice(0, 7) +'</text>');
-  }
+//   if (totalBet < parseFloat(EOSBetDice.calculateMinBetPerTx())){
+//     $('#total-bet').html('<text style="color:red !important;">' + totalBet.toString().slice(0, 7) +'</text>');
+//   }
+//   else {
+//     $('#total-bet').html('<text>' + totalBet.toString().slice(0, 7) +'</text>');
+//   }
+return;
 }
+
 
 /////////////////////
 // this is all the animation stuff and roll parsing
@@ -648,6 +650,8 @@ function updateTicker(onRoll, totalRolls, currentProfit, cssColor){
 
   $('#max-rolls').text(onRoll.toString() + '/' + totalRolls.toString());
   $('#current-profit').text(web3.fromWei(currentProfit, 'ether').slice(0, 8));
+
+  EOSBetDice.getPlayerDetails(web3);
 
   setTimeout(() => {
     $('.in-game-stats').css({color: 'white'});

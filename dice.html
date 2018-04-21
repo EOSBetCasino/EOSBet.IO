@@ -8,14 +8,14 @@
 		<meta property="og:url" content="http://eosbet.io">
 		<meta property="og:title" content="EOSBet.IO Fully Decentralized Gambling">
 		<meta property="og:description" content="The World's First Fully Decentralized Smart Casino. Play our games right now!">
-		<meta property="og:image" content="https://www.eosbet.io/img/homepage/Nav%20Logo%20@1x.png">
+		<meta property="og:image" content="https://www.eosbet.io/img/homepage/Splash%20Logo%20@1x.png">
 
 		<!-- for twitter -->
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:domain" value="eosbet.io">
 		<meta name="twitter:title" value="EOSBet.IO Fully Decentralized Gambling">
 		<meta name="twitter:description" value="The World's First Fully Decentralized Smart Casino. Play our games right now!">
-		<meta name="twitter:image" value="https://www.eosbet.io/img/homepage/Nav%20Logo%20@1x.png">
+		<meta name="twitter:image" value="https://www.eosbet.io/img/homepage/Splash%20Logo%20@1x.png">
 		<meta name="twitter:url" value="http://eosbet.io">
 		
 		<meta charset="utf-8">
@@ -102,9 +102,10 @@
 							<br />
 							<div class="stat"><span class="stat-num" id="max-win">0</span>&ensp;Max Win</div>
 							<br />
-							<div class="stat"><span class="stat-num" id="min-bet-per-roll">0</span>&ensp;Min Bet Per Spin</div>
-							<br />
-							<div class="stat"><span class="stat-num" id="min-bet-per-tx">0</span>&ensp;Min Bet Per Transaction</div>
+							<div class="stat"><span class="stat-num" id="min-bet-per-roll">0</span>&ensp;Min Bet</div>
+							<!--Per Spin -->
+							<!-- <br />
+							<div class="stat"><span class="stat-num" id="min-bet-per-tx">0</span>&ensp;Min Bet Per Transaction</div> -->
 
 						</div>
 						<div class="how-to-play-btn">
@@ -122,6 +123,8 @@
 				   						</button>
 									</div>
 									<div class="modal-body">
+										View contract on <a href="https://etherscan.io/address/0xb533ff572f5e33d04d02b149e7dcfe980e424c63#code" target="_blank">Etherscan</a>!
+										<br /><br />
 										Dice is the most popular cryptocurrency betting game in the world because it’s simple, fun, and allows you to adjust the risk and reward to your liking. You are betting on the outcome of a 100-sided dice; if you roll under the number you choose then you win! 
 										<br /><br />
 										Playing Dice is easy!
@@ -144,7 +147,7 @@
 										<br /><br />
 										<b>4)</b> Wait for your transaction to be confirmed by the network and then roll away! 
 										<br /><br />
-										<b>House Edge: 0.5%</b>
+										<b>House Edge: 0.8%</b>
 									</div>
 
 									<div class="modal-footer">
@@ -161,6 +164,13 @@
 
 		<section id="dice">
 			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-lg-6 col-md-8 col-sm-10 feature-element" style="top: 30px; font-size: 11px; text-align: right; right: 10px;">
+						<div class="stat" style="padding-bottom: 10px;">Your Address:&ensp;<span id="your-address">0x</span></div>
+						<div class="stat">Your Balance:&ensp;<span id="your-balance">0</span>&ensp;ether</div>
+					</div>
+				</div>
+
 				<div class="row justify-content-center">
 					<div class="col-lg-6 col-md-8 col-sm-10 place-bets-dice" id="place-bets">
 
@@ -231,7 +241,7 @@
 							</div>
 						</div>
 
-						<div class="row">
+						<!-- <div class="row">
 							<div class="col-9">
 								<div class="buy-box-text">Total Bet</div>
 							</div>
@@ -247,7 +257,7 @@
 							<div class="col-3">
 								<text id="min-bet-per-tx-2" class="buy-box-text">0.1</text>
 							</div>
-						</div>
+						</div> -->
 
 						<button type="button" class="btn cta-btn" id="buy-rolls" style="height: 50px;">Buy Rolls</button>
 
@@ -276,11 +286,6 @@
 			</div>
 
 		</section>
-
-
-
-
-
 
 
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>

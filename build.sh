@@ -34,6 +34,7 @@ echo "Built js!"
 # copy over images and ABI's
 cp -r img/* build/img
 cp -r abi/* build/abi
+cp -r *.pdf build
 
 
 echo "Build complete!"
