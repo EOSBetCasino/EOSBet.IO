@@ -89,11 +89,8 @@ const EOSBetSlots = {
         web3.version.getNetwork((error, result) => {
           if (error || result !== '1'){
             launchWrongNetworkModal('EOSBet Proof-of-Concept Slots');
-            return;
           }
-          else {
-            return EOSBetSlots.initContract(web3);
-          }
+          return EOSBetSlots.initContract(web3);
         });
       }
       else {
@@ -109,6 +106,8 @@ const EOSBetSlots = {
       var slotsAbi = data;
 
       EOSBetSlots.Slots = web3.eth.contract(slotsAbi);
+      // rinkeby address: 0x271Dcb02Ae2B3B51D7FEc8c12EF2959B3f13357A
+      // mainnet address: 0x4A3e0c60f7Fa67E8B65C401ddbBF7C17Fea5fe40
       EOSBetSlots.slotsInstance = EOSBetSlots.Slots.at('0x4A3e0c60f7Fa67E8B65C401ddbBF7C17Fea5fe40');
 
       return EOSBetSlots.getContractDetails(web3);
@@ -317,6 +316,7 @@ const EOSBetSlots = {
 
     $('#game-info').html('');
     $('#place-bets').hide();
+    $('#address-balance-stats').hide();
     $('#spin-bets').show();
 
   },
@@ -484,7 +484,12 @@ const EOSBetSlots = {
 
       setTimeout(() => {
         $('#spin-bets').hide();
+
+        // bring back the stats and the buy box
+        EOSBetSlots.getPlayerDetails(web3);
         $('#place-bets').show();
+        $('#address-balance-stats').show();
+
         $('#spin-wheel').removeClass('disabled');
         $('#spin-wheel').click(() => {
           EOSBetSlots.spinWheel();
@@ -508,8 +513,6 @@ function updateTicker(onRoll, totalRolls, currentProfit, cssColor){
 
   $('#spins-remaining').text((EOSBetSlots.credits - EOSBetSlots.onCredit).toString());
   $('#total-profit').text(EOSBetSlots.totalProfit.toString().slice(0, 8));
-
-  EOSBetSlots.getPlayerDetails(web3);
 
   setTimeout(() => {
     $('#spins-remaining').css({color: 'white'});

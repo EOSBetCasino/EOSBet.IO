@@ -70,12 +70,8 @@ const EOSBetDice = {
         web3.version.getNetwork((error, result) => {
           if (error || result !== '1'){
             launchWrongNetworkModal('EOSBet Proof-of-Concept Dice');
-            return;
           }
-          else {
-            // if everything is ok, then get contract details
-            return EOSBetDice.initContract(web3);
-          }
+          return EOSBetDice.initContract(web3);
         });
 
 
@@ -93,6 +89,8 @@ const EOSBetDice = {
       var diceAbi = data;
 
       EOSBetDice.Dice = web3.eth.contract(diceAbi);
+      // rinkeby address: 0x5284E4F0CD82276B95fE7902923D24cec57CC51c
+      // mainnet address: 0xB533Ff572f5E33d04d02B149E7dCFe980E424c63
       EOSBetDice.diceInstance = EOSBetDice.Dice.at('0xB533Ff572f5E33d04d02B149E7dCFe980E424c63');
 
       return EOSBetDice.getContractDetails(web3);
@@ -282,11 +280,19 @@ const EOSBetDice = {
   parseRolls: function(data){
     // NOTE: fade out roll selection screen, fade in the roll screen
     $('#game-info').html('');
-    $('#roll-dice').show();
+    $('#roll-bets').show();
+
+    // TODO: fade in and then fade out, instead of harsh hide <-> show
+    $('#place-bets').hide();
+    $('#address-balance-stats').hide();
+
+    // set values initially...
+    $('#bet-size').text(web3.fromWei(EOSBetDice.betPerRoll, 'ether').slice(0, 8));
+    $('#current-profit').text(web3.fromWei(EOSBetDice.totalBet, 'ether').slice(0, 8));
+    $('#max-rolls').text('0' + '/' + EOSBetDice.totalRolls.toString());
+    $('#lucky-number').html(EOSBetDice.rollUnder.toString());
 
     EOSBetDice.currentProfit = EOSBetDice.totalBet;
-
-    rollsReady(EOSBetDice.betPerRoll, EOSBetDice.totalBet, EOSBetDice.totalRolls, EOSBetDice.rollUnder);
 
     // get the amount of rolls that actually happened from the logs
     var rolls = parseInt(data.slice(2, 66), 16);
@@ -303,7 +309,6 @@ const EOSBetDice = {
     var profitMult = (100 / (EOSBetDice.rollUnder - 1)).toString();
 
     var winSize = EOSBetDice.betPerRoll.times(profitMult).times(houseEdgeMult).minus(EOSBetDice.betPerRoll);
-    console.log('rollin...');
 
     // increment or decrement current profit based on win or not
     win ? EOSBetDice.currentProfit = EOSBetDice.currentProfit.add(winSize) : EOSBetDice.currentProfit = EOSBetDice.currentProfit.minus(EOSBetDice.betPerRoll);
@@ -559,19 +564,6 @@ return;
 // this is all the animation stuff and roll parsing
 /////////////////////
 
-// gets triggered when the transaction has returned from oraclize
-function rollsReady(betPerRoll, totalProfit, maxRolls, rollUnder){
-  // set values initially...
-  $('#bet-size').text(web3.fromWei(betPerRoll, 'ether').slice(0, 8));
-  $('#current-profit').text(web3.fromWei(totalProfit, 'ether').slice(0, 8));
-  $('#max-rolls').text('0' + '/' + maxRolls.toString().slice(0, 8));
-  $('#lucky-number').html(rollUnder.toString().slice(0, 8));
-
-  // TODO: fade in and then fade out, instead of harsh hide <-> show
-  $('#place-bets').hide();
-  $('#roll-bets').show();
-}
-
 
 function rollingDice(win, rollUnder, winSize, onRoll, totalRolls, betPerRoll, currentProfit){
   // disable the ROLL button
@@ -651,8 +643,6 @@ function updateTicker(onRoll, totalRolls, currentProfit, cssColor){
   $('#max-rolls').text(onRoll.toString() + '/' + totalRolls.toString());
   $('#current-profit').text(web3.fromWei(currentProfit, 'ether').slice(0, 8));
 
-  EOSBetDice.getPlayerDetails(web3);
-
   setTimeout(() => {
     $('.in-game-stats').css({color: 'white'});
   }, 500);
@@ -666,7 +656,12 @@ function checkGameStatus(onRoll, totalRolls, currentProfit, betPerRoll){
     // TODO: animations needed
     setTimeout(() => {
       $('#roll-bets').hide();
+
+      // bring back the stats and the buy box
+      EOSBetDice.getPlayerDetails(web3);
       $('#place-bets').show();
+      $('#address-balance-stats').show();
+
       $('#roll-dice').removeClass('disabled');
     }, 5000);
   }
