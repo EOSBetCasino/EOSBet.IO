@@ -23,8 +23,7 @@ done
 
 echo "Built css!"
 
-
-# minify js and overwrite transpiled js
+# minify js
 for filename in js/*.js; do
 	npx uglifyjs -o build/$filename -- $filename 
 done
@@ -33,7 +32,6 @@ echo "Built js!"
 
 # copy over images and ABI's
 cp -r img/* build/img
-cp -r abi/* build/abi
 cp -r *.pdf build
 
 
