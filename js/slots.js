@@ -233,7 +233,7 @@ const EOSBetSlots = {
 
     var player = EOSBetSlots.getPlayerDetails(web3);
 
-    EOSBetSlots.slotsInstance.play(credits, {value: web3.toWei(totalBet, 'ether'), from: player, gasPrice: 3000000000}, async function(error, result){
+    EOSBetSlots.slotsInstance.play(credits, {value: web3.toWei(totalBet, 'ether'), from: player, gasPrice: 10000000000}, async function(error, result){
       if (error) {
         console.log('error while purchasing credits ---', error);
       }

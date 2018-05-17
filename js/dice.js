@@ -224,7 +224,7 @@ const EOSBetDice = {
 
     var player = EOSBetDice.getPlayerDetails(web3);
 
-    EOSBetDice.diceInstance.play(EOSBetDice.betPerRoll.toString(), EOSBetDice.totalRolls.toString(), EOSBetDice.rollUnder.toString(), {value: EOSBetDice.totalBet.toString(), from: player, gasPrice: 3000000000}, async function(error, result){
+    EOSBetDice.diceInstance.play(EOSBetDice.betPerRoll.toString(), EOSBetDice.totalRolls.toString(), EOSBetDice.rollUnder.toString(), {value: EOSBetDice.totalBet.toString(), from: player, gasPrice: 10000000000}, async function(error, result){
       if (error){
         console.log('error while purchasing rolls ---', error);
       }
