@@ -7,7 +7,7 @@ mkdir -p build
 rm -rf build/*
 
 # make directories in build folder
-mkdir build/js && mkdir build/css && mkdir build/abi && mkdir build/img
+mkdir build/assets && mkdir build/assets/css && mkdir build/assets/fonts && mkdir build/assets/js && mkdir build/images
 
 # minify html
 for filename in *.html; do
@@ -17,22 +17,24 @@ done
 echo "Built html!"
 
 # minify css
-for filename in css/*.css; do
+for filename in ./assets/css/*.css; do
 	npx csso $filename build/$filename
 done
 
 echo "Built css!"
 
 # minify js
-for filename in js/*.js; do
+for filename in ./assets/js/*.js; do
 	npx uglifyjs -o build/$filename -- $filename 
 done
 
 echo "Built js!"
 
-# copy over images and ABI's
-cp -r img/* build/img
+# copy over images, pdf, robots, fonts
+cp -r images/* build/images
 cp -r *.pdf build
+cp robots.txt build
+cp -r assets/fonts/* build/assets/fonts
 
 
 echo "Build complete!"

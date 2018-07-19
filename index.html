@@ -1,521 +1,891 @@
 <!DOCTYPE html>
+<html lang="en" class="js">
+<head>
+	<meta charset="utf-8">
 
-<html lang="en">
-	<head>
-		<!-- for unfurl: facebook, slack etc -->
-		<meta property="og:type" content="website">
-		<meta property="og:url" content="http://eosbet.io">
-		<meta property="og:title" content="EOSBet.IO Fully Decentralized Gambling">
-		<meta property="og:description" content="The World's First Fully Decentralized Smart Casino. Play our games right now!">
-		<meta property="og:image" content="https://www.eosbet.io/img/homepage/Splash%20Logo%20@1x.png">
+	<meta name="author" content="EOSBet Casino">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="EOSBet Casino is revolutionizing the onlime gambling industry via the EOS blockchain. We offer instant betting, true provable fairness, and absolutely zero transaction fees.">
+	<!-- Fav Icon  -->
+	<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+	<link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+	<!-- Site Title  -->
+	<title>EOSBet Casino</title>
 
-		<!-- for twitter -->
-		<meta name="twitter:card" content="summary_large_image">
-		<meta name="twitter:domain" value="eosbet.io">
-		<meta name="twitter:title" value="EOSBet.IO Fully Decentralized Gambling">
-		<meta name="twitter:description" value="The World's First Fully Decentralized Smart Casino. Play our games right now!">
-		<meta name="twitter:image" value="https://www.eosbet.io/img/homepage/Splash%20Logo%20@1x.png">
-		<meta name="twitter:url" value="http://eosbet.io">
+	<!-- for unfurl: facebook, slack etc -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="http://eosbet.io">
+	<meta property="og:title" content="EOSBet.IO - Provably Fair Gambling on EOS">
+	<meta property="og:description" content="EOSBet Casino is revolutionizing the onlime gambling industry via the EOS blockchain. We offer instant betting, true provable fairness, and absolutely zero transaction fees.">
+	<meta property="og:image" content="https://www.eosbet.io/image/eosbet-logo-textunder-royal">
 
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- for twitter -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:domain" value="eosbet.io">
+	<meta name="twitter:title" value="EOSBet.IO - Provably Fair Gambling on EOS">
+	<meta name="twitter:description" value="EOSBet Casino is revolutionizing the onlime gambling industry via the EOS blockchain. We offer instant betting, true provable fairness, and absolutely zero transaction fees.">
+	<meta name="twitter:image" value="https://www.eosbet.io/image/eosbet-logo-textunder-royal">
+	<meta name="twitter:url" value="http://eosbet.io">
 
-		<link rel="shortcut icon" type="image/x-icon" href="img/homepage/Nav Logo @1x.png">
+	
+	<!-- Vendor Bundle CSS -->
+	<link rel="stylesheet" href="assets/css/vendor.bundle.css">
+	<!-- Custom styles for this template -->
+	<link rel="stylesheet" href="assets/css/style.css">
+	
+</head>
 
-		<title>EOSBet</title>
+<body class="theme-dark io-lobelia" data-spy="scroll" data-target="#mainnav" data-offset="80">
 
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-		<link rel="stylesheet" href="css/homepage.css">
-	</head>
+	<!-- Header --> 
+	<header class="site-header is-sticky">
+		
+		<!-- Place Particle Js -->
+		<div id="particles-js" class="particles-container particles-js"></div>
+	
+		<!-- Navbar -->
+		<div class="navbar navbar-expand-lg is-transparent" id="mainnav" style="height: 80px;">
+			<nav class="container">
 
-	<body>
-
-		<section id="navbar">
-			<nav class="navbar navbar-dark fixed-top navbar-expand-md">
-				<!-- navbar brand -->
-				<a class="navbar-brand" href="/" style="">
-					<img src="img/homepage/Nav Logo @1x.png" width="80" height="80">
+				<a class="navbar-brand animated" data-animate="fadeInDown" data-delay=".65" href="./">
+					<!-- <img class="logo logo-dark" alt="logo" src="images/small-eosbet-logo.png"> -->
+					<img class="logo logo-light" alt="logo" style="height: 70px;" src="images/eosbet-logo-textside-azure.png">
 				</a>
-				<!-- navbar expand button -->
-				<div class="ml-auto">
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" style="border:none;">
-				    	<span><img src="/img/Hamburger @2x.png" style="width: 70px; "></span>
-				  	</button>
-			  	</div>
-			  	<!-- navbar links -->
-			  	<div class="collapse navbar-collapse" id="navbar-content">
-			  		
-					<ul class="navbar-nav ml-auto"> <!-- navbar-right -->
 
-						<!-- games , collapse nav on click-->
-						<li class="nav-item dropdown" data-toggle="collapse" data-target="#navbar-content">
-							<a class="nav-link dropdown-toggle" href="#" role="button" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Play Now
-							</a>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="/dice.html">Dice</a>
-								<a class="dropdown-item" href="/slots.html">Slots</a>
-								
-							</div>
-						</li>
-						<!-- airdrop & ico , collapse nav on click-->
-						<li class="nav-item" data-toggle="collapse" data-target="#navbar-content">
-							<a class="nav-link" href="/#airdrop-and-crowdsale">
-								Airdrop &amp; ICO
-							</a>
-						</li>
-						<!-- bankroll -->
-						<li class="nav-item">
-							<a class="nav-link" href="/bankroll.html" class="nav-text">
-								Bankroll Us
-							</a>
-						</li>
-						<!-- support -->
-						<li class="nav-item">
-							<a class="nav-link" href="/support.html">
-								Support &amp; FAQ
-							</a>
-						</li>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle">
+					<span class="navbar-toggler-icon">
+						<span class="ti ti-align-justify"></span>
+					</span>
+				</button>
 
+				<div class="collapse navbar-collapse justify-content-end" id="navbarToggle">
+					<ul class="navbar-nav animated remove-animation" data-animate="fadeInDown" data-delay=".9">
+						<li class="nav-item"><a class="nav-link menu-link" href="#eth-games">Ethereum Games</a></li>
+						<li class="nav-item"><a class="nav-link menu-link" href="#eos-games">EOS Games</a></li>
+						<li class="nav-item"><a class="nav-link menu-link" href="#roadmap">Roadmap</a></li>
+						<li class="nav-item"><a class="nav-link menu-link" href="#partners">Partners</a></li>
+						<li class="nav-item"><a class="nav-link menu-link" href="#faqs">FAQs</a></li>
 					</ul>
-			  	</div>
+					<ul class="navbar-nav navbar-btns animated remove-animation" data-animate="fadeInDown" data-delay="1.15">
+						<li class="nav-item"><a class="nav-link btn btn-sm btn-outline menu-link" href="/whitepaper.pdf" target="_blank">Whitepaper</a></li>
+						<li class="nav-item"><a class="nav-link btn btn-sm btn-outline menu-link" href="#eth-games">Our Games</a></li>
+						<li class="nav-item"><a class="nav-link btn btn-sm btn-outline menu-link" href="https://t.me/eosbetcasino" target="_blank"><em class="fab fa-telegram"></em>&nbsp;Telegram</a></li>
+					</ul>
+				</div>
 			</nav>
-		</section>
+		</div>
+		<!-- End Navbar -->
 
-		<section id="splash">
-			
+		<!-- Banner/Slider -->
+		<div id="header" class="banner banner-curb banner-full d-flex align-items-center">
 			<div class="container">
-				<div class="row">
-					<div class="top-padding"></div>
-				</div>
-				<div class="row cta-message cta-header">
-					<div class="col-12">
-						EOSBet
-					</div>
-				</div>
-				<div class="row cta">
-					<div class="col-md-6">
-						<div data-toggle="tooltip" data-placement="top" title="Stay tuned! Whitepaper v2 coming next week!"><button type="button" class="btn cta-btn main-btn" disabled>Whitepaper</button></div>
-						<div class="cta-message cta-subheader">
-							Learn about the state-of-the-art gambling system we are building on the EOS Blockchain
-							<br />
-							(Whitepaper v2 coming soon!)
-						</div>
-					</div>
-					<div class="col-md-6">
-						<a href="/#games-and-bankroll"><button type="button" class="btn cta-btn main-btn">Play Now</button></a>
-						<div class="cta-message cta-subheader">
-							Our proof-of-concept games are the best on the Ethereum network
-						</div>
-					</div>
-				</div>
-			</div>
+				<div class="banner-content">
+					<div class="row justify-content-center align-items-center text-center">
+						<div class="col-lg-10">
+							<div class="header-image-lobelia animated" style="margin-top: -35px; margin-bottom: -50px" data-animate="fadeInUp" data-delay="1.25">
+								<img src="images/landing-hero-trans.png" alt="header">
+							</div>
+						</div><!-- .col  -->
+						<div class="col-lg-8">
+							<div class="header-txt">
+								<h1 class="animated" data-animate="fadeInUp" data-delay="1.55" style="margin-bottom: 10px;">Welcome to the Future of Online Gambling</h1>
+								<div class="lead color-secondary animated" data-animate="fadeInUp" data-delay="0.6" style="margin-bottom: 10px;">Fully Trustless and instant gambling on the EOS blockchain.<br class="d-none d-md-block"></div>
+								<ul class="btns animated" data-animate="fadeInUp" data-delay="0.75">
+									<li><a href="#eth-games" class="btn">Ethereum Games</a></li>
+									<li><a href="#eos-games" class="btn btn-alt">EOS Games Launch</a></li>
+									<li><a href="/whitepaper.pdf" target="_blank" class="btn">Whitepaper</a></li>
+								</ul>
+							</div>
+						</div><!-- .col  -->
 
-		</section>
-			
+						<!-- socials -->
+						<div class="col-md-12" style="padding-top: 30px;">
+							<ul class="social">
+								<li class="animated" data-animate="fadeInUp" data-delay=".8"><a target="_blank" href="https://t.me/eosbetcasino"><em class="fab fa-telegram"></em></a></li>
+								<li class="animated" data-animate="fadeInUp" data-delay=".85"><a target="_blank" href="https://twitter.com/EOSBetCasino"><em class="fab fa-twitter"></em></a></li>
+								<!-- <li class="animated" data-animate="fadeInUp" data-delay=".3XXXX"><a href="#"><em class="fab fa-youtube"></em></a></li> -->
+								<li class="animated" data-animate="fadeInUp" data-delay=".95"><a target="_blank" href="https://github.com/EOSBetCasino"><em class="fab fa-github"></em></a></li>
+								<li class="animated" data-animate="fadeInUp" data-delay="1.0"><a target="_blank" href="https://www.reddit.com/r/EOSBetCasino/"><em class="fab fa-reddit-alien"></em></a></li>
+								<!-- <li class="animated" data-animate="fadeInUp" data-delay=".4XXXXX"><a href="#"><em class="fab fa-bitcoin"></em></a></li> -->
+								<li class="animated" data-animate="fadeInUp" data-delay="1.05"><a target="_blank" href="https://medium.com/@eosbetcasino"><em class="fab fa-medium-m"></em></a></li>
+							</ul>
+						</div>
 
-		<section id="casino-features">
+					</div><!-- .row  -->
+				</div><!-- .banner-content  -->
+			</div><!-- .container  -->
+		</div>
+		<!-- End Banner/Slider -->
+	</header>
+	<!-- End Header -->
+
+	<!-- Start Section -->
+	<section id="features">
+		<div class="section section-pad section-bg">
 			<div class="container">
+				<div class="row text-center">
+					<div class="col-lg-8 offset-lg-2">
+						<div class="section-head">
+							<h2 class="section-title animated" data-animate="fadeInUp" data-delay="0">What is EOSBet Casino?
+								<span>What is it?</span>
+							</h2>
+							<h5 class="animated color-secondary" data-animate="fadeInUp" data-delay=".1">EOSBet Casino is a fully trustless and provably fair gambling platform, and the first to be built on the high-performance EOS.IO blockchain.</h5>
+						</div>
+					</div>
+				</div>
+				<div class="row align-items-center">
+					<div class="col-md-5">
+						<div class="res-m-btm imgfix animated" data-animate="fadeInUp" data-delay=".9">
+							<img src="images/features-graph.png" style="width:150%;height:150%;" alt="graph">
+						</div>
+					</div><!-- .col  -->
+					<div class="col-md-6 offset-md-1">
+						<ul class="features-list-s2">
+							<li class="features-item-s2 d-flex animated" data-animate="fadeInUp" data-delay=".3">
+								<div class="features-icon-s2">
+									<img src="images/icon-trustless-trans.png" class="pulse-animation" alt="icon"
+								></div>
+								<div class="features-texts-s2">
+									<h5 class="features-title-s2">Fully Trustless</h5>
+									<p>Never trust a online casino. You won't need to trust us, because all our games take place through smart contracts. You will always have a fair game, and remain in full control of your funds.</p>
+								</div>
+							</li>
+							<li class="features-item-s2 d-flex animated" data-animate="fadeInUp" data-delay=".4">
+								<div class="features-icon-s2">
+									<img src="images/icon-provenproj-trans.png" class="pulse-animation" alt="icon">
+								</div>
+								<div class="features-texts-s2">
+									<h5 class="features-title-s2">Proven Team and Project</h5>
+									<p>Our proof-of-concept dice and slots games on the Ethereum main-net received massive traffic and interest! We frequently hit top 3 on dapp trackers.</p>
+								</div>
+							</li>
+							<li class="features-item-s2 d-flex animated" data-animate="fadeInUp" data-delay=".5">
+								<div class="features-icon-s2">
+									<img src="images/icon-hotgames-trans.png" class="pulse-animation" alt="icon">
+								</div>
+								<div class="features-texts-s2">
+									<h5 class="features-title-s2">The Hottest Games</h5>
+									<p>
+										We are developing the hottest casino games. Get ready to play a crypto classic, <b>DICE</b>! 
+										<br />
+										Next up: Blackjack, Roulette, Baccarat, Craps, Pai Gow, and our specially themed crypto slot machines with massive payouts!
+									</p>
+								</div>
+							</li>
+							<li class="features-item-s2 d-flex animated" data-animate="fadeInUp" data-delay=".6">
+								<div class="features-icon-s2">
+									<img src="images/icon-nofee-trans.png" class="pulse-animation" alt="icon">
+								</div>
+								<div class="features-texts-s2">
+									<h5 class="features-title-s2">Feeless</h5>
+									<p>Unlike Ethereum based smart contracts, contracts on EOS are free to interact with. Gamble anytime, anywhere, with zero gas costs and zero fees.</p>
+								</div>
+							</li>
+						</ul>
+					</div><!-- .col  -->
+				</div><!-- .row  -->
+			</div><!-- .container  -->
+		</div>
+	</section>
+	<!-- Start Section -->
 
-				<div class="row heading-message">
-					<div class="col-12">
-						The Future of Decentralized Gambling
+
+	<!-- Start Section -->
+	<section id="eth-games">
+		<div class="section section-pad section-bg-alt">
+			<div class="container">
+				<div class="row text-center">
+					<div class="col-md-2 animated" data-animate="fadeInLeft" data-delay="1.0">
+						<img class="d-none d-lg-block pulse-animation" style="padding-top: 25px;" src="images/old-eosbet-logo.png">
+					</div>
+					<div class="col-md-8 ">
+						<div class="section-head">
+							<h2 class="section-title animated" data-animate="fadeInUp" data-delay="0">Established Casino on Ethereum 
+								<span>Casino</span>
+							</h2>
+							<h4 class="animated color-secondary" data-animate="fadeInUp" data-delay=".1">Our dice and slots games launched March 2018 on the Ethereum main net.</h4>
+							<h5 class="animated" style="color:#a281fe;" data-animate="fadeInUp" data-delay=".25">The games on Ethereum received an immense amount of traffic and were ranked #3 on dappradar.com</h5>
+							<h5 class="animated" style="color:#b59afe" data-animate="fadeInUp" data-delay=".4">However, due to Ethereum scalability issues, we were forced to take our games down from the Ethereum main net.</h5>
+						</div>
+					</div>
+					<div class="col-md-2 d-md-none d-lg-block animated" data-animate="fadeInRight" data-delay="1.0">
+						<img class="d-none d-lg-block pulse-animation" style="padding-top: 25px;" src="images/old-eosbet-logo.png">
 					</div>
 				</div>
 
-				<div class="row d-none d-md-flex">
-					
-					<div class="col-5">
-						<!-- block is duplicated on carosel -->
-						<img class="feature-img-1x" src="img/homepage/Feature Now @1x.png">
-						<div class="feature-title">Play Now</div>
-						<div class="feature-element">
-							<i>Our proof-of-concept is live! Place your bets and bankroll us on the Ethereum mainnet.</i>
-						</div>
-						<div class="feature-element">
-							Our gambling smart contracts are the best on the market, allow near-instant gameplay, and feature a super low house edge.
-						</div>
-						<div class="feature-element">
-							Bankroll us with your ETH and receive dividends in ETH. Withdraw at any time!
-						</div>
-						<!-- end duplicate block -->
-					</div>
-					<div class="col-7">
-						<!-- block is duplicated on carosel -->
-						<img class="feature-img-1x" src="img/homepage/Feature Later @1x.png">
-						<div class="feature-title">Play on EOS</div>
-						<div class="feature-element">
-							We will be building the future of online gambling on EOS.io, the industrial scale blockchain.
-						</div>
-						<div class="feature-element">
-							Our smart casino will be the first of its kind: fully decentralized, trustless, and scalable to millions of users. 
-						</div>
-						<div class="feature-element">
-							<b>PROVABLY FAIR. COMPLETELY FREE BETTING. ALL THE MOST POPULAR GAMES.</b>
-						</div>
-						<!-- end duplicate block -->
-					</div>
-					
-				</div>
+				<div class="problem-list problem-list-purple animated" data-animate="fadeIn" data-delay=".2">
+					<div class="row">
+						<div class="col-lg-6">
 
-				<div class="row d-block d-md-none" style="height: 500px; padding-left: 6px; padding-right: 6px;">
-
-					<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="height:400px;">
-						<div class="carousel-inner">
-							<div class="carousel-item active">
-								<div class="d-block w-100">
-									<img class="feature-img-1x" src="img/homepage/Feature Now @1x.png">
-									<div class="feature-title">Play Now</div>
-									<div class="feature-element">
-										<i>Our proof-of-concept is live! Place your bets and bankroll us on the Ethereum mainnet.</i>
-									</div>
-									<div class="feature-element">
-										Our gambling smart contracts are the best on the market, allow near-instant gameplay, and feature a super low house edge.
-									</div>
-									<div class="feature-element">
-										Bankroll us with your ETH and receive dividends in ETH. Withdraw at any time!
+							<div class="row">
+								<div class="col-12 animated" data-animate="fadeInUp" data-delay=".3">
+									<img src="images/retired-slots-color.png" style="margin-bottom: -110px;" alt="icon">
+								</div>
+								<br /><br />
+								<div class="problem-item col-12 animated" data-animate="fadeInUp" data-delay=".4">
+									<h4>Slots</h4>
+									<ul>
+										<li>Our slots game on Ethereum was highly successful, with over 44,000 slots dials spun!</li>
+										<li>Slots had amazing payouts. Some users won huge jackpots of 1777x their initial bets!</li>
+										<li>Even though users could play up to 200 slots games in one Ethereum transaction, the network was still too slow! Get ready for high performance slots on EOS.</li>
+									</ul>
+								</div>
+								<ul class="btns animated" data-animate="fadeInUp" data-delay=".45" style="margin-left: 40px;">
+									<li><a href="https://etherscan.io/address/0x4a3e0c60f7fa67e8b65c401ddbbf7c17fea5fe40#code" target="_blank" class="btn">Check Slots contract on Etherscan</a></li>
+									<br class="d-block d-md-none" />
+									<br class="d-block d-md-none" />
+								</ul>
+							</div>
+						</div>
+						
+						<div class="col-lg-6">
+							<div class="row">
+								<div class="col-12 animated" data-animate="fadeInUp" data-delay=".35">
+									<div>
+										<img src="images/retired-dice-color.png" style="margin-bottom: -90px; margin-top: -20px;" alt="icon">
 									</div>
 								</div>
-							</div>
-							<div class="carousel-item">
-								<div class="d-block w-100">
-									<img class="feature-img-1x" src="img/homepage/Feature Later @1x.png">
-									<div class="feature-title">Play on EOS</div>
-									<div class="feature-element">
-										We will be building the future of online gambling on EOS.io, the industrial scale blockchain.
-									</div>
-									<div class="feature-element">
-										Our smart casino will be the first of its kind: fully decentralized, trustless, and scalable to millions of users. 
-									</div>
-									<div class="feature-element">
-										<b>PROVABLY FAIR. COMPLETELY FREE BETTING. ALL THE MOST POPULAR GAMES.</b>
-									</div>
-								</div>
-							</div>
-						</div>
-						<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-							<span class="sr-only">Previous</span>
-						</a>
-						<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-							<span class="carousel-control-next-icon" aria-hidden="true"></span>
-							<span class="sr-only">Next</span>
-						</a>
-					</div>
-				</div>
-			</div>
-		</section>
 
-		<section id="games-and-bankroll">
+								<div class="problem-item col-12 animated" data-animate="fadeInUp" data-delay=".45">
+									
+									<h4>Dice</h4>
+									<ul>
+										<li>We had a ton of rolls in our dice game, with over 7,000 plays!</li>
+										<li>Users bet over $250,000 on dice, in only 90 days. That's a quarter of a million dollars, just on dice!</li>
+										<li>Even though our dice game was super popular, Ethereum couldn't handle it. Get ready for instant bets on EOS, and absolutely zero transaction fees!</li>
+									</ul>
+								</div>
+								<ul class="btns animated" data-animate="fadeInUp" data-delay=".5" style="margin-left: 40px;">
+									<li><a href="https://etherscan.io/address/0xb533ff572f5e33d04d02b149e7dcfe980e424c63#code" class="btn btn-alt">Check Dice contract on Etherscan</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div><!-- .container  -->
+		</div>
+	</section>
+	<!-- Start Section -->
+	<section id="eos-games">
+		<div class="section section-pad section-bg">
 			<div class="container">
-				<div class="row heading-message">
-					<div class="col-12">
-						Play our Proof-of-Concept on the Ethereum Mainnet
+				<div class="row text-center">
+					<div class="col-md-8 offset-md-2">
+						<div class="section-head">
+							<h2 class="section-title animated" data-animate="fadeInUp" data-delay="0">Games on EOS 
+								<span>EOS</span>
+							</h2>
+							<h4 class="animated color-primary" data-animate="fadeInUp" data-delay=".1">We are launching DICE on the EOS main net!</h4>
+						</div> 
+					</div> <!-- /col -->
+				</div> <!-- /row -->
+				<div class="row align-items-center">
+					<div class="col-md-7">
+						<img src="images/eos-dice-construction.png">
+					</div>
+					<div class="col-md-5">
+						<div class="text-block">
+							<br class="d-md-none d-block" />
+							<p class="animated" data-animate="fadeInUp" data-delay=".3">Starting with Satoshi dice in 2011, dice is <i>the</i> game of cryptocurrency. We are excited to bring this phenomena to EOS, after launching an incredibly popular dice game on Ethereum.</p>
+							<p class="animated" data-animate="fadeInUp" data-delay=".4">Some might argue that you don't have to true blockchain until you have a dice game, and we are honored to bring this staple to the EOS.IO blockchain. But this isn't just a simple dice game. We will be offering:</p>
+							<ul class="animated" data-animate="fadeInUp" data-delay=".5">
+								<li>Instant Betting</li>
+								<li>True Provable Fairness</li>
+								<li>Control your own funds, no deposits</li>
+								<li>Absolutely Zero Fees</li>
+								<li>No signup, just play!</li>
+							</ul>
+						</div>
+						<ul class="btns animated" data-animate="fadeInUp" data-delay=".45" style="margin-left: 40px;">
+							<li><a href="https://t.me/eosbetcasino" target="_blank" class="btn">Join Telegram for Updates!</a></li>
+						</ul>
+					</div>
+					
+
+				</div>
+			</div> <!-- /container -->
+		</div> <!-- /section -->
+	</section>
+
+	<!-- Start Section -->
+	<section id="roadmap">
+		<div class="section section-pad section-bg-alt section-connect" id="roadmap">
+			<div class="container">
+
+				<div class="row text-center">
+					<div class="col">
+						<div class="section-head">
+							<h2 class="section-title animated" data-animate="fadeInUp" data-delay="0">Our Roadmap
+								<span>Roadmap</span>
+							</h2>
+						</div>
 					</div>
 				</div>
-				<div class="row game-divider game-divider-line">
-					<div class="col-lg-8 order-2 order-lg-1">
-						<img class="img-fluid" src="img/homepage/Dice Logo @8x.png" style="width:45%; margin-bottom: -20px;">
-						<a href="dice.html"><button type="button" class="btn cta-btn game-btn">Play Dice</button></a>
+				<div class="timeline-list">
+					<div class="row">
+						<div class="col-md-4 offset-md-6">
+							<div class="timeline-content active animated" data-animate="fadeInUp" data-delay=".1">
+								<h6>March 2018</h6>
+								<p>Launch dice, slots & trustless bankroll contracts on Ethereum main net.</p>
+							</div>
+						</div>
 					</div>
-					<div class="col-lg-4 order-1 order-lg-2">
-						<div class="feature-title">
-							Dice
+					<div class="row">
+						<div class="col-md-4 offset-md-2 text-md-right">
+							<div class="timeline-content timeline-content-left active animated" data-animate="fadeInUp" data-delay=".2">
+								<h6>June 2018</h6>
+								<p>Ethereum network reaches extreme congestion levels. Overall dapp traffic is reduced to a standstill, with wildly fluctuating transaction confirmation times.</p>
+							</div>
 						</div>
-						<div class="feature-element">
-							Play up to 1024 rolls of dice with a single transaction and enjoy the speed of the first <b>near-instant betting</b> solution on the Ethereum blockchain. 
+					</div>
+					<div class="row">
+						<div class="col-md-4 offset-md-6">
+							<div class="timeline-content active animated" data-animate="fadeInUp" data-delay=".3">
+								<h6>July 2018</h6>
+								<p>EOSBet shuts off proof-of-concept games due to poor Ethereum network performance. Games are massively popular, with tens of thousands of plays, and hundreds of thousands of dollars wagered & won in only 90 days!</p>
+							</div>
 						</div>
-						<div class="feature-element">
-							Lowest house edge at only <b>0.5%</b>. 2x better than Etheroll and 4x better than vDice.
+					</div>
+					<div class="row">
+						<div class="col-md-4 offset-md-2 text-md-right">
+							<div class="timeline-content timeline-content-left animated" data-animate="fadeInUp" data-delay=".4">
+								<h6>Early August 2018</h6>
+								<p>EOSBet unveils dividend token mechanics, airdrop information, and presale & ICO investment details.</p>
+							</div>
 						</div>
-						<div class="feature-element">
-							All bettors will be airdropped <b>free</b> EOSBET tokens, so there’s no reason not to roll the dice right now!
+					</div>
+					<div class="row">
+						<div class="col-md-4 offset-md-6">
+							<div class="timeline-content animated" data-animate="fadeInUp" data-delay=".5">
+								<h6>Late August 2018</h6>
+								<p>Launch beta version of dice game on <b>EOS main net</b>, featuring instant betting through a smart contract!</p>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4 offset-md-2 text-md-right">
+							<div class="timeline-content timeline-content-left animated" data-animate="fadeInUp" data-delay=".6">
+								<h6>Late September 2018</h6>
+								<p>Launch ICO presale & early sale for the EOSBet dividend token.</p>
+							</div>
 						</div>
 					</div>
 				</div>
-				<div class="row game-divider game-divider-line">
-					<div class="col-lg-4">
-						<div class="feature-title">
-							Slots
+			</div><!-- .container  -->
+		</div>
+	</section>
+	<!-- Start Section -->
+
+	<!-- Start Section -->
+	<section id="partners">
+		<div class="section section-pad section-bg" style="background: linear-gradient(to bottom, #0a1992 0%, #10122d 100%);" id="partners">
+			<div class="container-fluid">
+				<div class="row text-center">
+					<div class="col">
+						<div class="section-head">
+							<h2 class="section-title animated" data-animate="fadeInUp" data-delay="0">EOSBet Casino Partners
+								<span>Partners</span>
+							</h2>
 						</div>
-						<div class="feature-element">
-							Play the most popular betting game in the world. Our house edge is 1/4 the size of standard casinos.
-						</div>
-						<div class="feature-element">
-							Massive <b>5000x multiplier jackpot</b>! Become a whale today!
-						</div>
-						<div class="feature-element">
-							Play up to 224 spins with a single transaction and enjoy near-instant slots action. Spin right now for only $0.50 and enjoy <b>free EOSBET</b> tokens from our airdop!
-						</div>
-					</div>
-					<div class="col-lg-8">
-						<img class="img-fluid" src="img/homepage/Slots Logo @17x.png" style="width:40%; margin-bottom: -20px;">
-						<a href="slots.html"><button type="button" class="btn cta-btn game-btn">Play Slots</button></a>
 					</div>
 				</div>
-				<div class="row game-divider">
-					<div class="col-lg-8 order-2 order-lg-1">
-						<img class="img-fluid" src="img/homepage/Bankroll Logo @3x.png" style="width:40%">
-						<a href="bankroll.html"><button type="button" class="btn cta-btn game-btn">Invest Now</button></a>
+				<div class="partner-list">
+					<div class="row text-center">
+						<div class="col-sm-4 col-md-3 col-lg">
+							<div class="single-partner animated" data-animate="fadeInUp" data-delay=".1">
+								<a href="https://dapplist.cointelegraph.com/dapp/eosbet" target="_blank"><img src="images/partners/cointelegraph.png" style="min-width: 100px; filter:invert(100%);" alt="partner"></a>
+								<br class="d-block d-sm-none" />
+								<br class="d-block d-sm-none" />
+							</div>
+						</div>
+						<div class="col-sm-4 col-md-3 col-lg">
+							<div class="single-partner animated" data-animate="fadeInUp" data-delay=".2">
+								<a href="https://dappradar.com/app/372/eosbet" target="_blank"><img src="images/partners/dappradar.png" style="min-width: 100px;filter:hue-rotate(90deg);" alt="partner"></a>
+								<br class="d-block d-sm-none" />
+								<br class="d-block d-sm-none" />
+							</div>
+						</div>
+						<div class="col-sm-4 col-md-3 col-lg">
+							<div class="single-partner animated" data-animate="fadeInUp" data-delay=".4">
+								<a href="https://www.finder.com/eos-airdrop-list" target="_blank"><img src="images/partners/finder.png" style="min-width: 100px; filter:invert(20%);" alt="partner"></a>
+								<br class="d-block d-sm-none" />
+								<br class="d-block d-sm-none" />
+							</div>
+						</div>
+						<div class="col-sm-4 col-md-3 col-lg">
+							<div class="single-partner animated" data-animate="fadeInUp" data-delay=".5">
+								<a href="https://get-scatter.com/" target="_blank"><img src="images/partners/scatter.png" style="min-width: 100px;" alt="partner"></a>
+								<br class="d-block d-sm-none" />
+								<br class="d-block d-sm-none" />
+							</div>
+						</div>
+						<div class="col-sm-4 col-md-3 offset-md-2 offset-lg-0 col-lg">
+							<div class="single-partner animated" data-animate="fadeInUp" data-delay=".5">
+								<a href="https://www.stateofthedapps.com/dapps/eosbet" target="_blank"><img src="images/partners/stateofdapps.png" style="min-width: 100px;" alt="partner"></a>
+								<br class="d-block d-sm-none" />
+								<br class="d-block d-sm-none" />
+							</div>
+						</div>
+						<div class="col-sm-4 col-md-3 offset-md-2 offset-lg-0 col-lg">
+							<div class="single-partner animated" data-animate="fadeInUp" data-delay=".5">
+								<a href="https://airdropsforeos.com/portfolio-items/2018-01-01-eosbet/" target="_blank"><img src="images/partners/airdropsforeos.png" style="min-width: 100px; filter:invert(20%);" alt="partner"></a>
+								<br class="d-block d-sm-none" />
+								<br class="d-block d-sm-none" />
+							</div>
+						</div>
+					</div>
+					<div class="row text-center">
+						
+						<div class="col-6 col-sm-3">
+							<div class="single-partner animated" data-animate="fadeInUp" data-delay=".4">
+								<a href="https://eosdrops.io/eosbet" target="_blank"><img src="images/partners/eosdrops.png" style="max-width: 150px;" alt="partner"></a>
+							</div>
+						</div>
+						<div class="col-6 col-sm-3">
+							<div class="single-partner animated" data-animate="fadeInUp" data-delay=".5">
+								<a href="https://everipedia.org/" target="_blank"><img src="images/partners/everipedia.png" style="max-width: 150px;" alt="partner"></a>
+							</div>
+						</div>
+						<div class="col-6 col-sm-3">
+							<div class="single-partner animated" data-animate="fadeInUp" data-delay=".3">
+								<a href="https://dapptrack.com/eosbet" target="_blank"><img src="images/partners/dapptrack.png" style="max-width: 150px;" alt="partner"></a>
+							</div>
+						</div>
+						<div class="col-6 col-sm-3">
+							<div class="single-partner animated" data-animate="fadeInUp" data-delay=".5">
+								<a href="https://metamask.io/" target="_blank"><img src="images/partners/metamask.png" style="max-width: 150px;" alt="partner"></a>
+							</div>
+						</div>
 						
 					</div>
-					<div class="col-lg-4 order-1 order-lg-2">
-						<div class="feature-title" >
-							Bankroll
-						</div>
-						<div class="feature-element">
-							Be the house and grow your ETH! With a slim house edge, you are statistically guaranteed profits over time.
-						</div>
-						<div class="feature-element">
-							Cash out at any time!
-						</div>
-						<div class="feature-element">
-							All contributors will receive free EOSBET tokens from our airdrop, so there’s no reason not to invest in our bankroll, receive <b>ETH dividends</b>, and <b>free tokens</b>.
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<section id="what-is-eosbetio">
-			<div class="container">
-				<div class="row">
-					<div class="col-12">
-						<div class="heading-message">Play Later on EOS</div>
-						<br />
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="col-lg-3 col-sm-6">
-						<img class="feature-img-2x" src="img/homepage/EOS Spinning Logo @1x.gif">
-						<div class="feature-title">
-							EOS BLOCKCHAIN
-						</div>
-						<div class="feature-element">
-							The EOS blockchain architecture is the fastest, most powerful and most scalable in the world. We are the first gambling platform to utilize this infrastructure and plan to be one of the largest projects on the EOS blockchain.
-						</div>
-					</div>
-					<div class="col-lg-3 col-sm-6">
-						<img class="feature-img-2x" src="img/homepage/Decentralized @4x.png">
-						<div class="feature-title">
-							DECENTRALIZED
-						</div>
-						<div class="feature-element">
-							Say goodbye to shady, rigged online casinos. We are proud to be the first fully decentralized smart casino and will always be provably fair and forever auditable.
-						</div>
-					</div>
-
-					<div class="col-lg-3 col-sm-6">
-						<img class="feature-img-2x" src="img/homepage/Permissionless @1x.png">
-						<div class="feature-title">
-							PERMISSIONLESS
-						</div>
-						<div class="feature-element">
-							With full decentralization comes permissionless gambling. Play anytime, anywhere, no sign-ups, no questions.
-						</div>
-					</div>
 					
-					<div class="col-lg-3 col-sm-6">
-						<img class="feature-img-2x" src="img/homepage/Disrupt @5x.png">
-						<div class="feature-title">
-							DISRUPT
-						</div>
-						<div class="feature-element">
-							With the largest selection of the most popular casino games offered at no cost, we won’t just be the best casino on the blockchain, we’ll be the best casino online, period.
-						</div>
-					</div>
 				</div>
-
-				<br />
 			</div>
-		</section>
+		</div>
+	</section>
+	<!-- End Section -->
 
-		<section id="airdrop-and-crowdsale">
+
+	<!-- Start Section -->
+	<section id="faqs">
+		<div class="section section-pad no-pb section-bg" id="faq">
 			<div class="container">
-				<div class="row">
-					
-					<div class="col-12" style="text-align: center;">
-						<div class="heading-message">EOSBet Airdrop &amp; ICO</div>
+				<div class="row text-center">
+					<div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+						<div class="section-head">
+							<h2 class="section-title animated" data-animate="fadeInUp" data-delay="0">Frequently asked questions
+								<span>FAQS</span>
+							</h2>
+						</div>
 					</div>
 				</div>
+				<div class="row" >
+					<div class="col-md-8 offset-md-2">
+						<div class="tab-custom" style="margin-top: -50px; box-shadow: 0 0 20px #FFFFFF;">
+							<!-- Nav tabs -->
+							<ul class="nav nav-tabs text-center animated" data-animate="fadeInUp" data-delay=".2">
+								<li class="nav-item">
+									<a class="nav-link active" data-toggle="tab" href="#tab-1">General</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" data-toggle="tab" href="#tab-2">Betting Mechanics</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" data-toggle="tab" href="#tab-3">Token Mechanics</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" data-toggle="tab" href="#tab-4">About the Team</a>
+								</li>
+								<!-- <li class="nav-item">
+									<a class="nav-link" data-toggle="tab" href="#tab-5">ICO</a>
+								</li> -->
+							</ul>
+							<!-- Tab panes -->
+							<div class="tab-content animated" data-animate="fadeInUp" data-delay=".5">
+								<div class="tab-pane fade show active" id="tab-1">
+									<div class="accordion" id="accordion-1">
+										<div class="card">
+											<div class="card-header">
+												<h5>
+													<a data-toggle="collapse" data-target="#collapse-1-1">
+														What is EOSBet?<span class="plus-minus"><span class="ti ti-angle-up"></span></span>
+													</a>
+												</h5>
+											</div>
+											<div id="collapse-1-1" class="collapse show" data-parent="#accordion-1">
+												<div class="card-body">
+													<p>
+														EOSBet is a team of experienced developers and individuals familiar with the online gambling industry. We initially launched two games on Ethereum, dice and slots. These games were extremely popular, but Ethereum's scaling issues took their toll. Ocassionally games were slow, and could not process.
+													</p>
+													<p>
+														Our team is building a <b>commercial scale smart casino</b> and this is impossible on present-day Ethereum. We have decided to transition to the EOS blockchain, and will shortly be offering the classic dice game. EOSBet <i>always</i> have instant, and completely feeless betting. Our games will be 100% provably fair. Why gamble anywhere else?
+													</p>
+													<p>
+														Our dice game is launching soon on the EOS blockchain. Stay tuned, and join our <a href="https://t.me/eosbetcasino" target="_blank">telegram</a> right now for up to the minute updates.
+													</p>
+												</div>
+											</div>
+										</div>
+										<div class="card">
+											<div class="card-header">
+												<h5>
+													<a class="collapsed" data-toggle="collapse" data-target="#collapse-1-2">
+													  I heard you're having an airdrop?<span class="plus-minus"><span class="ti ti-angle-up"></span></span>
+													</a>
+												</h5>
+											</div>
+											<div id="collapse-1-2" class="collapse" data-parent="#accordion-1">
+												<div class="card-body">
+													<p>Yes, we will be airdropping tokens to all EOS holders. We will also be dropping bonus tokens to players of our games. If you played our games on Ethereum, you will get bonus tokens. If you play our games on EOS <i>(dice launching soon)</i> you will get bonus tokens.</p>
+												</div>
+											</div>
+										</div>
+										<div class="card">
+											<div class="card-header">
+												<h5>
+													<a class="collapsed" data-toggle="collapse" data-target="#collapse-1-3">
+													  How do I participate in your ICO?<span class="plus-minus"><span class="ti ti-angle-up"></span></span>
+													</a>
+												</h5>
+											</div>
+											<div id="collapse-1-3" class="collapse" data-parent="#accordion-1">
+												<div class="card-body">
+													<p>Details about our ICO and token dynamics are not available yet. If you would like to receive information about our presale, please email <a href="mailto:ico@eosbet.io">ico@eosbet.io</a> for details.</p>
+												</div>
+											</div>
+										</div>
+										<div class="card">
+											<div class="card-header">
+												<h5>
+													<a class="collapsed" data-toggle="collapse" data-target="#collapse-1-4">
+													  How does the EOSBet Token work?<span class="plus-minus"><span class="ti ti-angle-up"></span></span>
+													</a>
+												</h5>
+											</div>
+											<div id="collapse-1-4" class="collapse" data-parent="#accordion-1">
+												<div class="card-body">
+													<p>Currently we have not annouced details regarding our token mechanics. However, we are <b>not</b> launching a utility token. <i>(This is a good thing.)</i> To give a hint, our token will offer dividends in <b>EOS</b> to it's holders.</p> To stay up-to-the-minute with updates, please join our <a href="https://t.me/eosbetcasino" target="_blank">telegram</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div><!-- End tab-pane -->
+								<div class="tab-pane fade" id="tab-2">
+									<div class="accordion" id="accordion-2">
+										<div class="card">
+											<div class="card-header">
+												<h5>
+													<a data-toggle="collapse" data-target="#collapse-2-1">
+													  How do I bet on the EOSBet platform?<span class="plus-minus"><span class="ti ti-angle-up"></span></span>
+													</a>
+												</h5>
+											</div>
+											<div id="collapse-2-1" class="collapse show" data-parent="#accordion-2">
+												<div class="card-body">
+													<p>Betting on EOSBet is extremely simple. Anyone with an EOS account and wallet can make bets on our platform. Whether you are using <a href="https://get-scatter.com">Scatter</a> a popular wallet web extension, or the incoming Block.one mobile wallet, you will be able to bet on our platform. There will be absolutely zero signup on our platform, simply open our site, and use your wallet to start interacting with our smart contracts & placing bets.</p>
+												</div>
+											</div>
+										</div>
+										<div class="card">
+											<div class="card-header">
+												<h5>
+													<a class="collapsed" data-toggle="collapse" data-target="#collapse-2-2">
+														What token do I use to bet on EOSBet?<span class="plus-minus"><span class="ti ti-angle-up"></span></span>
+													</a>
+												</h5>
+											</div>
+											<div id="collapse-2-2" class="collapse" data-parent="#accordion-2">
+												<div class="card-body">
+													<p>
+														There have been many upstart crypto currency casinos, and many of them make a fatal mistake -- forcing users to bet with some obscure utility token. Funfair and Edgeless are two notable platforms that receive very little traffic for this exact reason. You cannot force users to purchase a low-liquidity "betting" token on an obscure cyptocurrency exchange to play your games. This is an easy way to lose interest from 99% of your possible users. We will become the first <b>commercial scale smart casino</b>, and we will absolutely not force users to purchase any sort of "betting token".
+													</p>
+													<p>
+														All bets on our platform will take place in <b>EOS</b>, the native currency of the EOS.IO blockchain which our smart contracts run on. EOS is highly liquid, and offered on a variety of exchanges. This makes it drastically easier to place bets, with a much lower barrier to entry.
+													</p>
+												</div>
+											</div>
+										</div>
+										<!-- <div class="card">
+											<div class="card-header">
+												<h5>
+													<a class="collapsed" data-toggle="collapse" data-target="#collapse-2-4">
+													   3333<span class="plus-minus"><span class="ti ti-angle-up"></span></span>
+													</a>
+												</h5>
+											</div>
+											<div id="collapse-2-4" class="collapse" data-parent="#accordion-2">
+												<div class="card-body">
+													<p>3333</p>
+												</div>
+											</div>
+										</div>
+										<div class="card">
+											<div class="card-header">
+												<h5>
+													<a class="collapsed" data-toggle="collapse" data-target="#collapse-2-3">
+													  4444<span class="plus-minus"><span class="ti ti-angle-up"></span></span>
+													</a>
+												</h5>
+											</div>
+											<div id="collapse-2-3" class="collapse" data-parent="#accordion-2">
+												<div class="card-body">
+													<p>4444</p>
+												</div>
+											</div>
+										</div> -->
+									</div>
+								</div><!-- End tab-pane -->
+								<div class="tab-pane fade" id="tab-3">
+									<div class="accordion" id="accordion-3">
+										<div class="card">
+											<div class="card-header">
+												<h5>
+													<a data-toggle="collapse" data-target="#collapse-3-1">
+														How does the EOSBet Token work?<span class="plus-minus"><span class="ti ti-angle-up"></span></span>
+													</a>
+												</h5>
+											</div>
+											<div id="collapse-3-1" class="collapse show" data-parent="#accordion-3">
+												<div class="card-body">
+													<p>Currently, the exact mechanics of our token are not annouced yet. Our token will <b>not</b> be a utility or betting token -- we want to make this very clear. Our token will offer dividends, in <b>EOS</b>, to it's holders. Please join our <a href="https://t.me/eosbetcasino" target="_blank">telegram</a> for updates!</p>
+												</div>
+											</div>
+										</div>
+										<!-- <div class="card">
+											<div class="card-header">
+												<h5>
+													<a class="collapsed" data-toggle="collapse" data-target="#collapse-3-2">
+													  222<span class="plus-minus"><span class="ti ti-angle-up"></span></span>
+													</a>
+												</h5>
+											</div>
+											<div id="collapse-3-2" class="collapse" data-parent="#accordion-3">
+												<div class="card-body">
+													<p>222</p>
+												</div>
+											</div>
+										</div>
+										<div class="card">
+											<div class="card-header">
+												<h5>
+													<a class="collapsed" data-toggle="collapse" data-target="#collapse-3-3">
+													  333<span class="plus-minus"><span class="ti ti-angle-up"></span></span>
+													</a>
+												</h5>
+											</div>
+											<div id="collapse-3-3" class="collapse" data-parent="#accordion-3">
+												<div class="card-body">
+													<p>333</p>
+												</div>
+											</div>
+										</div>
+										<div class="card">
+											<div class="card-header">
+												<h5>
+													<a class="collapsed" data-toggle="collapse" data-target="#collapse-3-4">
+													  444<span class="plus-minus"><span class="ti ti-angle-up"></span></span>
+													</a>
+												</h5>
+											</div>
+											<div id="collapse-3-4" class="collapse" data-parent="#accordion-3">
+												<div class="card-body">
+													<p>444</p>
+												</div>
+											</div>
+										</div> -->
+									</div>
+								</div><!-- End tab-pane -->
+								<div class="tab-pane fade" id="tab-4">
+									<div class="accordion" id="accordion-4">
+										<div class="card">
+											<div class="card-header">
+												<h5>
+													<a data-toggle="collapse" data-target="#collapse-4-1">
+														Who is the team?<span class="plus-minus"><span class="ti ti-angle-up"></span></span>
+													</a>
+												</h5>
+											</div>
+											<div id="collapse-4-1" class="collapse show" data-parent="#accordion-4">
+												<div class="card-body">
+													<p>
+														Due to the uncertainties and constantly evolving legal/regulatory environment facing both online gambling and cryptocurrencies, the team has opted to remain semi-private for the time being. This is particularly important as we have team members operating in multiple jurisdictions with differing regulatory climates. 
+													</p>
+													<p>
+														We are receiving legal guidance to ensure that we can eventually meet gaming and security law. For now, we’re letting our code, research and content speak for themselves. More detailed personnel information is available to qualified parties upon request.
+													</p>
+												</div>
+											</div>
+										</div>
+										<div class="card">
+											<div class="card-header">
+												<h5>
+													<a class="collapsed" data-toggle="collapse" data-target="#collapse-4-2">
+													  Does the team have any experience with blockchain tech?<span class="plus-minus"><span class="ti ti-angle-up"></span></span>
+													</a>
+												</h5>
+											</div>
+											<div id="collapse-4-2" class="collapse" data-parent="#accordion-4">
+												<div class="card-body">
+													<p>
+														Our team is highly experienced with blockchain development. We initally deployed three gambling contracts on the Ethereum network, which were extremely popular. These games passed extensive security audits, and never had any sort of security failure on the Ethereum main net.
+													</p>
+													<p>
+														These three contracts allowed users to play dice and slots. Both of these games were provably fair. The other contract allowed anyone to <b>trustlessly</b> invest Ether into the bankroll, and receive profits based on their share of the bankroll.
+													</p>
+													<p>
+														Please see our <a href="#eth-games">past games section</a> of this website to read more about the games, and to audit our contracts on Etherscan.
+													</p>
+												</div>
+											</div>
+										</div>
+										<div class="card">
+											<div class="card-header">
+												<h5>
+													<a class="collapsed" data-toggle="collapse" data-target="#collapse-4-3">
+													  Does the team have any experience with online gambling?<span class="plus-minus"><span class="ti ti-angle-up"></span></span>
+													</a>
+												</h5>
+											</div>
+											<div id="collapse-4-3" class="collapse" data-parent="#accordion-4">
+												<div class="card-body">
+													<p>
+														Yes, our team does have past experience with online gambling, marketing, and business development. Some team members come directly from the online gambling industry, and others are avid gamblers themselves. Unfortunately we cannot reveal more specific information, as it would be personally identifying.
+													</p>
+													<p>
+														Every year, we take a team trip to Las Vegas, Nevada. This allows us to meet up in person at least once, and have some fun! Members of the team are located around the globe, as we have many remote workers.
+													</p>
+												</div>
+											</div>
+										</div>
+										<div class="card">
+											<div class="card-header">
+												<h5>
+													<a class="collapsed" data-toggle="collapse" data-target="#collapse-4-4">
+													  Why online gambling?<span class="plus-minus"><span class="ti ti-angle-up"></span></span>
+													</a>
+												</h5>
+											</div>
+											<div id="collapse-4-4" class="collapse" data-parent="#accordion-4">
+												<div class="card-body">
+													<p>
+														We thing gambling is, frankly, quite beautiful. Gambling and betting is one of the first human forms of entertainment, and has obviously remained very popular. Rigged games have been a constant issue, and while playing a game in a "live casino" mitigate the risk somewhat, it is still a present factor. Online games are much worse, with massive instances of cheating regularly occuring.
+													</p>
+													<p>
+														<b>For the first time in history, it is mathematically and cryptographically impossible to play a rigged game. EOSBet is going to make this a reality. Why play anywhere else?</b>
+													</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div><!-- End tab-pane -->
+								<!-- <div class="tab-pane fade" id="tab-5">
+									<div class="accordion" id="accordion-5">
+										<div class="card">
+											<div class="card-header">
+												<h5>
+													<a data-toggle="collapse" data-target="#collapse-5-1">
+														1111<span class="plus-minus"><span class="ti ti-angle-up"></span></span>
+													</a>
+												</h5>
+											</div>
+											<div id="collapse-5-1" class="collapse show" data-parent="#accordion-5">
+												<div class="card-body">
+													<p>1111</p>
+												</div>
+											</div>
+										</div>
+										<div class="card">
+											<div class="card-header">
+												<h5>
+													<a class="collapsed" data-toggle="collapse" data-target="#collapse-5-2">
+													  2222<span class="plus-minus"><span class="ti ti-angle-up"></span></span>
+													</a>
+												</h5>
+											</div>
+											<div id="collapse-5-2" class="collapse" data-parent="#accordion-5">
+												<div class="card-body">
+													<p>2222</p>
+												</div>
+											</div>
+										</div>
+										<div class="card">
+											<div class="card-header">
+												<h5>
+													<a class="collapsed" data-toggle="collapse" data-target="#collapse-5-3">
+													  3333<span class="plus-minus"><span class="ti ti-angle-up"></span></span>
+													</a>
+												</h5>
+											</div>
+											<div id="collapse-5-3" class="collapse" data-parent="#accordion-5">
+												<div class="card-body">
+													<p>3333</p>
+												</div>
+											</div>
+										</div>
+										<div class="card">
+											<div class="card-header">
+												<h5>
+													<a class="collapsed" data-toggle="collapse" data-target="#collapse-5-4">
+													  4444<span class="plus-minus"><span class="ti ti-angle-up"></span></span>
+													</a>
+												</h5>
+											</div>
+											<div id="collapse-5-4" class="collapse" data-parent="#accordion-5">
+												<div class="card-body">
+													<p>4444</p>
+												</div>
+											</div>
 
-				<div class="row">
-					<div class="col-lg-6">
-						<img class="img-fluid" src="img/homepage/ico pie chart @7x.png">
-					</div>
-					<div class="col-lg-6">
-						<img class="img-fluid" src="img/homepage/allocation pie chart @4x.png">
-					</div>
-				</div>
+										</div> -->
+									</div><!-- End accordion -->
+								</div><!-- End tab-pane -->
+							</div><!-- End tab-content -->
+						</div><!-- End tab-custom -->
+					</div><!-- End col -->
+					<br /><br />
+				</div><!-- End row -->
 
-				<div class="row">
-					<div class="col-12">
-						<div class="feature-title">
-							Airdrop
-						</div>
-					</div>
-				</div>
+			</div><!-- End container -->
+			
+		</div>
+	</section>
+	<!-- End Section -->
 
-				<div class="row game-divider game-divider-line-bold">
-					<div class="col-lg-6">
-						<div class="ico-text-lg">
-							100,000,000 EOSBET Airdrop!
-						</div>
-					</div>
-					<div class="col-lg-6">
-						<div class="feature-element">
-							<b>10% of all EOSBET tokens will be airdropped to all EOS token holders, players of dice and slots, and bankroll contributors!</b>
-						</div>
-					</div>
-				</div>
-
-				<div class="row game-divider game-divider-line">
-					<div class="col-lg-6">
-						<div class="ico-text-md">
-							25,000,000 to EOS holders!
-						</div>
-					</div>
-					<div class="col-lg-6">
-						<div class="feature-element">
-							2.5% of all EOSBET tokens given proportionally to <b>all EOS token holders</b>.
-						</div>
-					</div>
-				</div>
-
-				<div class="row game-divider game-divider-line">
-					<div class="col-lg-6">
-						<div class="ico-text-md">
-							25,000,000 to Bankroll Stakers!
-						</div>
-					</div>
-					<div class="col-lg-6">
-						<div class="feature-element">
-							2.5% of tokens given to EOSBET bankroll stakers in proportion to the amount of ETH contributed. You also will receive dividends on the ETH you have contributed to the bankroll. A real win-win!
-						</div>
-					</div>
-				</div>
-
-				<div class="row game-divider game-divider-line">
-					<div class="col-lg-6">
-						<div class="ico-text-md">
-							20,000,000 to Dice Players!
-						</div>
-					</div>
-					<div class="col-lg-6">
-						<div class="feature-element">
-							2% of EOSBET tokens will be given to our dice players! If you play more games, you get more tokens! Start rolling and enjoy the <b>lowest house edge</b> on the blockchain!
-						</div>
-					</div>
-				</div>
-
-				<div class="row game-divider game-divider-line">
-					<div class="col-lg-6">
-						<div class="ico-text-md">
-							20,000,000 to Slots Players!
-						</div>
-					</div>
-					<div class="col-lg-6">
-						<div class="feature-element">
-							2% of EOSBET tokens will be given to our slots players! You will get more tokens the more games that you play, so start spinning and hit our <b>5000x MEGA jackpot</b>!
-						</div>
-					</div>
-				</div>
-				<div class="row game-divider">
-					<div class="col-lg-6">
-						<div class="ico-text-md">
-							10&nbsp;&nbsp;x&nbsp;&nbsp;1,000,000 JACKPOTS!
-						</div>
-					</div>
-					<div class="col-lg-6">
-						<div class="feature-element">
-							10 jackpots of <b>1 MILLION EOSBET TOKENS</b> will be distributed as follows:
-						</div>
-						<div class="feature-element">
-							&emsp;&bull;&nbsp;2 <a href="/dice.html">dice</a> players to be selected at random
-						</div>
-						<div class="feature-element">
-							&emsp;&bull;&nbsp;2 <a href="/slots.html">slots</a> players to be selected at random
-						</div>
-						<div class="feature-element">
-							&emsp;&bull;&nbsp;6 <a href="/bankroll.html">bankrollers</a> to be selected at random. Contribute now to start receiving dividends on your ETH and for the chance to win 0.1% of total EOSBET token supply.
-						</div>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="col-12">
-						<div class="feature-title">
-							<img class="img-fluid" style="padding-top: 40px; padding-bottom: 60px;" src="img/homepage/Spacer @2x.png">
-							Initial Coin Offering
-						</div>
-						<div class="feature-element">
-							40% of all tokens will be sold in an Initial Coin Offering. By offering an ICO, in addition to an airdrop, everyone in the community has a chance to receive EOSBET tokens. We strongly believe that the best platforms have the widest token distributions, and we want everyone to have a chance to be part of revolutionizing the gambling industry.
-						</div>
-						<div class="feature-element">
-							Currently, our ICO is not open. Please check back in occasionally and stay in touch below. A technical white paper detailing the EOSBet platform and containing more information on the ICO and token dynamics will be released in the coming months. Don’t forget, our proof-of-concept games are live on the Ethereum network right now and if you bet or contribute to the bankroll you <b>will</b> receive EOSBET tokens in our airdrop!
-						</div>
-					</div>
+	<!-- Start Section -->
+	<div class="section footer-scetion section-bg-alt" style="background: url('../images/footer-bg.png') no-repeat 50%;">
+		<div class="container">
+			<div class="row text-center">
+				<div class="col-md-12">
+					<ul class="social">
+						<li class="animated" data-animate="fadeInUp" data-delay=".2"><a target="_blank" href="https://t.me/eosbetcasino"><em class="fab fa-telegram"></em></a></li>
+						<li class="animated" data-animate="fadeInUp" data-delay=".25"><a target="_blank" href="https://twitter.com/EOSBetCasino"><em class="fab fa-twitter"></em></a></li>
+						<!-- <li class="animated" data-animate="fadeInUp" data-delay=".3XXXX"><a href="#"><em class="fab fa-youtube"></em></a></li> -->
+						<li class="animated" data-animate="fadeInUp" data-delay=".3"><a target="_blank" href="https://github.com/EOSBetCasino"><em class="fab fa-github"></em></a></li>
+						<li class="animated" data-animate="fadeInUp" data-delay=".35"><a target="_blank" href="https://www.reddit.com/r/EOSBetCasino/"><em class="fab fa-reddit-alien"></em></a></li>
+						<!-- <li class="animated" data-animate="fadeInUp" data-delay=".4XXXXX"><a href="#"><em class="fab fa-bitcoin"></em></a></li> -->
+						<li class="animated" data-animate="fadeInUp" data-delay=".4"><a target="_blank" href="https://medium.com/@eosbetcasino"><em class="fab fa-medium-m"></em></a></li>
+					</ul>
+					<span class="copyright-text animated" data-animate="fadeInUp" data-delay=".55">
+						Copyright &copy; 2018, EOSBet Casino. 
+						<span>Disclaimer: No persons under the age of 18 are permitted to gamble. Online gambling is an entertainment vehicle that includes a certain degree of financial risk. Players should be aware of this risk and govern themselves accordingly. There is no intention to induce any person to violate any local, state, or national laws. It is the sole responsibility of players to reference laws within their own jurisdiction to ascertain the legality of actions.</span>
+					</span>
 				</div>
 			</div>
-		</section>
+		</div>
+	</div>
+	<!-- End Section -->
 
-		<section id="social">
-			<div class="container">
-				<div class="row">
-					<div class="col-md col-4">
-						<a href="https://github.com/EOSBetCasino" target="_blank"><img class="social-icon img-fluid" src="img/homepage/socials/Github Icon @1x.png"></a>
-					</div>
-					<!-- <div class="col-md-2 col-4">
-						<a href="https://steemit.com/@eosbetcasino" target="_blank"><img class="social-icon img-fluid" src="img/homepage/socials/Steemit Icon @1x.png"></a>
-					</div> -->
-					<div class="col-md col-4">
-						<a href="https://reddit.com/r/eosbetcasino" target="_blank"><img class="social-icon img-fluid" src="img/homepage/socials/Reddit Icon @1x.png"></a>
-					</div>
-					<div class="col-md col-4">
-						<a href="https://twitter.com/EOSBetCasino" target="_blank"><img class="social-icon img-fluid" src="img/homepage/socials/Twitter Icon @1x.png"></a>
-					</div>
-					<div class="col-md col-4">
-						<a href="https://t.me/eosbetcasino" target="_blank"><img class="social-icon img-fluid" src="img/homepage/socials/Telegram Icon @1x.png"></a>
-					</div>
-					<div class="col-md col-4">
-						<a href="https://medium.com/@eosbetcasino" target="_blank"><img class="social-icon img-fluid" src="img/homepage/socials/Medium Icon @1x.png"></a>
-					</div>
-					<div class="col-md col-4">
-						<a href="https://yours.org/@eosbetcasino" target="_blank"><img class="social-icon img-fluid" style="width: 40%; margin-top: 10%;" src="img/homepage/socials/Yours Icon @1x.png"></a>
-					</div>
-				</div>
-			</div>
-		</section>
+	<!-- Preloader !remove please if you do not want -->
+	<div id="preloader">
+		<div id="loader"></div>
+		<div class="loader-section loader-top"></div>
+   		<div class="loader-section loader-bottom"></div>
+	</div>
+	<!-- Preloader End -->
 
-		<section id="footer" style="text-align: center; background-color: #333333;">
-			<div class="container">
-				<div class="row">
-					<div class="col-12">
-						<div class="feature-element fine-print">
-							<br />
-							Please note that there is absolutely zero guarantee of profit that is to be had either playing our games, or staking money in the bankroll. Everyone participating in the airdrop, crowdsale, or any type of gambling gameplay is required to know the legality of these actions in their jurisdiction. You are responsible for your own activity. Please do not do anything illegal. Know any laws and legal requirements before interacting with our site.
-							<br /><br />
-							EOSBet Tokens, EOSBet Bankroll Stake tokens, or any other token distributed through our site have zero value express or implied, and are not securities. Any value is derived explicitly through your interpretation of the smart contracts. Please note that we are not personally running any code contained within these smart contracts. By submitting a transaction to the ethereum network, you are authorizing a miner to execute code contained within a smart contract, and you are accepting any outcome that may occur due to interacting with the previously mentioned smart contract. By signing a valid Ethereum transaction with your personally owned private key, you are entering into a one time contract with a miner to execute the transaction as signed. We are not liable for any malfunction or errors that result from your interaction with these smart contract. You are not entering any agreement, express or implied, with us, the developers of this site, when you submit a transaction to the Ethereum network. 
-							<br /><br />
-							Please be aware that, once deployed to the Ethereum network, smart contracts act as a fully autonomous entity. Legal claims or other claims, of any sort, must be settled with the fully autonomous smart contract.
-							<br /><br />
-							<div style="text-align: center;">Copyright EOSBet 2018</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+	<!-- JavaScript (include all script here) -->
+	<script src="assets/js/jquery.bundle.js?ver=124"></script>
+	<script src="assets/js/script.js?ver=124"></script>
 
-		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-		<script>
-			$(function () {
-				$('[data-toggle="tooltip"]').tooltip()
-			});
-		</script>
-
-	</body>
-
+</body>
 </html>
