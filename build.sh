@@ -35,6 +35,7 @@ cp -r images/* build/images
 cp -r *.pdf build
 cp robots.txt build
 cp -r assets/fonts/* build/assets/fonts
+cp favicon-16x16.png build && cp favicon-32x32.png build && cp favicon.ico build
 
 
 echo "Build complete!"

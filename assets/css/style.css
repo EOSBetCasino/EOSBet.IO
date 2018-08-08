@@ -1274,6 +1274,7 @@ select:focus { outline: none; border: none; }
 .accordion .card .card-header a.collapsed { color: #fff; background-color: #10122d; }
 .accordion .card .card-header a:hover { opacity: 1; }
 .accordion .card .card-body { padding: 0 30px 15px 30px; }
+.accordion .card .card-body a { padding: 0; } /*kills padding in hrefs in FAQs*/
 .accordion .card:last-child { border-bottom: 0 none; }
 .accordion .card + .card { margin-top: 0; }
 .accordion .plus-minus { cursor: pointer; transition: opacity 350ms; display: block; position: absolute; right: 20px; top: 50%; height: 18px; width: 18px; margin-top: -9px; transition: all .5s ease; }
